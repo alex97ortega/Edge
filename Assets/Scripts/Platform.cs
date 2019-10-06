@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Platform : MonoBehaviour {
-    public Obstaculo ob;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (ob.EstaActivado() && other.tag == "player")
+        if (other.gameObject.tag == "player")
         {
-            other.transform.position += new Vector3(ob.velocity * ob.x, ob.velocity * ob.y, ob.velocity * ob.z);
+            other.gameObject.transform.parent = gameObject.transform.parent;
         }
     }
-   
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "player")
+        {
+           other.gameObject.transform.parent = null;
+        }
+    }
 }

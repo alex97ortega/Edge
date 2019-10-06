@@ -62,15 +62,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Activador.cs" />
+    <Compile Include="Assets\Scripts\ActivadorVel.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\FinEffect.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Obstaculo.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SueloQuebradizo.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Alejandro/Desktop/Edge/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //provisional
 
 public class PlayerController : MonoBehaviour {
 
     public int velocity;
+    GameManager gameManager;//provisional
     Transform tf;
     int cont;
     enum Estado
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        gameManager = FindObjectOfType<GameManager>();
         tf = GetComponent<Transform>();
         cont = 0;
         estado = Estado.cayendo;
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(0, 0, 1), out hit, 2))
                 {
+                    if (hit.collider.tag == "trigger") MoveW(Estado.movW);
                     //escalon, comprobar que no hay obstaculo encima
                     if (hit.collider.tag == "escalon")
                     {
@@ -58,6 +62,7 @@ public class PlayerController : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(-1, 0, 0), out hit, 2))
                 {
+                    if (hit.collider.tag == "trigger") MoveA(Estado.movA);
                     //escalon
                     if (hit.collider.tag == "escalon")
                     {
@@ -75,6 +80,7 @@ public class PlayerController : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(0, 0, -1),out hit, 2))
                 {
+                    if (hit.collider.tag == "trigger") MoveS(Estado.movS);
                     //escalon
                     if (hit.collider.tag == "escalon")
                     {
@@ -91,6 +97,7 @@ public class PlayerController : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(1, 0, 0), out hit, 2))
                 {
+                    if (hit.collider.tag == "trigger") MoveD(Estado.movD);
                     //escalon
                     if (hit.collider.tag == "escalon")
                     {
@@ -130,12 +137,14 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (hit.collider.tag == "deathzone")
                     {
-                        transform.position = initialPos;
+                        if (gameManager) gameManager.ResetNivel();
+                        else SceneManager.LoadScene("Nivel2");//provisional
+                        /*transform.position = initialPos;
                         tf.rotation = new Quaternion(0, 0, 0, 0);
                         GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-                        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);*/
                     }
-                    else if (hit.collider.tag != "item")
+                    else if (hit.collider.tag != "item" && hit.collider.tag != "trigger")
                     {
                         canMove = true;
                         estado = Estado.parado;
@@ -281,6 +290,18 @@ public class PlayerController : MonoBehaviour {
         canMove = true;
         // corrección por las jodidas unidades de unity
         //tf.position = new Vector3(initialPos.x, tf.position.y, initialPos.z);
+    }
+
+    // funcion para ajustar la posicion en caso de que no esté en los tiles que corresponda
+    public void Ajusta()
+    {
+        float desajusteX = (tf.position.x - initialPos.x) % 2;
+        float desajusteZ = (tf.position.z - initialPos.z) % 2;
+        if (desajusteX > 1) desajusteX =  desajusteX-2;
+        if (desajusteZ > 1) desajusteZ =  desajusteZ-2;
+        tf.position -= new Vector3(desajusteX, 0, desajusteZ);
+        Debug.Log("x: " + desajusteX);
+        Debug.Log("z: " + desajusteZ);
     }
     
     public void Stop()

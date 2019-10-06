@@ -8,9 +8,11 @@ public class Obstaculo : MonoBehaviour {
     public float distance;
     public float velocity;
     public float tiempoRecuperacion;
+    public float tiempoAutoActivado;
 
     float cont = 0;
-    bool activado = false;
+    float contAutoActivado=0;
+    public bool activado = false;
     bool recuperarse = false;
 
     private void Update()
@@ -38,7 +40,17 @@ public class Obstaculo : MonoBehaviour {
                 cont = 0;
             }
         }
+
+        else if (tiempoAutoActivado != 0)
+        {
+            contAutoActivado += Time.deltaTime;
+            if (contAutoActivado > tiempoAutoActivado)
+            {
+                Activar();
+                contAutoActivado = 0;
+            }
+        }
     }
     public void Activar() { activado = true; }   
-    public bool EstaActivado() { return activado; }
+    public bool EstaActivado() { return activado; }       
 }

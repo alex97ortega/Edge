@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-    GameManager gameManager;
+    LevelManager levelManager;
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
     void Update () {
         transform.Rotate(0, 1, 0);
@@ -16,6 +16,6 @@ public class Item : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        gameManager.ItemGotten();
+        levelManager.ItemGotten();
     }   
 }

@@ -7,6 +7,7 @@ public class Activador : MonoBehaviour {
     public Obstaculo obstaculo;
     private void OnTriggerEnter(Collider other)
     {
-        obstaculo.Activar();
+        if(other.tag == "player")
+            obstaculo.Activar();
     }
 }
