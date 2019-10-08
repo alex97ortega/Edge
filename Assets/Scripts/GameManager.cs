@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour {
         currentLevel = 1;
         DontDestroyOnLoad(gameObject);
 	}
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+    }
     public void LevelPassed()
     {
         //provisional hasta que haya menús

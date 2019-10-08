@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class FinEffect : MonoBehaviour {
 
-    public GameObject player;
+    public PlayerController player;
     bool anim = false;
     public float vel;
-	// Update is called once per frame
-	void Update () {
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+    // Update is called once per frame
+    void Update () {
         if (anim)
         {
             Vector3 playerpos = player.transform.position;
@@ -20,7 +24,7 @@ public class FinEffect : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        player.GetComponent<PlayerController>().Fin();
+        player.Fin();
         anim = true;
     }
 }
