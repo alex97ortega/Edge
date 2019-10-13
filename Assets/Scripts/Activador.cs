@@ -7,7 +7,7 @@ public class Activador : MonoBehaviour {
     public Obstaculo obstaculo;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "player")
+        if(other.GetComponent<PlayerController>() != null)
             obstaculo.Activar();
     }
 }

@@ -6,14 +6,14 @@ public class Platform : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "player")
+        if (other.GetComponent<PlayerController>()!=null)
         {
             other.gameObject.transform.parent = gameObject.transform.parent;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "player")
+        if (other.GetComponent<PlayerController>() != null)
         {
            other.gameObject.transform.parent = null;
         }

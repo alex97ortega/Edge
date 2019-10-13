@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour {
 
     public int numNiveles;
     int[] items;
-    int currentLevel;
+    uint currentLevel;
+    uint deaths;
 
 	// Use this for initialization
 	void Start () {
         items = new int[numNiveles];
         currentLevel = 1;
+        deaths = 0;
         DontDestroyOnLoad(gameObject);
 	}
     private void Update()
@@ -23,15 +25,12 @@ public class GameManager : MonoBehaviour {
     {
         //provisional hasta que haya menús
         currentLevel++;
-        string escena = "Nivel" + currentLevel.ToString();
-        SceneManager.LoadScene(escena);
-    }
-    public void ResetNivel()
-    {
+        deaths = 0; // habrá que guardarlo
         string escena = "Nivel" + currentLevel.ToString();
         SceneManager.LoadScene(escena);
     }
     public void ItemGotten() {
         items[currentLevel-1]++;
     }
+    public void Death() { deaths++; }
 }
