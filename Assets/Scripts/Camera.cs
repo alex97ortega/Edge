@@ -13,6 +13,7 @@ public class Camera : MonoBehaviour {
     }
     private void Update()
     {
-        transform.position = player.transform.position + initialPos;
+        if(player.transform.position.y>=-1)
+            transform.position = player.transform.position + initialPos;
     }
 }

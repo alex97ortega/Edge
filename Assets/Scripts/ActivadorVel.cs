@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivadorVel : MonoBehaviour {
 
-    public int x, y, z;
+    public int x, z;
     public float velocity;
     public float distance;
 
@@ -22,7 +22,7 @@ public class ActivadorVel : MonoBehaviour {
         if (activado)
         {
             cont += velocity;
-            player.gameObject.transform.position += new Vector3(velocity * x, velocity * y, velocity * z);
+            player.gameObject.transform.position += new Vector3(velocity * x, 0, velocity * z);
             if (cont >= distance)
             {
                 cont = 0;
