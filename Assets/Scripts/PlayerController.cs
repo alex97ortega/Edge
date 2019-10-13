@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     Transform tf;
     GameManager gameManager;
     int cont;
-    enum Estado
+    public enum Estado
     {
         parado,
         movW, movA, movS, movD,
@@ -207,11 +207,30 @@ public class PlayerController : MonoBehaviour {
     // funcion para ajustar la posicion en caso de que no esté en los tiles que corresponda
     public void Ajusta()
     {
-        int newposx, newposz;
-        newposx = Mathf.CeilToInt(tf.position.x);
-        newposz = Mathf.CeilToInt(tf.position.z);
-        
-        tf.position = new Vector3(newposx, tf.position.y, newposz);
+        float newposx = guardaX;
+        float newposz = guardaZ;
+        switch (estado)
+        {
+            case Estado.movW:
+            case Estado.subeW:
+                newposz +=2;
+                break;
+            case Estado.movA:
+            case Estado.subeA:
+                newposx -= 2;
+                break;
+            case Estado.movS:
+            case Estado.subeS:
+                newposz -= 2;
+                break;
+            case Estado.movD:
+            case Estado.subeD:
+                newposx += 2;
+                break;
+            default:
+                break;
+         }
+         tf.position = new Vector3(newposx, tf.position.y, newposz);
     }
     
     public void Stop()
@@ -224,4 +243,5 @@ public class PlayerController : MonoBehaviour {
         Stop();
         estado = Estado.fin;
     }
+    public Estado GetEstado() { return estado; }
 }

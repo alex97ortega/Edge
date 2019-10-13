@@ -29,10 +29,18 @@ public class Obstaculo : MonoBehaviour {
                 z *= -1;
                 activado = false;
                 recuperarse = !recuperarse;
+                foreach (var x in GetComponentsInChildren<Platform>())
+                    x.DisAttach();
             }
         }
         else if (recuperarse)
         {
+            if (cont < 1)
+            {
+                foreach (var x in GetComponentsInChildren<Platform>())
+                    x.DisAttach();
+            }
+            
             cont += Time.deltaTime;
             if (cont > tiempoRecuperacion)
             {
@@ -52,5 +60,6 @@ public class Obstaculo : MonoBehaviour {
         }
     }
     public void Activar() { activado = true; }   
-    public bool EstaActivado() { return activado; }       
+    public bool EstaActivado() { return activado; }      
+    public bool EstaRecuperandose() { return recuperarse; }
 }
