@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     bool canMove;
     float x, y,z;
     float guardaX, guardaZ;
-
+    bool necesitaAjuste = false;
 	// Use this for initialization
 	void Start () {
         tf = GetComponent<Transform>();
@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour {
             default:
                 break;
         }
+        if (necesitaAjuste) Ajusta();
     }
     ////////////////
     private bool CanMove(int x, int z, out Estado est)
@@ -115,6 +116,9 @@ public class PlayerController : MonoBehaviour {
         else if (x == -1) est = Estado.movA;
         else if (z == 1)  est = Estado.movW;
         else              est = Estado.movS;
+        //hit para arriba, para el caso en el que haya un bloque movible justo encima
+        if (Physics.Raycast(tf.position, new Vector3(0, 1, 0), out hit, 2)) return false;
+
         bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 2);
         if (hitted)
         {
@@ -207,30 +211,55 @@ public class PlayerController : MonoBehaviour {
     // funcion para ajustar la posicion en caso de que no esté en los tiles que corresponda
     public void Ajusta()
     {
-        float newposx = guardaX;
-        float newposz = guardaZ;
-        switch (estado)
+        if (estado != Estado.parado)
         {
-            case Estado.movW:
-            case Estado.subeW:
-                newposz +=2;
-                break;
-            case Estado.movA:
-            case Estado.subeA:
-                newposx -= 2;
-                break;
-            case Estado.movS:
-            case Estado.subeS:
-                newposz -= 2;
-                break;
-            case Estado.movD:
-            case Estado.subeD:
-                newposx += 2;
-                break;
-            default:
-                break;
-         }
-         tf.position = new Vector3(newposx, tf.position.y, newposz);
+            necesitaAjuste = true;
+            return;
+        }
+        float newposX = tf.position.x;
+        float newposZ = tf.position.z;
+
+        float desajusteX = newposX;
+        float desajusteZ = newposZ;
+         // x
+        if (tf.position.x < 0)
+        {
+            while (desajusteX <= -2)
+            {
+                desajusteX += 2;
+            }
+        }
+        else
+        {
+            while (desajusteX >= 2)
+            {
+                desajusteX -= 2;
+            }
+        }
+        // z
+        if (tf.position.z <= 0)
+        {
+            while (desajusteZ <= -2)
+            {
+                desajusteZ += 2;
+            }
+        }
+        else
+        {
+            while (desajusteZ >= 2)
+            {
+                desajusteZ -= 2;
+            }
+        }
+        if      (desajusteX >  1)  desajusteX =   2 - desajusteX;
+        else if (desajusteX < -1)  desajusteX =   2 + desajusteX;
+        if      (desajusteZ >  1)  desajusteZ =   2 - desajusteZ;
+        else if (desajusteZ < -1)  desajusteZ =   2 + desajusteZ;
+
+        newposX -= desajusteX;
+        newposZ -= desajusteZ;
+        tf.position = new Vector3(newposX, tf.position.y, newposZ);
+        necesitaAjuste = false;
     }
     
     public void Stop()

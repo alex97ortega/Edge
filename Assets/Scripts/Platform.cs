@@ -8,8 +8,7 @@ public class Platform : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerController>()!=null)
-        {
-            other.gameObject.GetComponent<PlayerController>().Ajusta();
+        {            
             other.gameObject.transform.parent = gameObject.transform.parent;
         }
     }
@@ -17,7 +16,8 @@ public class Platform : MonoBehaviour {
     {
         if (other.GetComponent<PlayerController>() != null)
         {
-           other.gameObject.transform.parent = null;
+            other.gameObject.GetComponent<PlayerController>().Ajusta();
+            other.gameObject.transform.parent = null;
         }
     }
     public void DisAttach()
