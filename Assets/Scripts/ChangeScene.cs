@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class ChangeScene : MonoBehaviour {
 
-    GameManager gm;
-    private void Start()
-    {
-        gm = FindObjectOfType<GameManager>();
-    }
+    public LevelManager levelManager;
     private void OnTriggerEnter(Collider other)
     {
-        gm.LevelPassed();
+        levelManager.LevelPassed();
     }    
 }
