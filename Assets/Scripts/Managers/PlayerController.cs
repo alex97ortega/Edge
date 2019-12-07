@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    //variables públicas
     public int velocity;
-    Transform tf;
-    GameManager gameManager;
-    int cont;
+    public LevelManager levelManager;
     public enum Estado
     {
         parado,
@@ -16,15 +15,19 @@ public class PlayerController : MonoBehaviour {
         cayendo,
         fin
     }
+
+    //variables privadas
+    Transform tf;
+    int cont;    
     Estado estado;
     bool canMove;
     float x, y,z;
     float guardaX, guardaZ;
     bool necesitaAjuste = false;
+
 	// Use this for initialization
 	void Start () {
         tf = GetComponent<Transform>();
-        gameManager = FindObjectOfType<GameManager>();
         cont = 0;
         estado = Estado.cayendo;
         canMove = false;
@@ -87,7 +90,7 @@ public class PlayerController : MonoBehaviour {
                     if (hit.collider.tag == "deathzone")
                     {
                         transform.position = new Vector3(guardaX, 10, guardaZ);
-                        if (gameManager) gameManager.Death();
+                        levelManager.Dead();
                     }
                     else if (hit.collider.tag != "item" && hit.collider.tag != "trigger")
                     {
@@ -116,25 +119,47 @@ public class PlayerController : MonoBehaviour {
         else if (x == -1) est = Estado.movA;
         else if (z == 1)  est = Estado.movW;
         else              est = Estado.movS;
+
         //hit para arriba, para el caso en el que haya un bloque movible justo encima
         if (Physics.Raycast(tf.position, new Vector3(0, 1, 0), out hit, 2)) return false;
+
 
         bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 2);
         if (hitted)
         {
             if (hit.collider.tag == "trigger")
                 return true;
-            //escalon, comprobar que no hay obstaculo encima
+            //escalon, hay que comprobar que no hay obstaculo encima
             if (hit.collider.tag == "escalon")
             {
                 if (!Physics.Raycast(
                     new Vector3(tf.transform.position.x, tf.transform.position.y + 2, tf.transform.position.z),
                     new Vector3(x, 0, z), 2))
                 {
-                    if (x == 1)       est = Estado.subeD;
-                    else if (x == -1) est = Estado.subeA;
-                    else if (z == 1)  est = Estado.subeW;
-                    else              est = Estado.subeS;
+
+                    // También hay que comprobar el caso de que haya un bloque justo detrás, 
+                    // ya que físicamente no tendría espacio para moverse
+
+                    if (x == 1)
+                    {
+                        if (Physics.Raycast(tf.position, new Vector3(-1, 0, 0), out hit, 2)) return false;
+                        est = Estado.subeD;
+                    }
+                    else if (x == -1)
+                    {
+                        if (Physics.Raycast(tf.position, new Vector3(1, 0, 0), out hit, 2)) return false;
+                        est = Estado.subeA;
+                    }
+                    else if (z == 1)
+                    {
+                        if (Physics.Raycast(tf.position, new Vector3(0, 0, -1), out hit, 2)) return false;
+                        est = Estado.subeW;
+                    }
+                    else
+                    {
+                        if (Physics.Raycast(tf.position, new Vector3(0, 0, 1), out hit, 2)) return false;
+                        est = Estado.subeS;
+                    }
                     return true;
                 }
             }

@@ -71,4 +71,15 @@ public class LevelManager : MonoBehaviour {
 
         _text.text = min + ":" + seg;
     }
+    public void Dead()
+    {
+        if (gameManager)
+            gameManager.Dead();
+
+        // reseteo las posiciones de los posibles bloques 
+        // que puedan impedir el avanzar el nivel en la posición actual
+
+        foreach (var b in FindObjectsOfType<SueloQuebradizo>())
+            b.RestartBlock();
+    }
 }

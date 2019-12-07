@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
     }
     public void SetTotalItems(uint totalItems) { infoLevels[currentLevel - 1].totalItems = totalItems; }
     public void NextLevel() { currentLevel++; }
-    public void Death() { infoLevels[currentLevel - 1].deaths++; }
+    public void Dead() { infoLevels[currentLevel - 1].deaths++; }
 
     public uint GetLevel() { return currentLevel; }
     // for level info
