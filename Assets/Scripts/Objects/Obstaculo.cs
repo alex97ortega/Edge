@@ -19,10 +19,13 @@ public class Obstaculo : MonoBehaviour {
     {
         if (activado)
         {
-            cont += velocity;
-            transform.position += new Vector3(velocity * x, velocity * y, velocity * z);
+            float vel = velocity * Time.deltaTime;
+            cont += vel;
+            transform.position += new Vector3(vel * x, vel * y, vel * z);
             if (cont >= distance)
             {
+                float desajuste = cont - distance;
+                transform.position -= new Vector3(desajuste * x, desajuste * y, desajuste * z);
                 cont = 0;
                 x *= -1;
                 y *= -1;
@@ -40,16 +43,19 @@ public class Obstaculo : MonoBehaviour {
                 foreach (var x in GetComponentsInChildren<Platform>())
                     x.DisAttach();
             }
-            
-            cont += Time.deltaTime;
-            if (cont > tiempoRecuperacion)
+            // ponemos -1 en el tiempo de recuperación si no queremos que se recupere
+            if (tiempoRecuperacion >= 0)
             {
-                activado = true;
-                cont = 0;
+                cont += Time.deltaTime;
+                if (cont > tiempoRecuperacion)
+                {
+                    activado = true;
+                    cont = 0;
+                }
             }
         }
 
-        else if (tiempoAutoActivado != 0)
+        else if (tiempoAutoActivado > 0)
         {
             contAutoActivado += Time.deltaTime;
             if (contAutoActivado > tiempoAutoActivado)

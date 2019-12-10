@@ -96,7 +96,8 @@ public class PlayerController : MonoBehaviour {
                     {
                         canMove = true;
                         estado = Estado.parado;
-                        tf.position = new Vector3(tf.position.x, Mathf.Ceil(tf.position.y), tf.position.z);                       
+                        tf.position = new Vector3(tf.position.x, Mathf.Ceil(tf.position.y), tf.position.z);
+                        Ajusta();
                     }
                 }
                 break;
@@ -120,8 +121,11 @@ public class PlayerController : MonoBehaviour {
         else if (z == 1)  est = Estado.movW;
         else              est = Estado.movS;
 
-        //hit para arriba, para el caso en el que haya un bloque movible justo encima
+        //hit para arriba, para el caso en el que haya un bloque justo encima
         if (Physics.Raycast(tf.position, new Vector3(0, 1, 0), out hit, 2)) return false;
+        //hit para arriba, para el caso en el que haya un bloque justo encima en la dirección que vamos
+        if (Physics.Raycast(new Vector3(tf.transform.position.x, tf.transform.position.y + 2, tf.transform.position.z),
+                    new Vector3(x, 0, z), 2)) return false;
 
 
         bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 2);
