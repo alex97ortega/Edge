@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour {
 
     float lightCont = 0.5f;
     bool lightEffect = false;
+
     // Use this for initialization
     void Start () {
         gameManager = FindObjectOfType<GameManager>();
@@ -55,9 +56,13 @@ public class LevelManager : MonoBehaviour {
         string min, seg;
         float _time = Time.time - initialTime; ;
         //min
-        if (_time >= 60)        
-            min = "0" + (_time / 60).ToString();
-        
+        if (_time >= 60)
+        {
+            if (_time >= 600)
+                min = ((int)_time / 60).ToString();
+            else
+                min = "0" + ((int)_time / 60).ToString();
+        }        
         else
             min = "00";
 
@@ -71,6 +76,7 @@ public class LevelManager : MonoBehaviour {
 
         _text.text = min + ":" + seg;
     }
+
     public void Dead()
     {
         if (gameManager)

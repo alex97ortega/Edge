@@ -131,7 +131,8 @@ public class PlayerController : MonoBehaviour {
         bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 2);
         if (hitted)
         {
-            if (hit.collider.tag == "trigger")
+            if (hit.collider.tag == "trigger" ||
+                hit.collider.tag == "item")
                 return true;
             //escalon, hay que comprobar que no hay obstaculo encima
             if (hit.collider.tag == "escalon")
