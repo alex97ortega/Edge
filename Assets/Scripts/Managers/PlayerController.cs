@@ -134,11 +134,14 @@ public class PlayerController : MonoBehaviour {
             if (hit.collider.tag == "trigger" ||
                 hit.collider.tag == "item")
                 return true;
-            //escalon, hay que comprobar que no hay obstaculo encima
+            //escalon, hay que comprobar que no hay obstaculos encima
             if (hit.collider.tag == "escalon")
             {
                 if (!Physics.Raycast(
                     new Vector3(tf.transform.position.x, tf.transform.position.y + 2, tf.transform.position.z),
+                    new Vector3(x, 0, z), 2) &&
+                    !Physics.Raycast(
+                    new Vector3(tf.transform.position.x, tf.transform.position.y + 4, tf.transform.position.z),
                     new Vector3(x, 0, z), 2))
                 {
 
