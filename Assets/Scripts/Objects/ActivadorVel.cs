@@ -32,7 +32,7 @@ public class ActivadorVel : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if (other.GetComponent<PlayerController>() != null)
             activado = true;
     }
 }

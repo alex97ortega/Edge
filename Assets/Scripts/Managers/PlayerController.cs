@@ -22,11 +22,14 @@ public class PlayerController : MonoBehaviour {
     Estado estado;
     bool canMove;
     float x, y,z;
-    float guardaX, guardaZ;
     bool necesitaAjuste = false;
+    bool activado = true;
 
-	// Use this for initialization
-	void Start () {
+    // quitar
+    float guardaX, guardaZ;
+
+    // Use this for initialization
+    void Start () {
         tf = GetComponent<Transform>();
         cont = 0;
         estado = Estado.cayendo;
@@ -34,7 +37,10 @@ public class PlayerController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {       
+	void Update () {
+
+        if (!activado)
+            return;
 
         if (canMove)
         {
@@ -87,11 +93,13 @@ public class PlayerController : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(0, -1, 0),out hit, 1))
                 {
+                    // se cae del mapa
                     if (hit.collider.tag == "deathzone")
                     {
                         transform.position = new Vector3(guardaX, 10, guardaZ);
                         levelManager.Dead();
                     }
+                    // cae en suelo
                     else if (hit.collider.tag != "item" && hit.collider.tag != "trigger")
                     {
                         canMove = true;
@@ -102,6 +110,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
             case Estado.fin:
+                // estado de fin de nivel, efecto de que sube para arriba girando unos instantes
                 Vector3 playerpos = transform.position;
                 transform.position = new Vector3(playerpos.x, playerpos.y + 0.05f, playerpos.z);
 
@@ -174,6 +183,7 @@ public class PlayerController : MonoBehaviour {
         }
         return !hitted;
     }
+    // guardamos las posiciones actuales previas al movimiento
     private void Move(Estado est)
     {
         if (estado == Estado.parado)
@@ -186,7 +196,7 @@ public class PlayerController : MonoBehaviour {
             estado = est;
         }
     }
-    
+    // movimiento normal hacia las 4 direcciones
     private void Rot()
     {
         cont += velocity;
@@ -213,6 +223,7 @@ public class PlayerController : MonoBehaviour {
             cont = 0;
         }
     }
+    // movimiento de subida 1 posicion
     private void Sube()
     {
         cont += velocity;
@@ -306,4 +317,21 @@ public class PlayerController : MonoBehaviour {
         estado = Estado.fin;
     }
     public Estado GetEstado() { return estado; }
+
+    // entrar/ salir de estado mini controller
+    public void TriggerMiniController(bool reduce)
+    {
+        if (activado && reduce)
+        {
+            activado = false;
+            GetComponent<PlayerMiniController>().Activar();
+        }
+        else if(!activado && !reduce)
+        {
+            // no se pone el activado a true hasta que haya terminado de hacer
+            // el efecto de que se hace grande
+            GetComponent<PlayerMiniController>().Desactivar();
+        }
+    }
+    public void Activar() { activado = true; }
 }
