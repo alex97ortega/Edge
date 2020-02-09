@@ -14,6 +14,12 @@ public class Obstaculo : MonoBehaviour {
     float contAutoActivado=0;
     public bool activado = false;
     bool recuperarse = false;
+    Vector3 initalpos;
+
+    private void Start()
+    {
+        initalpos = transform.position;
+    }
 
     private void Update()
     {
@@ -69,4 +75,13 @@ public class Obstaculo : MonoBehaviour {
     public void Activar() { activado = true; }   
     public bool EstaActivado() { return activado; }      
     public bool EstaRecuperandose() { return recuperarse; }
+
+    public void ResetObstacle()
+    {
+        transform.position = initalpos;
+        activado = false;
+        recuperarse = false;
+        contAutoActivado = 0;
+        cont = 0;
+    }
 }

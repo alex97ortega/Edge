@@ -28,9 +28,7 @@ public class PlayerMiniController : MonoBehaviour {
     float initialY;
     float x, y, z;
     int cont;
-
-    // quitar
-    float guardaX, guardaZ;
+    
 
     // Use this for initialization
     void Start () {
@@ -99,14 +97,8 @@ public class PlayerMiniController : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                 {
-                    // se cae del mapa
-                    if (hit.collider.tag == "deathzone")
-                    {
-                        transform.position = new Vector3(guardaX, 10, guardaZ);
-                        levelManager.Dead();
-                    }
                     // cae en suelo
-                    else if (hit.collider.tag != "item" && hit.collider.tag != "trigger")
+                     if (hit.collider.tag != "item" && hit.collider.tag != "trigger")
                     {
                         canMove = true;
                         estado = Estado.parado;
@@ -153,8 +145,6 @@ public class PlayerMiniController : MonoBehaviour {
             x = tf.position.x;
             y = tf.position.y;
             z = tf.position.z;
-            guardaX = x;
-            guardaZ = z;
             estado = est;
         }
     }

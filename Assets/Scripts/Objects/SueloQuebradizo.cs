@@ -21,7 +21,7 @@ public class SueloQuebradizo : MonoBehaviour {
             if (cont >= timer)
             {
                 transform.position -= new Vector3(0, 0.5f, 0);
-                if (transform.position.y <= -15)
+                if (transform.position.y <= -150)
                 {
                     fall = false;
                 }
@@ -35,6 +35,7 @@ public class SueloQuebradizo : MonoBehaviour {
     public void RestartBlock()
     {
         transform.position = initialPos;
+        fall = false;
         cont = 0;
     }
 }
