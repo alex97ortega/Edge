@@ -24,8 +24,9 @@ public class Obstaculo : MonoBehaviour {
             transform.position += new Vector3(vel * x, vel * y, vel * z);
             if (cont >= distance)
             {
-                float desajuste = cont - distance;
-                transform.position -= new Vector3(desajuste * x, desajuste * y, desajuste * z);
+                transform.position = new Vector3(Mathf.Round(transform.position.x), 
+                    transform.position.y, Mathf.Round(transform.position.z));
+
                 cont = 0;
                 x *= -1;
                 y *= -1;
