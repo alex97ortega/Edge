@@ -17,6 +17,7 @@ public class PlayerMiniController : MonoBehaviour {
         parado,
         movW, movA, movS, movD,
         subeW, subeA, subeS, subeD,
+        escalaW, escalaA, escalaS, escalaD, // tenemos 4 estados más que escalan
         cayendo,
         fin
     }
@@ -28,13 +29,14 @@ public class PlayerMiniController : MonoBehaviour {
     float initialY;
     float x, y, z;
     int cont;
-    
+    float initialTime;
 
     // Use this for initialization
     void Start () {
         canMove = false;
         activado = false;
         tf = GetComponent<Transform>();
+        initialTime = Time.time-0.2f; // para que de primeras pueda caer sin esperar 300 ms
     }
 	
 	// Update is called once per frame
@@ -78,8 +80,14 @@ public class PlayerMiniController : MonoBehaviour {
                 AlargaCubo();
                 break;
             case Estado.parado:
-                if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 2))
-                    estado = Estado.cayendo;
+                // como con el mini controller puede estar subiendo paredes de seguido,
+                // ponemos un timer de 200 milisegundos que es el tiempo que tiene que estar 
+                // parado en el aire el player hasta que empiece a caer
+                if (Time.time >= initialTime + 0.2f)
+                {
+                    if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 0.5f) &&  (transform.parent == null))
+                        estado = Estado.cayendo;
+                }
                 break;
             case Estado.movW:
             case Estado.movA:
@@ -91,14 +99,21 @@ public class PlayerMiniController : MonoBehaviour {
             case Estado.subeA:
             case Estado.subeS:
             case Estado.subeD:
+                Sube();
+                break;
+            case Estado.escalaW:
+            case Estado.escalaA:
+            case Estado.escalaS:
+            case Estado.escalaD:
+                Escala();
                 break;
             case Estado.cayendo:
-                tf.position = new Vector3(tf.position.x, tf.position.y - 0.5f, tf.position.z);
+                tf.position = new Vector3(tf.position.x, tf.position.y - 0.33f, tf.position.z);
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                 {
                     // cae en suelo
-                     if (hit.collider.tag != "item" && hit.collider.tag != "trigger")
+                     if (hit.collider.tag != "item" && hit.collider.tag != "trigger" && hit.collider.tag != "deathzone")
                     {
                         canMove = true;
                         estado = Estado.parado;
@@ -121,19 +136,54 @@ public class PlayerMiniController : MonoBehaviour {
         else if (x == -1) est = Estado.movA;
         else if (z == 1) est = Estado.movW;
         else est = Estado.movS;
-        
 
-        bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 2);
+        // si hay un obstáculo justo encima del player, pues nada (teniendo en cuenta su tamaño nuevo)
+        if (Physics.Raycast(tf.position, new Vector3(0, 1, 0), out hit, 0.5f)) return false;
+
+        bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 0.5f);
         if (hitted)
         {
             if (hit.collider.tag == "trigger" ||
                 hit.collider.tag == "item")
                 return true;
-            //escalon, hay que comprobar que no hay obstaculos encima
+
             if (hit.collider.tag == "escalon")
-            {                
-                return false;
+            {
+                // si hay otro obstaculo encima, se escala
+                // si no, se sube como hacía player controller
+
+                if (Physics.Raycast(new Vector3(tf.transform.position.x, tf.transform.position.y + 0.5f, tf.transform.position.z),
+                     new Vector3(x, 0, z), 0.5f))
+                {
+                    if (x == 1)
+                        est = Estado.escalaD;
+                    else if (x == -1)
+                        est = Estado.escalaA;
+                    else if (z == 1)
+                        est = Estado.escalaW;
+                    else
+                        est = Estado.escalaS;
+                }
+                else
+                {
+                    if (x == 1)
+                        est = Estado.subeD;
+                    else if (x == -1)
+                        est = Estado.subeA;
+                    else if (z == 1)
+                        est = Estado.subeW;
+                    else
+                        est = Estado.subeS;
+                }
+                return true;
             }
+        }
+        else // !hitted
+        {
+            // si está escalando y deja de pulsar para arriba, 
+            // no podemos dejar que se mueva para los lados en el aire
+            if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 0.5f))
+                return false;
         }
         return !hitted;
     }
@@ -172,7 +222,68 @@ public class PlayerMiniController : MonoBehaviour {
         }
         if (cont == 90)
         {
+            Ajusta();
             estado = Estado.parado;
+            initialTime = Time.time;
+            cont = 0;
+        }
+    }
+    // movimiento de subir escalon al igual que el player controller normal
+    private void Sube()
+    {
+        cont += velocity;
+        switch (estado)
+        {
+            case Estado.subeW:
+                tf.RotateAround(new Vector3(0, y + 0.33f, z + 0.33f), new Vector3(1, 0, 0), velocity);
+                break;
+            case Estado.subeA:
+                tf.RotateAround(new Vector3(x - 0.33f, y + 0.33f, 0), new Vector3(0, 0, 1), velocity);
+                break;
+            case Estado.subeS:
+                tf.RotateAround(new Vector3(0, y + 0.33f, z - 0.33f), new Vector3(-1, 0, 0), velocity);
+                break;
+            case Estado.subeD:
+                tf.RotateAround(new Vector3(x + 0.33f, y + 0.33f, 0), new Vector3(0, 0, -1), velocity);
+                break;
+            default:
+                break;
+        }
+
+        if (cont == 180)
+        {
+            Ajusta();
+            estado = Estado.parado;
+            initialTime = Time.time;
+            cont = 0;
+        }
+    }
+    // movimiento de subida 1 posicion
+    private void Escala()
+    {
+        cont += velocity;
+        switch (estado)
+        {
+            case Estado.escalaW:
+                tf.RotateAround(new Vector3(0, y + 0.33f, z + 0.33f), new Vector3(1, 0, 0), velocity);
+                break;
+            case Estado.escalaA:
+                tf.RotateAround(new Vector3(x - 0.33f, y + 0.33f, 0), new Vector3(0, 0, 1), velocity);
+                break;
+            case Estado.escalaS:
+                tf.RotateAround(new Vector3(0, y + 0.33f, z - 0.33f), new Vector3(-1, 0, 0), velocity);
+                break;
+            case Estado.escalaD:
+                tf.RotateAround(new Vector3(x + 0.33f, y + 0.33f, 0), new Vector3(0, 0, -1), velocity);
+                break;
+            default:
+                break;
+        }
+
+        if (cont == 90)
+        {
+            estado = Estado.parado;
+            initialTime = Time.time;
             cont = 0;
         }
     }
@@ -195,7 +306,7 @@ public class PlayerMiniController : MonoBehaviour {
 
         if (tf.localScale.x <= 0.666f)
         {
-            tf.localScale = new Vector3(0.666f, 0.666f, 0.666f);
+            tf.localScale = new Vector3((float)2/3, (float)2 /3, (float)2 /3);
             tf.position = new Vector3(tf.position.x, initialY-0.67f, tf.position.z);
             estado = Estado.parado;
             canMove = true;
@@ -215,4 +326,36 @@ public class PlayerMiniController : MonoBehaviour {
             GetComponent<PlayerController>().Activar();
         }
     }
+    public bool MiniControllerActivated() { return activado; }
+
+    // el cubo tarda 3 movimientos en avanzar 2 unidades y, por lo tanto, obtener una posición
+    // que debería ser exacta en X o en Z. Ahora mismo, como se mueve de 0.66 en 0.66 unidades
+    // esta posición nunca es exacta y en cuanto se hacen 10 o más movimientos es un caos
+    // porque ya no cuadran las casillas. Hay que redondear las posiciones cuando vaya a llegar 
+    // al movimiento que debería ser exacto
+    private void Ajusta()
+    {
+        // esto es para que no reajuste si está encima de una plataforma
+        if (transform.parent != null)
+            return;
+
+        float auxX = Mathf.Round(tf.position.x);
+        float auxZ = Mathf.Round(tf.position.z);
+
+        float desajusteX = tf.position.x - auxX;
+        float desajusteZ = tf.position.z - auxZ;
+
+        if (desajusteX < 0.1f && desajusteX > -0.1f)
+        {
+            tf.position = new Vector3(Mathf.Round(tf.position.x),
+                    tf.position.y, tf.position.z);
+        }
+
+        if (desajusteZ < 0.1f && desajusteZ > -0.1f)
+        {
+            tf.position = new Vector3(tf.position.x,
+                    tf.position.y, Mathf.Round(tf.position.z));
+        }
+    }
+    public bool EstaParado() { return (estado == Estado.parado); }
 }

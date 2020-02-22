@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
         tf = GetComponent<Transform>();
         cont = 0;
         estado = Estado.cayendo;
-        canMove = false;
+        canMove = false; 
     }
 	
 	// Update is called once per frame
@@ -72,6 +72,9 @@ public class PlayerController : MonoBehaviour {
             case Estado.parado:
                 if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 2))
                     estado = Estado.cayendo;
+                else
+                    // provisional, para que aparezca ya reducido
+                    TriggerMiniController(true);
                 break;
             case Estado.movW:
             case Estado.movA:
@@ -244,6 +247,8 @@ public class PlayerController : MonoBehaviour {
     // funcion para ajustar la posicion en caso de que no esté en los tiles que corresponda
     public void Ajusta()
     {
+        if (!activado)
+            return;
         if (estado != Estado.parado)
         {
             necesitaAjuste = true;

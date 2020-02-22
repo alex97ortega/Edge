@@ -45,11 +45,6 @@ public class Obstaculo : MonoBehaviour {
         }
         else if (recuperarse)
         {
-            if (cont < 1)
-            {
-                foreach (var x in GetComponentsInChildren<Platform>())
-                    x.DisAttach();
-            }
             // ponemos -1 en el tiempo de recuperación si no queremos que se recupere
             if (tiempoRecuperacion >= 0)
             {
@@ -58,6 +53,11 @@ public class Obstaculo : MonoBehaviour {
                 {
                     activado = true;
                     cont = 0;
+                }
+                else
+                {
+                    foreach (var x in GetComponentsInChildren<Platform>())
+                        x.DisAttach();
                 }
             }
         }
