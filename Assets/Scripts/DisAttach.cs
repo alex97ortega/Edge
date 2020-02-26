@@ -8,7 +8,6 @@ public class DisAttach : MonoBehaviour {
     {
         if (GetComponentInChildren<PlayerController>())
         {
-            GetComponentInChildren<PlayerController>().Ajusta();
             GetComponentInChildren<PlayerController>().gameObject.transform.parent = null;
         }        
     }

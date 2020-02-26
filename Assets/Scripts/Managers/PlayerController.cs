@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour {
     Estado estado;
     bool canMove;
     float x, y,z;
-    bool necesitaAjuste = false;
     bool activado = true;
     
 
@@ -99,7 +98,6 @@ public class PlayerController : MonoBehaviour {
                         canMove = true;
                         estado = Estado.parado;
                         tf.position = new Vector3(tf.position.x, Mathf.Ceil(tf.position.y), tf.position.z);
-                        Ajusta();
                     }
                 }
                 break;
@@ -113,7 +111,6 @@ public class PlayerController : MonoBehaviour {
             default:
                 break;
         }
-        if (necesitaAjuste) Ajusta();
     }
     ////////////////
     private bool CanMove(int x, int z, out Estado est)
@@ -125,7 +122,7 @@ public class PlayerController : MonoBehaviour {
         else              est = Estado.movS;
 
         //hit para arriba, para el caso en el que haya un bloque justo encima
-        if (Physics.Raycast(tf.position, new Vector3(0, 1, 0), out hit, 2)) return false;
+        if (Physics.Raycast(tf.position, new Vector3(0, 1, 0), 2)) return false;
         //hit para arriba, para el caso en el que haya un bloque justo encima en la dirección que vamos
         if (Physics.Raycast(new Vector3(tf.transform.position.x, tf.transform.position.y + 2, tf.transform.position.z),
                     new Vector3(x, 0, z), 2)) return false;
@@ -211,6 +208,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (cont == 90)
         {
+            Ajusta();
             estado = Estado.parado;
             cont = 0;
         }
@@ -239,6 +237,7 @@ public class PlayerController : MonoBehaviour {
        
         if (cont == 180)
         {
+            Ajusta();
             estado = Estado.parado;
             cont = 0;
         }
@@ -249,57 +248,46 @@ public class PlayerController : MonoBehaviour {
     {
         if (!activado)
             return;
-        if (estado != Estado.parado)
-        {
-            necesitaAjuste = true;
+
+        if (transform.parent != null)
             return;
-        }
-        float newposX = tf.position.x;
-        float newposZ = tf.position.z;
 
-        float desajusteX = newposX;
-        float desajusteZ = newposZ;
-         // x
-        if (tf.position.x < 0)
+        float auxX = Mathf.Round(tf.position.x);
+        float auxZ = Mathf.Round(tf.position.z);
+
+        // tiene que ser par tanto X como Z
+        if (auxX % 2 == 0)
         {
-            while (desajusteX <= -2)
-            {
-                desajusteX += 2;
-            }
+            tf.position = new Vector3(auxX, tf.position.y, tf.position.z);
+        }
+        // si no, le restamos o sumamos 1 y listo
+        else
+        {
+           if((auxX - tf.position.x) <= 0)
+               tf.position = new Vector3(auxX + 1, tf.position.y, tf.position.z);
+           else
+               tf.position = new Vector3(auxX - 1, tf.position.y, tf.position.z);
+        }
+
+        if (auxZ % 2 == 0)
+        {
+            tf.position = new Vector3(tf.position.x, tf.position.y, auxZ);
         }
         else
         {
-            while (desajusteX >= 2)
-            {
-                desajusteX -= 2;
-            }
+            if ((auxX - tf.position.x) <= 0)
+                tf.position = new Vector3(tf.position.x, tf.position.y, auxZ + 1);
+            else
+                tf.position = new Vector3(tf.position.x, tf.position.y, auxZ - 1);
         }
-        // z
-        if (tf.position.z <= 0)
-        {
-            while (desajusteZ <= -2)
-            {
-                desajusteZ += 2;
-            }
-        }
-        else
-        {
-            while (desajusteZ >= 2)
-            {
-                desajusteZ -= 2;
-            }
-        }
-        if      (desajusteX >  1)  desajusteX =   2 - desajusteX;
-        else if (desajusteX < -1)  desajusteX =   2 + desajusteX;
-        if      (desajusteZ >  1)  desajusteZ =   2 - desajusteZ;
-        else if (desajusteZ < -1)  desajusteZ =   2 + desajusteZ;
-
-        newposX -= desajusteX;
-        newposZ -= desajusteZ;
-        tf.position = new Vector3(newposX, tf.position.y, newposZ);
-        necesitaAjuste = false;
+        AjustaY();
     }
-    
+    // por si acaso hay que llamar a esta a parte
+    public void AjustaY()
+    {
+        if (transform.parent == null && (Mathf.Round(tf.position.y) % 2 == 0))
+            tf.position = new Vector3(tf.position.x, Mathf.Round(tf.position.y), tf.position.z);
+    }
     public void Stop()
     {
         canMove = false;

@@ -16,7 +16,6 @@ public class Platform : MonoBehaviour {
     {
         if (other.GetComponent<PlayerController>() != null)
         {
-            other.gameObject.GetComponent<PlayerController>().Ajusta();
             other.gameObject.transform.parent = null;
         }
     }
