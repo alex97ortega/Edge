@@ -20127,6 +20127,10 @@ Prefab:
       propertyPath: primerMovimiento
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4678629530039168, guid: 298963e066349f642b9ea782177f0406, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298963e066349f642b9ea782177f0406, type: 2}
   m_IsPrefabAsset: 0

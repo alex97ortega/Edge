@@ -208,6 +208,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (cont == 90)
         {
+            AjustaY();
             Ajusta();
             estado = Estado.parado;
             cont = 0;
@@ -237,6 +238,7 @@ public class PlayerController : MonoBehaviour {
        
         if (cont == 180)
         {
+            AjustaY();
             Ajusta();
             estado = Estado.parado;
             cont = 0;
@@ -280,12 +282,11 @@ public class PlayerController : MonoBehaviour {
             else
                 tf.position = new Vector3(tf.position.x, tf.position.y, auxZ - 1);
         }
-        AjustaY();
     }
     // por si acaso hay que llamar a esta a parte
     public void AjustaY()
     {
-        if (transform.parent == null && (Mathf.Round(tf.position.y) % 2 == 0))
+        if (Mathf.Round(tf.position.y) % 2 == 0)
             tf.position = new Vector3(tf.position.x, Mathf.Round(tf.position.y), tf.position.z);
     }
     public void Stop()

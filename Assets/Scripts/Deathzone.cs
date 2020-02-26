@@ -5,7 +5,7 @@ using UnityEngine;
 public class Deathzone : MonoBehaviour {
     public LevelManager levelManager;
     public float respawnX, respawnY, respawnZ;
-    public Obstaculo[] obstaclesToReset;
+    public GameObject[] obstaclesToReset;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +17,12 @@ public class Deathzone : MonoBehaviour {
             other.transform.position = new Vector3(respawnX, respawnY, respawnZ);
 
             foreach (var o in obstaclesToReset)
-                o.ResetObstacle();
+            {
+                if (o.GetComponent<Obstaculo>())
+                    o.GetComponent<Obstaculo>().ResetObstacle();
+                else if (o.GetComponent<ActivablePorPasos>())
+                    o.GetComponent<ActivablePorPasos>().ResetObject();
+            }
         }
     }
 }

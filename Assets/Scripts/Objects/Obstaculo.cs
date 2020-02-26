@@ -15,13 +15,16 @@ public class Obstaculo : MonoBehaviour {
     public bool activado = false;
     bool recuperarse = false;
     Vector3 initialpos;
-    int initialX, initialZ;
+    int initialX, initialY, initialZ;
+    float initialDistance;
 
     private void Start()
     {
         initialpos = transform.position;
         initialX = x;
+        initialY = y;
         initialZ = z;
+        initialDistance = distance;
     }
 
     private void Update()
@@ -87,6 +90,24 @@ public class Obstaculo : MonoBehaviour {
         contAutoActivado = 0;
         cont = 0;
         x = initialX;
+        y = initialY;
         z = initialZ;
+        distance = initialDistance;
+    }
+
+
+    public void CambiarTrayectoria(int newX, int newY, int newZ, float newDistance)
+    {
+        // solo cambio la trayectoria cuando haya llegado al destino anterior
+        if (!recuperarse)
+            return;
+        activado = true;
+        recuperarse = false;
+        contAutoActivado = 0;
+        cont = 0;
+        x = newX;
+        y = newY;
+        z = newZ;
+        distance = newDistance;
     }
 }
