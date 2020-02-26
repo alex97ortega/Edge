@@ -14,11 +14,14 @@ public class Obstaculo : MonoBehaviour {
     float contAutoActivado=0;
     public bool activado = false;
     bool recuperarse = false;
-    Vector3 initalpos;
+    Vector3 initialpos;
+    int initialX, initialZ;
 
     private void Start()
     {
-        initalpos = transform.position;
+        initialpos = transform.position;
+        initialX = x;
+        initialZ = z;
     }
 
     private void Update()
@@ -78,10 +81,12 @@ public class Obstaculo : MonoBehaviour {
 
     public void ResetObstacle()
     {
-        transform.position = initalpos;
+        transform.position = initialpos;
         activado = false;
         recuperarse = false;
         contAutoActivado = 0;
         cont = 0;
+        x = initialX;
+        z = initialZ;
     }
 }

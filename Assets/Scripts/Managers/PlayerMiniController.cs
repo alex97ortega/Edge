@@ -85,7 +85,7 @@ public class PlayerMiniController : MonoBehaviour {
                 // parado en el aire el player hasta que empiece a caer
                 if (Time.time >= initialTime + 0.2f)
                 {
-                    if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 0.5f) &&  (transform.parent == null))
+                    if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 0.5f))
                         estado = Estado.cayendo;
                 }
                 break;
@@ -222,7 +222,7 @@ public class PlayerMiniController : MonoBehaviour {
         }
         if (cont == 90)
         {
-            Ajusta();
+            AjustaXZ();
             estado = Estado.parado;
             initialTime = Time.time;
             cont = 0;
@@ -252,7 +252,11 @@ public class PlayerMiniController : MonoBehaviour {
 
         if (cont == 180)
         {
-            Ajusta();
+            // el ajuste en Y solo lo hacemos cuando suba peldaños
+            if(transform.parent == null)
+                tf.position = new Vector3(tf.position.x, Mathf.Round(tf.position.y) + 0.33f, tf.position.z);
+
+            AjustaXZ();
             estado = Estado.parado;
             initialTime = Time.time;
             cont = 0;
@@ -333,7 +337,7 @@ public class PlayerMiniController : MonoBehaviour {
     // esta posición nunca es exacta y en cuanto se hacen 10 o más movimientos es un caos
     // porque ya no cuadran las casillas. Hay que redondear las posiciones cuando vaya a llegar 
     // al movimiento que debería ser exacto
-    private void Ajusta()
+    private void AjustaXZ()
     {
         // esto es para que no reajuste si está encima de una plataforma
         if (transform.parent != null)
@@ -341,20 +345,16 @@ public class PlayerMiniController : MonoBehaviour {
 
         float auxX = Mathf.Round(tf.position.x);
         float auxZ = Mathf.Round(tf.position.z);
-
-        float desajusteX = tf.position.x - auxX;
-        float desajusteZ = tf.position.z - auxZ;
-
-        if (desajusteX < 0.1f && desajusteX > -0.1f)
+        
+        // tiene que ser par tanto X como Z
+        if (auxX % 2 == 0)
         {
-            tf.position = new Vector3(Mathf.Round(tf.position.x),
-                    tf.position.y, tf.position.z);
+            tf.position = new Vector3(auxX, tf.position.y, tf.position.z);
         }
 
-        if (desajusteZ < 0.1f && desajusteZ > -0.1f)
+        if (auxZ % 2 == 0)
         {
-            tf.position = new Vector3(tf.position.x,
-                    tf.position.y, Mathf.Round(tf.position.z));
+            tf.position = new Vector3(tf.position.x, tf.position.y, auxZ);
         }
     }
     public bool EstaParado() { return (estado == Estado.parado); }

@@ -72,9 +72,9 @@ public class PlayerController : MonoBehaviour {
             case Estado.parado:
                 if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 2))
                     estado = Estado.cayendo;
-                else
+                //else
                     // provisional, para que aparezca ya reducido
-                    TriggerMiniController(true);
+                    //TriggerMiniController(true);
                 break;
             case Estado.movW:
             case Estado.movA:
