@@ -15,7 +15,7 @@ public class ActivablePorPasos : MonoBehaviour {
     private Transform tf;
     private float nextPosX;
     private float nextPosZ;
-    private float velocity = 10; // para quitarnos de movidas, todos a la misma velocidad
+    private float velocity = 15; // para quitarnos de movidas, todos a la misma velocidad
     private int velocidadActual; // 0 si no se mueve, 1 y -1 para distinguir dirección
 
 

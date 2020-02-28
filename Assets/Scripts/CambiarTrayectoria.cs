@@ -7,9 +7,15 @@ public class CambiarTrayectoria : MonoBehaviour {
     
     public int newX, newY, newZ;
     public float newDistance;
+    public Obstaculo obstaculo;
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        GetComponent<Obstaculo>().CambiarTrayectoria(newX, newY, newZ, newDistance);
+        if (other.GetComponent<PlayerController>())
+        {
+            Debug.Log("cosas");
+            obstaculo.CambiarTrayectoria(transform.position.x, transform.position.y, transform.position.z,
+                                        newX, newY, newZ, newDistance);
+        }
     }
 }

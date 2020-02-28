@@ -36,7 +36,7 @@ public class Obstaculo : MonoBehaviour {
             transform.position += new Vector3(vel * x, vel * y, vel * z);
             if (cont >= distance)
             {
-                transform.position = new Vector3(Mathf.Round(transform.position.x), 
+                transform.position = new Vector3(Mathf.Round(transform.position.x),
                     transform.position.y, Mathf.Round(transform.position.z));
 
                 cont = 0;
@@ -78,7 +78,11 @@ public class Obstaculo : MonoBehaviour {
             }
         }
     }
-    public void Activar() { activado = true; }   
+    public void Activar() {
+        // para que no active desde fuera si ha cambiado de dirección
+        if ((x == initialX) && (y == initialY) && (z == initialZ))
+            activado = true;
+    }   
     public bool EstaActivado() { return activado; }      
     public bool EstaRecuperandose() { return recuperarse; }
 
@@ -96,11 +100,11 @@ public class Obstaculo : MonoBehaviour {
     }
 
 
-    public void CambiarTrayectoria(int newX, int newY, int newZ, float newDistance)
+    public void CambiarTrayectoria(float actualX,float actualY, float actualZ, int newX, int newY, int newZ, float newDistance)
     {
-        // solo cambio la trayectoria cuando haya llegado al destino anterior
-        if (!recuperarse)
-            return;
+        // Ajusto la posición desde la que va a salir
+        transform.position = new Vector3(actualX, actualY, actualZ);
+
         activado = true;
         recuperarse = false;
         contAutoActivado = 0;

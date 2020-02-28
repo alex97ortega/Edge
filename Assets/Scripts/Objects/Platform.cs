@@ -16,7 +16,10 @@ public class Platform : MonoBehaviour {
     {
         if (other.GetComponent<PlayerController>() != null)
         {
-            other.gameObject.transform.parent = null;
+            // puede darse el caso de que cuando ya haya salido del todo pertenezca ya a 
+            // otra plataforma. si es asi, no le quito el parent
+            if (other.gameObject.transform.parent == gameObject.transform.parent)
+                other.gameObject.transform.parent = null;
         }
     }
     public void DisAttach()
