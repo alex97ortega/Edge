@@ -54,6 +54,7 @@ public class ActivablePorPasos : MonoBehaviour {
     public void ResetObject()
     {
         pasos = 0;
+        velocidadActual = 0;
         tf.position = initalPos;
         nextPosX = initalPos.x;
         nextPosZ = initalPos.z;

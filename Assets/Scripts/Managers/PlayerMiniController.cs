@@ -305,6 +305,8 @@ public class PlayerMiniController : MonoBehaviour {
 
     private void ReduceCubo()
     {
+        // me aseguro de que no esté rotado el cubo mientras se reduce o se agranda
+        tf.rotation = new Quaternion(0, 0, 0, 0);
         tf.localScale = new Vector3(tf.localScale.x * 0.95f, tf.localScale.y * 0.95f, tf.localScale.z * 0.95f);
         tf.position = new Vector3(tf.position.x, tf.position.y-0.025f, tf.position.z);
 
@@ -318,6 +320,7 @@ public class PlayerMiniController : MonoBehaviour {
     }
     private void AlargaCubo()
     {
+        tf.rotation = new Quaternion(0, 0, 0, 0);
         tf.localScale = new Vector3(tf.localScale.x * 1.05f, tf.localScale.y * 1.05f, tf.localScale.z * 1.05f);
         tf.position = new Vector3(tf.position.x, tf.position.y + 0.025f, tf.position.z);
 

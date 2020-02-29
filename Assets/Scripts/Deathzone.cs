@@ -22,6 +22,8 @@ public class Deathzone : MonoBehaviour {
                     o.GetComponent<Obstaculo>().ResetObstacle();
                 else if (o.GetComponent<ActivablePorPasos>())
                     o.GetComponent<ActivablePorPasos>().ResetObject();
+                else if (o.GetComponent<DobleActivador>())
+                    o.GetComponent<DobleActivador>().ResetActivador();
             }
         }
     }
