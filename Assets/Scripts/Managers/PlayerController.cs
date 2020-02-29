@@ -69,11 +69,14 @@ public class PlayerController : MonoBehaviour {
         switch (estado)
         {
             case Estado.parado:
-                if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 2))
-                    estado = Estado.cayendo;
-                //else
+                {
+                    RaycastHit hit;
+                    if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 2) || hit.collider.tag == "item")
+                        estado = Estado.cayendo;
+                    //else
                     // provisional, para que aparezca ya reducido
                     //TriggerMiniController(true);
+                }
                 break;
             case Estado.movW:
             case Estado.movA:
@@ -88,17 +91,20 @@ public class PlayerController : MonoBehaviour {
                 Sube();
                 break;
             case Estado.cayendo:
-                tf.position = new Vector3(tf.position.x, tf.position.y - 0.5f, tf.position.z);
-                RaycastHit hit;
-                if (Physics.Raycast(tf.position, new Vector3(0, -1, 0),out hit, 1))
                 {
-                    // cae en suelo
-                    if (hit.collider.tag != "item" && hit.collider.tag != "deathzone"
-                        /*&& hit.collider.tag != "trigger"*/) // tuve que quitar esto para que pudiera caer encima de plataformas
+                    tf.position = new Vector3(tf.position.x, tf.position.y - 0.5f, tf.position.z);
+                    RaycastHit hit;
+                    if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                     {
-                        canMove = true;
-                        estado = Estado.parado;
-                        tf.position = new Vector3(tf.position.x, Mathf.Ceil(tf.position.y), tf.position.z);
+                        // cae en suelo
+                        if (hit.collider.tag != "item" && hit.collider.tag != "deathzone"
+                            /*&& hit.collider.tag != "trigger"*/) // tuve que quitar esto para que pudiera caer encima de plataformas
+                        {
+                            canMove = true;
+                            estado = Estado.parado;
+                            AjustaY();
+                            Ajusta();
+                        }
                     }
                 }
                 break;
@@ -287,8 +293,16 @@ public class PlayerController : MonoBehaviour {
     // por si acaso hay que llamar a esta a parte
     public void AjustaY()
     {
-        if (Mathf.Round(tf.position.y) % 2 == 0)
-            tf.position = new Vector3(tf.position.x, Mathf.Round(tf.position.y), tf.position.z);
+        float auxY = Mathf.Round(tf.position.y);
+        if (auxY % 2 == 0)
+            tf.position = new Vector3(tf.position.x, auxY, tf.position.z);
+        else
+        {
+            if ((auxY - tf.position.y) <= 0)
+                tf.position = new Vector3(tf.position.x, auxY+1, tf.position.z);
+            else
+                tf.position = new Vector3(tf.position.x, auxY-1, tf.position.z);
+        }
     }
     public void Stop()
     {

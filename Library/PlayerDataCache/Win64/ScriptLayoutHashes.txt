@@ -8,9 +8,11 @@ Assets/Scenes/Nivel2.unity
 Assets/Scenes/Nivel3.unity
 Assets/Scenes/Nivel4.unity
 Assets/Scenes/Nivel5.unity
+Assets/Scenes/Nivel6.unity
 SceneListEnd?
-3b8ec6022bca11b935eefa478ed2094e Assembly-CSharp.dll:.Deathzone
+3fbda460a12644eacf8a977bfa789de1 Assembly-CSharp.dll:.Deathzone
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
+dba2d223f16d1e67135d08bda081e292 Assembly-CSharp.dll:.DobleActivador
 7b803eb2910e9b4cd5e521ae07b9f7d6 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -94,6 +96,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 add5986a7fcfc37ab6d599035a7420a3 Assembly-CSharp.dll:.MenuInfo
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Camera
 b8c3a8df74adaafd583bb18a5ed8bd03 Assembly-CSharp.dll:.FinEffect
+2d675f63f512e18d9de50c663acdedd1 Assembly-CSharp.dll:.ActivablePorPasos
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 754551afe4f2531f58476bf14c510657 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -139,6 +142,7 @@ f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 c1730ceeb0e0bf455363ab0192f6b28c Assembly-CSharp.dll:.PlayerMiniController
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ChangeColor
 486cd95c82d8305219c352c06b776e1f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
+9ec20ea9c703c8dcea30823f18ea604b Assembly-CSharp.dll:.CambiarTrayectoria
 7ab41b490209fc27adbf7167c523ca4a Assembly-CSharp.dll:.Activador
 eaf0bcdb10d442a4029d615f41d09957 Unity.TextMeshPro.dll:TMPro.TextContainer
 201273fb4f889724fb090164b7d6c657 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator

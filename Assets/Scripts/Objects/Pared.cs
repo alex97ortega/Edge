@@ -12,7 +12,6 @@ public class Pared : MonoBehaviour {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             other.gameObject.transform.parent = null;
-            other.gameObject.GetComponent<PlayerController>().Ajusta();
         }      
     }
 }

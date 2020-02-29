@@ -10,13 +10,14 @@ public class Obstaculo : MonoBehaviour {
     public float tiempoRecuperacion;
     public float tiempoAutoActivado;
 
-    float cont = 0;
+    
     float contAutoActivado=0;
     public bool activado = false;
     bool recuperarse = false;
     Vector3 initialpos;
     int initialX, initialY, initialZ;
     float initialDistance;
+    float cont;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class Obstaculo : MonoBehaviour {
         initialX = x;
         initialY = y;
         initialZ = z;
+        cont = 0;
         initialDistance = distance;
     }
 
@@ -31,23 +33,7 @@ public class Obstaculo : MonoBehaviour {
     {
         if (activado)
         {
-            float vel = velocity * Time.deltaTime;
-            cont += vel;
-            transform.position += new Vector3(vel * x, vel * y, vel * z);
-            if (cont >= distance)
-            {
-                transform.position = new Vector3(Mathf.Round(transform.position.x),
-                    transform.position.y, Mathf.Round(transform.position.z));
-
-                cont = 0;
-                x *= -1;
-                y *= -1;
-                z *= -1;
-                activado = false;
-                recuperarse = !recuperarse;
-                foreach (var x in GetComponentsInChildren<Platform>())
-                    x.DisAttach();
-            }
+            Move();
         }
         else if (recuperarse)
         {
@@ -99,6 +85,65 @@ public class Obstaculo : MonoBehaviour {
         distance = initialDistance;
     }
 
+    private void Move()
+    {
+        float vel = velocity * Time.deltaTime;
+        
+        transform.position += new Vector3(vel * x, vel * y, vel * z);
+
+        float destino;
+        bool llegadoDestino = false;
+
+        // tratamos por separado los 3 ejes
+        if (x != 0)
+        {
+            if (recuperarse)
+                destino = initialpos.x;
+            else
+                destino = initialpos.x + (x * distance);
+
+            if (x < 0)
+                llegadoDestino = (transform.position.x <= destino);
+            else
+                llegadoDestino = (transform.position.x >= destino);
+        }
+        else if (y != 0)
+        {
+            if (recuperarse)
+                destino = initialpos.y;
+            else
+                destino = initialpos.y + (y * distance);
+            if (y < 0)
+                llegadoDestino = (transform.position.y <= destino);
+            else
+                llegadoDestino = (transform.position.y >= destino);
+        }
+        else if(z!=0)
+        {
+            if (recuperarse)
+                destino = initialpos.z;
+            else
+                destino = initialpos.z + (z * distance);
+            if (z < 0)
+                llegadoDestino = (transform.position.z <= destino);
+            else
+                llegadoDestino = (transform.position.z >= destino);
+        }
+
+        if (llegadoDestino)
+        {
+            transform.position = new Vector3(Mathf.Round(transform.position.x),
+                transform.position.y, Mathf.Round(transform.position.z));
+            
+            x *= -1;
+            y *= -1;
+            z *= -1;
+            activado = false;
+            recuperarse = !recuperarse;
+            foreach (var x in GetComponentsInChildren<Platform>())
+                x.DisAttach();
+        }
+    }
 
     public void CambiarTrayectoria(float actualX,float actualY, float actualZ, int newX, int newY, int newZ, float newDistance)
     {
