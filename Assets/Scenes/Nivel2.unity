@@ -2269,6 +2269,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 65917893755127478, guid: 0aae4161c16470a40908753946abc0db,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aae4161c16470a40908753946abc0db, type: 2}
   m_IsPrefabAsset: 0
@@ -6408,7 +6413,7 @@ Prefab:
     - target: {fileID: 114401900096401492, guid: 3e3e6a7263e7c774aa0c345041bd7d60,
         type: 2}
       propertyPath: velocity
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4917356910324886, guid: 3e3e6a7263e7c774aa0c345041bd7d60, type: 2}
       propertyPath: m_LocalScale.y
@@ -6569,7 +6574,7 @@ MonoBehaviour:
     m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0

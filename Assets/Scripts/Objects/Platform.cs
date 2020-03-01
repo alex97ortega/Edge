@@ -10,6 +10,12 @@ public class Platform : MonoBehaviour {
         if (other.GetComponent<PlayerController>()!=null)
         {            
             other.gameObject.transform.parent = gameObject.transform.parent;
+            /* 
+            // aun no se como solucionar cuando empuja al jugador mientras no está parado, 
+            // acaba el movimiento y llega a atravesar la plataforma
+            if (isLateral)
+                other.GetComponent<PlayerController>().EmpujadoPorPlataforma();
+            */
         }
     }
     private void OnTriggerExit(Collider other)

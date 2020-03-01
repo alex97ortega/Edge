@@ -5369,6 +5369,11 @@ Prefab:
       propertyPath: z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 65917893755127478, guid: 0aae4161c16470a40908753946abc0db,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aae4161c16470a40908753946abc0db, type: 2}
   m_IsPrefabAsset: 0
