@@ -13,7 +13,6 @@ public class CambiarTrayectoria : MonoBehaviour {
     {
         if (other.GetComponent<PlayerController>())
         {
-            Debug.Log("cosas");
             obstaculo.CambiarTrayectoria(transform.position.x, transform.position.y, transform.position.z,
                                         newX, newY, newZ, newDistance);
         }

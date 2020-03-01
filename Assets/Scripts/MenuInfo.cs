@@ -35,13 +35,12 @@ public class MenuInfo : MonoBehaviour {
     }
     public void NextLevel()
     {
-        if (gameManager.GetLevel() + 1 > gameManager.numNiveles) return;
+        gameManager.NextLevel();
 
-        if(gameManager.GetLevel() == 3)
-            SceneManager.LoadScene("MainMenu"); // no permitimos pasar de tutorial a experimento
+        if (gameManager.GetLevel() == 4 || gameManager.GetLevel() == 7)
+            SceneManager.LoadScene("MainMenu"); // no permitimos pasar de tutorial a experimento sin pasar por MainMenu
         else
         {
-            gameManager.NextLevel();
             string escena = "Nivel" + (gameManager.GetLevel()).ToString();
             SceneManager.LoadScene(escena);
         }

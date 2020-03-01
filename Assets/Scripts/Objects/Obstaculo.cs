@@ -66,8 +66,8 @@ public class Obstaculo : MonoBehaviour {
     }
     public void Activar() {
         // para que no active desde fuera si ha cambiado de dirección
-        if ((x == initialX) && (y == initialY) && (z == initialZ))
-            activado = true;
+        //if ((x == initialX) && (y == initialY) && (z == initialZ))
+        activado = true;
     }   
     public bool EstaActivado() { return activado; }      
     public bool EstaRecuperandose() { return recuperarse; }
