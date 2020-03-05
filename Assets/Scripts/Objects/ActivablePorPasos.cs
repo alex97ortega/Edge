@@ -29,7 +29,7 @@ public class ActivablePorPasos : MonoBehaviour {
         nextPosZ = tf.position.z;
         
     }
-
+    public bool CanStep() { return velocidadActual == 0; }
     // esta es la llamada que se hace desde fuera
     public void Step()
     {

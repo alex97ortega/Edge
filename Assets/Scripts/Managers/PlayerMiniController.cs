@@ -80,6 +80,15 @@ public class PlayerMiniController : MonoBehaviour {
                 AlargaCubo();
                 break;
             case Estado.parado:
+
+                // me aseguro de que no se queda bloqueado en ningun momento si no 
+                // está encima o siendo empujado por una plataforma
+                if (gameObject.transform.parent == null)
+                {
+                    tf.rotation = new Quaternion(0, 0, 0, 0);
+                    canMove = true;
+                }
+
                 // como con el mini controller puede estar subiendo paredes de seguido,
                 // ponemos un timer de 200 milisegundos que es el tiempo que tiene que estar 
                 // parado en el aire el player hasta que empiece a caer
@@ -359,6 +368,12 @@ public class PlayerMiniController : MonoBehaviour {
         {
             tf.position = new Vector3(tf.position.x, tf.position.y, auxZ);
         }
+    }
+    public void Stop()
+    {
+        canMove = false;
+        tf.rotation = new Quaternion(0, 0, 0, 0);
+        estado = Estado.parado;
     }
     public bool EstaParado() { return (estado == Estado.parado); }
 }

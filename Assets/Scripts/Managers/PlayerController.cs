@@ -73,9 +73,16 @@ public class PlayerController : MonoBehaviour {
                     RaycastHit hit;
                     if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 2) || hit.collider.tag == "item")
                         estado = Estado.cayendo;
-                    //else
-                    // provisional, para que aparezca ya reducido
-                    //TriggerMiniController(true);
+                    else
+                    {
+                        // de momento esto no hace falta
+                        // para que puede reanudar el movimiento si lo para una plataforma mientras le empuja
+                        //if (gameObject.transform.parent == null)
+                        //    canMove = true;
+
+                        // provisional, para que aparezca ya reducido
+                        //TriggerMiniController(true);
+                    }
                 }
                 break;
             case Estado.movW:
@@ -332,4 +339,5 @@ public class PlayerController : MonoBehaviour {
         }
     }
     public void Activar() { activado = true; }
+    public bool EstaActivado() { return activado; }
 }

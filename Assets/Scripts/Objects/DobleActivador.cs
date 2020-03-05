@@ -28,20 +28,36 @@ public class DobleActivador : MonoBehaviour {
 
     public void Activar(bool incrementa)
     {
+        // puede haber opción de activarlo sin incrementar pasos, por ejemplo al resetear
+        if (!incrementa)
+            Activa();
+        
+        else
+        {
+            // primero pregunto si todos los objetos están en reposo
+            // si hay alguno que aún se esté moviendo del paso anterior, no activo
+            bool puedeActivarse = true;
+
+            foreach (var o in activateObjects)
+            {
+                if (!o.CanStep())
+                    puedeActivarse = false;
+            }
+            if(puedeActivarse)
+            {
+                // Incrementa un paso a cada uno de los objetos
+                foreach (var o in activateObjects)
+                    o.Step();
+                Activa();
+            }
+        }
+    }
+    private void Activa()
+    {
         activado = true;
         transform.position -= new Vector3(0, 0.3f, 0);
         other.Desactivar();
-
-        // puede haber opción de activarlo sin incrementar pasos, por ejemplo al resetear
-
-        if(incrementa)
-        {
-            // Incrementa un paso a cada uno de los objetos
-            foreach (var o in activateObjects)
-                o.Step();
-        }
     }
-
     public void Desactivar()
     {
         activado = false;

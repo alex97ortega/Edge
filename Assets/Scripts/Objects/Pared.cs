@@ -7,7 +7,7 @@ public class Pared : MonoBehaviour {
     // método para paredes que pueda "atravesar" el player 
     // si está siendo desplazado por una plataforma
    
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
