@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public int numNiveles;
     NivelInfo[] infoLevels;
     uint currentLevel;
-    bool inTutorial; // we will register Events only if we are NOT playing the tutorial
+    bool inTutorial = false; // we will register Events only if we are NOT playing the tutorial
 
     struct NivelInfo
     {
@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour {
         public uint deaths;
         public string levelTime;
     }
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         infoLevels = new NivelInfo[numNiveles];
         currentLevel = 1;
         DontDestroyOnLoad(gameObject);
@@ -37,7 +38,8 @@ public class GameManager : MonoBehaviour {
     public void NextLevel() { currentLevel++; }
     public uint GetLevel() { return currentLevel; }
     public void StartTutorial()   { currentLevel = 1; inTutorial = true;  SceneManager.LoadScene("Nivel1");  }
-    public void StartExperiment() { currentLevel = 4; inTutorial = false; SceneManager.LoadScene("Nivel4");  }
+    public void StartExperiment() { currentLevel = 4; inTutorial = false; SceneManager.LoadScene("Nivel4"); }
+    public void StartSession() { SceneManager.LoadScene("MainMenu"); }
 
     // items
     public void ItemGotten() {
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour {
         text = infoLevels[currentLevel - 1].items.ToString() + "/" + infoLevels[currentLevel - 1].totalItems.ToString();
         return text;
     }
-
+    public bool HasPlayedTutorial() { return inTutorial; }
     // exit
     public void Quit()
     {
