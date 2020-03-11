@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 	}
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Q)) Quit();
+        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q)) Quit();
     }
 
     // levels
