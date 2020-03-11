@@ -46,25 +46,25 @@ public class PlayerMiniController : MonoBehaviour {
             return;
         if (canMove)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Estado est;
                 if (CanMove(0, 1, out est))
                     Move(est);
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Estado est;
                 if (CanMove(-1, 0, out est))
                     Move(est);
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Estado est;
                 if (CanMove(0, -1, out est))
                     Move(est);
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Estado est;
                 if (CanMove(1, 0, out est))

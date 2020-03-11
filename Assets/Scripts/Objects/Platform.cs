@@ -6,6 +6,10 @@ public class Platform : MonoBehaviour {
 
     public bool isLateral;
     public bool stopPlayer = false;
+    public bool disAttachEnPositivo = true;
+
+    bool checkAttachPositivo = false;
+    bool checkAttachNegativo = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,9 +45,36 @@ public class Platform : MonoBehaviour {
                 other.gameObject.transform.parent = null;
         }
     }
-    public void DisAttach()
+    public void DisAttach(bool positivo)
     {
         if (isLateral)
-            GetComponentInParent<DisAttach>().DisAttachPlayer();
+        {
+            if (disAttachEnPositivo == positivo)
+                GetComponentInParent<DisAttach>().DisAttachPlayer();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.GetComponent<PlayerController>() != null)
+        {
+            if(checkAttachPositivo && disAttachEnPositivo)
+            {
+                checkAttachPositivo = false;
+                other.gameObject.transform.parent = gameObject.transform.parent;
+            }
+            else if (checkAttachNegativo && !disAttachEnPositivo)
+            {
+                checkAttachNegativo = false;
+                other.gameObject.transform.parent = gameObject.transform.parent;
+            }
+        }
+    }
+    public void CheckAttachs(bool positivo)
+    {
+        if (positivo)
+            checkAttachPositivo = true;
+        else
+            checkAttachNegativo = true;
     }
 }

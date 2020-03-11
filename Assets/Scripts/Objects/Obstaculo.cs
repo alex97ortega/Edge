@@ -49,7 +49,7 @@ public class Obstaculo : MonoBehaviour {
                 else
                 {
                     foreach (var x in GetComponentsInChildren<Platform>())
-                        x.DisAttach();
+                        x.DisAttach(recuperarse);
                 }
             }
         }
@@ -68,6 +68,8 @@ public class Obstaculo : MonoBehaviour {
         // para que no active desde fuera si ha cambiado de dirección
         //if ((x == initialX) && (y == initialY) && (z == initialZ))
         activado = true;
+        foreach (var x in GetComponentsInChildren<Platform>())
+            x.CheckAttachs(!recuperarse);
     }   
     public bool EstaActivado() { return activado; }      
     public bool EstaRecuperandose() { return recuperarse; }
@@ -141,7 +143,7 @@ public class Obstaculo : MonoBehaviour {
             activado = false;
             recuperarse = !recuperarse;
             foreach (var x in GetComponentsInChildren<Platform>())
-                x.DisAttach();
+                x.DisAttach(recuperarse);
         }
     }
 
