@@ -9,8 +9,12 @@ public class MenuInfo : MonoBehaviour {
     public Text levelText, timeText, deadText, itemsText;
     public GameObject[] terrenos;
     GameManager gameManager;
+
+    float initialTime;
+
 	// Use this for initialization
 	void Start () {
+        initialTime = Time.time;
         gameManager = FindObjectOfType<GameManager>();
         terrenos[gameManager.GetLevel()-1].SetActive(true);
 
@@ -41,6 +45,8 @@ public class MenuInfo : MonoBehaviour {
             SceneManager.LoadScene("MainMenu"); // no permitimos pasar de tutorial a experimento sin pasar por MainMenu
         else
         {
+            float timeInMenu = initialTime - Time.time;
+            gameManager.AddMenuTime(timeInMenu);
             string escena = "Nivel" + (gameManager.GetLevel()).ToString();
             SceneManager.LoadScene(escena);
         }

@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numNiveles: 6
+  minutosExperimento: 12
 --- !u!4 &828824590
 Transform:
   m_ObjectHideFlags: 0

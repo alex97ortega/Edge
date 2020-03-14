@@ -9397,7 +9397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4a12245cea88940a31daa029e47ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textTime: {fileID: 285398289}
+  textLevelTime: {fileID: 285398289}
+  textExperimentTime: {fileID: 0}
   light: {fileID: 170076734}
 --- !u!4 &1737142423
 Transform:

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
-    public Text textTime;
+    public Text textLevelTime;
+    public Text textExperimentTime;
+
     public Light light;
     float initialTime;
 
@@ -21,13 +23,19 @@ public class LevelManager : MonoBehaviour {
         uint totalItems = 0;
         foreach (var x in FindObjectsOfType<Item>())
             totalItems++;
-        if(gameManager) gameManager.SetTotalItems(totalItems);
+
+        if(gameManager)
+        {
+            gameManager.SetTotalItems(totalItems);
+            gameManager.SetInitialTimeExperiment();
+        }
 
         initialTime = Time.time;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        // efecto de coger un cubito
         if (lightEffect)
         {
             lightCont += 0.05f;
@@ -39,7 +47,10 @@ public class LevelManager : MonoBehaviour {
                 lightCont = 0.5f;
             }
         }
-        ShowTime(textTime);
+        ShowLevelTime();
+
+        if (gameManager && textExperimentTime != null)
+            ShowExperimentTime();
     }
     public void ItemGotten()
     {
@@ -48,13 +59,44 @@ public class LevelManager : MonoBehaviour {
     }
     public void LevelPassed()
     {
-        if(gameManager) gameManager.LevelPassed(textTime.text);
+        if(gameManager) gameManager.LevelPassed(textLevelTime.text);
     }
 
-    private void ShowTime(Text _text)
+    // tiempo del nivel actual
+    private void ShowLevelTime()
     {
         string min, seg;
-        float _time = Time.time - initialTime; ;
+        float _time = Time.time - initialTime;
+        ConvertTimeToMinSeg(_time, out min, out seg);
+        textLevelTime.text = min + ":" + seg;
+    }
+
+    // tiempo desde que comenzó el experimento
+    private void ShowExperimentTime()
+    {
+        string min, seg;
+        float _time = gameManager.GetExperimentTime()  
+                    + gameManager.GetInitialTimeExperiment() 
+                    - gameManager.GetMenuTime() 
+                    - Time.time;
+
+        // puro efecto visual para el primer nivel del experimento, 
+        // para que aparezca el contador el 12:00 y no 11:59 pero en realidad
+        // es 11:59. Además, si no parece que no cuadra el tiempo de cuenta atrás
+        // con el de nivel debido a redondeos
+        if (gameManager.GetLevel() == 4)
+        {
+            _time++;
+            if (_time > gameManager.GetExperimentTime())
+                _time = gameManager.GetExperimentTime();
+        }
+
+        ConvertTimeToMinSeg(_time,out min, out seg);
+        textExperimentTime.text = min + ":" + seg;
+    }
+
+    private void ConvertTimeToMinSeg(float _time, out string  min, out string seg)
+    {
         //min
         if (_time >= 60)
         {
@@ -62,7 +104,7 @@ public class LevelManager : MonoBehaviour {
                 min = ((int)_time / 60).ToString();
             else
                 min = "0" + ((int)_time / 60).ToString();
-        }        
+        }
         else
             min = "00";
 
@@ -72,9 +114,7 @@ public class LevelManager : MonoBehaviour {
         else if (_time % 60 < 10)
             seg = "0" + ((int)_time % 60).ToString();
         else
-            seg= ((int)_time % 60).ToString();
-
-        _text.text = min + ":" + seg;
+            seg = ((int)_time % 60).ToString();
     }
 
     public void Dead()
