@@ -3267,10 +3267,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3350,6 +3350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &93966030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5097,6 +5098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &137021827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7082,6 +7084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 0
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &205089861
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7540,6 +7543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 0
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &212763756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7599,6 +7603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &214813454
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8451,6 +8456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &237293603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9534,6 +9540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &253689524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11517,6 +11524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &318335758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15126,6 +15134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &439002751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15850,6 +15859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &457081465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16455,6 +16465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 0
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &477873854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17449,6 +17460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &522037320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21249,7 +21261,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -23642,6 +23654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &731641445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27760,7 +27773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 876374968}
   m_Layer: 0
-  m_Name: Terreno5
+  m_Name: Terreno6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27793,7 +27806,7 @@ Transform:
   - {fileID: 210766223}
   - {fileID: 1451000226}
   m_Father: {fileID: 1572709659}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882156117
 GameObject:
@@ -28305,6 +28318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &886663472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29088,6 +29102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 0
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &897976562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30352,6 +30367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &933577998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35224,6 +35240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1055092076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36037,6 +36054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1092891488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36483,6 +36501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1109488304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43897,6 +43916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1387085214
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43966,10 +43986,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -44062,10 +44082,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -44353,7 +44373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399438476}
   m_Layer: 0
-  m_Name: Terreno6
+  m_Name: Terreno5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44382,7 +44402,7 @@ Transform:
   - {fileID: 1014874649}
   - {fileID: 94486851}
   m_Father: {fileID: 1572709659}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1400368229
 GameObject:
@@ -45208,6 +45228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 0
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1417653450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46324,6 +46345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1440567812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47373,6 +47395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 0
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1473523576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48420,6 +48443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1522793373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48708,6 +48732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1528914228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49104,6 +49129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1544628411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49450,6 +49476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1549188022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49673,8 +49700,8 @@ MonoBehaviour:
   - {fileID: 1401244868}
   - {fileID: 1759557729}
   - {fileID: 1594079274}
-  - {fileID: 876374967}
   - {fileID: 1399438475}
+  - {fileID: 876374967}
 --- !u!4 &1561357935
 Transform:
   m_ObjectHideFlags: 0
@@ -50332,8 +50359,8 @@ Transform:
   - {fileID: 1401244869}
   - {fileID: 1759557730}
   - {fileID: 1594079275}
-  - {fileID: 876374968}
   - {fileID: 1399438476}
+  - {fileID: 876374968}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51369,6 +51396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1621197044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52204,6 +52232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1646942145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53042,6 +53071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1666078950
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54012,7 +54042,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -54077,6 +54107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1711689410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58860,6 +58891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLateral: 1
   stopPlayer: 0
+  disAttachEnPositivo: 1
 --- !u!65 &1866433524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60354,10 +60386,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -61891,10 +61923,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -63878,10 +63910,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
