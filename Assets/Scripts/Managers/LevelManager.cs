@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour {
     public Text textLevelTime;
     public Text textExperimentTime;
 
+    public GameObject menuFinish;
+
     public Light light;
     float initialTime;
 
@@ -15,6 +17,7 @@ public class LevelManager : MonoBehaviour {
 
     float lightCont = 0.5f;
     bool lightEffect = false;
+    bool stop = false;
 
     // Use this for initialization
     void Start () {
@@ -59,12 +62,17 @@ public class LevelManager : MonoBehaviour {
     }
     public void LevelPassed()
     {
-        if(gameManager) gameManager.LevelPassed(textLevelTime.text);
+        if (gameManager)
+        {
+            gameManager.LevelPassed(textLevelTime.text);
+        }
     }
 
     // tiempo del nivel actual
     private void ShowLevelTime()
     {
+        if (stop)
+            return;
         string min, seg;
         float _time = Time.time - initialTime;
         ConvertTimeToMinSeg(_time, out min, out seg);
@@ -74,6 +82,10 @@ public class LevelManager : MonoBehaviour {
     // tiempo desde que comenzó el experimento
     private void ShowExperimentTime()
     {
+
+        if (stop)
+            return;
+
         string min, seg;
         float _time = gameManager.GetExperimentTime()  
                     + gameManager.GetInitialTimeExperiment() 
@@ -90,6 +102,10 @@ public class LevelManager : MonoBehaviour {
             if (_time > gameManager.GetExperimentTime())
                 _time = gameManager.GetExperimentTime();
         }
+
+        // enseño el menú de fin si el contador llega a 0
+        if(_time <= 0)
+            EndExperiment();
 
         ConvertTimeToMinSeg(_time,out min, out seg);
         textExperimentTime.text = min + ":" + seg;
@@ -127,5 +143,19 @@ public class LevelManager : MonoBehaviour {
 
         foreach (var b in FindObjectsOfType<SueloQuebradizo>())
             b.RestartBlock();
+    }
+
+    private void EndExperiment()
+    {
+        stop = true;
+        menuFinish.SetActive(true);
+
+        // para que no pueda mover el player
+        FindObjectOfType<PlayerController>().Stop();
+    }
+
+    public void ReturnToSessionMenu()
+    {
+        gameManager.ReturnToSessionMenu();
     }
 }

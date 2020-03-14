@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public int numNiveles;
-    public int minutosExperimento;
+    public int numLevels;
+    public int experimentTime;// in secs
     NivelInfo[] infoLevels;
     uint currentLevel;
     bool inTutorial = false; // we will register Events only if we are NOT playing the tutorial
 
     float initialTimeExperiment; // we register the time when the player starts the experiment
-    uint experimentTime; // in secs
     float timeInMenus; // we dont count experiment time while the player is in a menu
 
     struct NivelInfo
@@ -23,11 +22,20 @@ public class GameManager : MonoBehaviour {
         public string levelTime;
     }
 
+    private void Awake()
+    {
+        // para que nunca haya más de 1 gamemanager a la vez
+        /*foreach(var x in FindObjectsOfType<GameManager>())
+        {
+            if (x.gameObject != gameObject)
+                Destroy(gameObject);
+        }*/
+    }
+
     // Use this for initialization
     void Start () {
-        infoLevels = new NivelInfo[numNiveles];
+        infoLevels = new NivelInfo[numLevels];
         currentLevel = 1;
-        experimentTime = (uint)minutosExperimento * 60;//in secs, 12 min time experiment
         initialTimeExperiment = 0;
         timeInMenus = 0;
         DontDestroyOnLoad(gameObject);
@@ -63,6 +71,16 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartSession() { SceneManager.LoadScene("MainMenu"); }
+    public void ReturnToSessionMenu() {
+
+        SceneManager.LoadScene("StartSession");
+
+        // Destruimos este GameManager. Con esto nos quitamos 2 problemas:
+        // 1- Tener que resetear todos los valores.
+        // 2- Tener conflicto por crearse otro GameManager en la escena StartSession, 
+        //    que es a la que vamos.
+        Destroy(gameObject);
+    }
 
     // items
     public void ItemGotten() {
@@ -90,7 +108,7 @@ public class GameManager : MonoBehaviour {
             initialTimeExperiment = Time.time;
     }
     public float GetInitialTimeExperiment() { return initialTimeExperiment; }
-    public uint GetExperimentTime() { return experimentTime; }
+    public int GetExperimentTime() { return experimentTime; }
     public float GetMenuTime() { return timeInMenus; }
     public void AddMenuTime(float timeToAdd) { if(!inTutorial) timeInMenus += timeToAdd; }
 

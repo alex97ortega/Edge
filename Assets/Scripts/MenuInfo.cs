@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuInfo : MonoBehaviour {
 
     public Text levelText, timeText, deadText, itemsText;
+    public GameObject menuFinish;
     public GameObject[] terrenos;
     GameManager gameManager;
 
@@ -41,8 +42,12 @@ public class MenuInfo : MonoBehaviour {
     {
         gameManager.NextLevel();
 
-        if (gameManager.GetLevel() == 4 || gameManager.GetLevel() == 7)
+        if (gameManager.GetLevel() == 4)
             SceneManager.LoadScene("MainMenu"); // no permitimos pasar de tutorial a experimento sin pasar por MainMenu
+        else if(gameManager.GetLevel() == gameManager.numLevels+1) // informamos si ha llegado al tope de niveles
+        {
+            menuFinish.SetActive(true);
+        }
         else
         {
             float timeInMenu = initialTime - Time.time;
@@ -50,5 +55,9 @@ public class MenuInfo : MonoBehaviour {
             string escena = "Nivel" + (gameManager.GetLevel()).ToString();
             SceneManager.LoadScene(escena);
         }
+    }
+    public void ReturnToSessionMenu()
+    {
+        gameManager.ReturnToSessionMenu();
     }
 }
