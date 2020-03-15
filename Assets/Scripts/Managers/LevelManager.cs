@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour {
     public GameObject menuFinish;
 
     public Light light;
+    public Checkpoint currentCheckpoint;
+    public GameObject[] objectsToReset;
+
     float initialTime;
 
     GameManager gameManager;
@@ -133,7 +136,10 @@ public class LevelManager : MonoBehaviour {
             seg = ((int)_time % 60).ToString();
     }
 
-    public void Dead()
+    public void ChangeCheckpoint(Checkpoint newCheckp) { currentCheckpoint = newCheckp; }
+
+    // devuelve la posicion donde tiene que resetearse el player
+    public Vector3 Dead()
     {
         if (gameManager)
             gameManager.Dead();
@@ -143,6 +149,20 @@ public class LevelManager : MonoBehaviour {
 
         foreach (var b in FindObjectsOfType<SueloQuebradizo>())
             b.RestartBlock();
+
+        // tambien reseteo los posibles objetos que se necesite para poder
+        // pasar el nivel
+        foreach (var o in objectsToReset)
+        {
+            if (o.GetComponent<Obstaculo>())
+                o.GetComponent<Obstaculo>().ResetObstacle();
+            else if (o.GetComponent<ActivablePorPasos>())
+                o.GetComponent<ActivablePorPasos>().ResetObject();
+            else if (o.GetComponent<DobleActivador>())
+                o.GetComponent<DobleActivador>().ResetActivador();
+        }
+
+        return currentCheckpoint.transform.position;
     }
 
     private void EndExperiment()

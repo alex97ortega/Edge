@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour {
                     if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                     {
                         // cae en suelo
-                        if (hit.collider.tag != "item" && hit.collider.tag != "deathzone"
+                        if (hit.collider.tag != "item" && hit.collider.tag != "deathzone" && hit.collider.tag != "checkpoint"
                             /*&& hit.collider.tag != "trigger"*/) // tuve que quitar esto para que pudiera caer encima de plataformas
                         {
                             canMove = true;
@@ -146,7 +146,8 @@ public class PlayerController : MonoBehaviour {
         if (hitted)
         {
             if (hit.collider.tag == "trigger" ||
-                hit.collider.tag == "item")
+                hit.collider.tag == "item" || 
+                hit.collider.tag == "checkpoint")
                 return true;
             //escalon, hay que comprobar que no hay obstaculos encima
             if (hit.collider.tag == "escalon")

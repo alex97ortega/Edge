@@ -95,7 +95,7 @@ a44114bd4fa541174f78b4bb92bacb48 UnityEngine.UI.dll:UnityEngine.EventSystems.Sta
 e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 2d58ca16854b99daea8c45e9c0f367b7 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-add5986a7fcfc37ab6d599035a7420a3 Assembly-CSharp.dll:.MenuInfo
+c49ef95b122e9425bdac03ef3ab09eb3 Assembly-CSharp.dll:.MenuInfo
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Camera
 b8c3a8df74adaafd583bb18a5ed8bd03 Assembly-CSharp.dll:.FinEffect
 2d675f63f512e18d9de50c663acdedd1 Assembly-CSharp.dll:.ActivablePorPasos
@@ -128,7 +128,7 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 02efd88f56923a44fa296181e65d8643 Assembly-CSharp.dll:.Platform
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-fb95532d8df977cfa403ccc62b667b9a Assembly-CSharp.dll:.LevelManager
+d77b59a8516dbe93d82485330ebdb2fa Assembly-CSharp.dll:.LevelManager
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -195,4 +195,5 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.SueloQuebradizo
-1c2c23b5a3216afa0ce1d959c5ed7742 Assembly-CSharp.dll:.GameManager
+eff273226fd0066544c0be678491f418 Assembly-CSharp.dll:.GameManager
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.StartSessionManager

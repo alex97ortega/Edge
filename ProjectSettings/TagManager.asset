@@ -10,6 +10,7 @@ TagManager:
   - obstaculo
   - player
   - trigger
+  - checkpoint
   layers:
   - Default
   - TransparentFX

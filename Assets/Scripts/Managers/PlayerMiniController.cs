@@ -122,7 +122,7 @@ public class PlayerMiniController : MonoBehaviour {
                 if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                 {
                     // cae en suelo
-                     if (hit.collider.tag != "item" && hit.collider.tag != "trigger" && hit.collider.tag != "deathzone")
+                     if (hit.collider.tag != "item" && hit.collider.tag != "checkpoint" && hit.collider.tag != "deathzone")
                     {
                         canMove = true;
                         estado = Estado.parado;
@@ -153,7 +153,8 @@ public class PlayerMiniController : MonoBehaviour {
         if (hitted)
         {
             if (hit.collider.tag == "trigger" ||
-                hit.collider.tag == "item")
+                hit.collider.tag == "item" ||
+                hit.collider.tag == "checkpoint")
                 return true;
 
             if (hit.collider.tag == "escalon")
