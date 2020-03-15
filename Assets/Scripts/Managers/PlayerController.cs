@@ -77,8 +77,11 @@ public class PlayerController : MonoBehaviour {
                     {
                         // de momento esto no hace falta
                         // para que puede reanudar el movimiento si lo para una plataforma mientras le empuja
-                        //if (gameObject.transform.parent == null)
-                        //    canMove = true;
+                        if (gameObject.transform.parent == null)
+                        {
+                            canMove = true;
+                            tf.rotation = new Quaternion(0, 0, 0, 0);
+                        }
 
                         // provisional, para que aparezca ya reducido
                         //TriggerMiniController(true);
@@ -315,6 +318,9 @@ public class PlayerController : MonoBehaviour {
     public void Stop()
     {
         canMove = false;
+        AjustaY();
+        cont = 0;
+        tf.rotation = new Quaternion(0, 0, 0, 0);
         estado = Estado.parado;
     }
     public void Fin()

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Deathzone : MonoBehaviour {
     public LevelManager levelManager;
-    public float respawnX, respawnY, respawnZ;
-    public GameObject[] obstaclesToReset;
 
     private void OnTriggerEnter(Collider other)
     {

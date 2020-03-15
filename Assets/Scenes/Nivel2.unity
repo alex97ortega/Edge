@@ -1454,6 +1454,7 @@ Transform:
   m_Children:
   - {fileID: 1163568077}
   - {fileID: 1670979850}
+  - {fileID: 1752122640}
   - {fileID: 668934991}
   - {fileID: 1516869273}
   - {fileID: 1018741668}
@@ -1461,7 +1462,6 @@ Transform:
   - {fileID: 524658889}
   - {fileID: 199077194}
   - {fileID: 384116088}
-  - {fileID: 1752122640}
   - {fileID: 691255663}
   - {fileID: 1063726535}
   m_Father: {fileID: 0}
@@ -3771,6 +3771,15 @@ Prefab:
         type: 2}
       propertyPath: velocity
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591608412030118, guid: 942f692700c0cfe4b982302602d16d80,
+        type: 2}
+      propertyPath: stopPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962440574085588, guid: 942f692700c0cfe4b982302602d16d80, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 942f692700c0cfe4b982302602d16d80, type: 2}
@@ -8530,7 +8539,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4962440574085588, guid: 942f692700c0cfe4b982302602d16d80, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.95
+      value: -0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591608412030118, guid: 942f692700c0cfe4b982302602d16d80,
+        type: 2}
+      propertyPath: stopPlayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 942f692700c0cfe4b982302602d16d80, type: 2}
