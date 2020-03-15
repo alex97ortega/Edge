@@ -10,7 +10,7 @@ using UnityEngine;
 public class PlayerMiniController : MonoBehaviour {
 
     public int velocity;
-    public LevelManager levelManager;
+    public bool agrandaAlMorir;
     public enum Estado
     {
         reduciendo, alargando,
@@ -30,6 +30,7 @@ public class PlayerMiniController : MonoBehaviour {
     float x, y, z;
     int cont;
     float initialTime;
+    bool tieneQueAgrandar = false;
 
     // Use this for initialization
     void Start () {
@@ -80,7 +81,6 @@ public class PlayerMiniController : MonoBehaviour {
                 AlargaCubo();
                 break;
             case Estado.parado:
-
                 // me aseguro de que no se queda bloqueado en ningun momento si no 
                 // está encima o siendo empujado por una plataforma
                 if (gameObject.transform.parent == null)
@@ -96,6 +96,11 @@ public class PlayerMiniController : MonoBehaviour {
                 {
                     if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), 0.5f))
                         estado = Estado.cayendo;
+                }
+                if (tieneQueAgrandar)
+                {
+                    tieneQueAgrandar = false;
+                    estado = Estado.alargando;
                 }
                 break;
             case Estado.movW:
@@ -122,11 +127,17 @@ public class PlayerMiniController : MonoBehaviour {
                 if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                 {
                     // cae en suelo
-                     if (hit.collider.tag != "item" && hit.collider.tag != "checkpoint" && hit.collider.tag != "deathzone")
+                    if (hit.collider.tag != "item" && hit.collider.tag != "checkpoint" && hit.collider.tag != "deathzone")
                     {
                         canMove = true;
                         estado = Estado.parado;
                         tf.position = new Vector3(tf.position.x, Mathf.Ceil(tf.position.y)-0.67f, tf.position.z);
+                    }
+                    // muere
+                    else if (hit.collider.tag == "deathzone")
+                    {
+                        if (agrandaAlMorir)
+                            tieneQueAgrandar = true;
                     }
                 }
                 break;
