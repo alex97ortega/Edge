@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MenuInfo : MonoBehaviour {
 
@@ -42,18 +41,20 @@ public class MenuInfo : MonoBehaviour {
     {
         gameManager.NextLevel();
 
+        // acaba el tutorial
         if (gameManager.GetLevel() == 4)
-            SceneManager.LoadScene("MainMenu"); // no permitimos pasar de tutorial a experimento sin pasar por MainMenu
-        else if(gameManager.GetLevel() == gameManager.numLevels+1) // informamos si ha llegado al tope de niveles
+            gameManager.EndTutorial();
+        // acaba el experimento
+        else if (gameManager.GetLevel() == gameManager.numLevels+1) 
         {
+            gameManager.EndExperiment();
             menuFinish.SetActive(true);
         }
         else
         {
             float timeInMenu = initialTime - Time.time;
             gameManager.AddMenuTime(timeInMenu);
-            string escena = "Nivel" + (gameManager.GetLevel()).ToString();
-            SceneManager.LoadScene(escena);
+            gameManager.StartLevel();
         }
     }
     public void ReturnToSessionMenu()

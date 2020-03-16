@@ -61,7 +61,8 @@ public class LevelManager : MonoBehaviour {
     public void ItemGotten()
     {
         lightEffect = true;
-        if(gameManager) gameManager.ItemGotten();
+        if(gameManager)
+            gameManager.ItemGotten();
     }
     public void LevelPassed()
     {
@@ -136,7 +137,11 @@ public class LevelManager : MonoBehaviour {
             seg = ((int)_time % 60).ToString();
     }
 
-    public void ChangeCheckpoint(Checkpoint newCheckp) { currentCheckpoint = newCheckp; }
+    public void ChangeCheckpoint(Checkpoint newCheckp) {
+        currentCheckpoint = newCheckp;
+        if(gameManager)
+            gameManager.GotCheckpoint();
+    }
 
     // devuelve la posicion donde tiene que resetearse el player
     public Vector3 Dead()
@@ -169,13 +174,15 @@ public class LevelManager : MonoBehaviour {
     {
         stop = true;
         menuFinish.SetActive(true);
-
+        if(gameManager)
+            gameManager.EndExperiment();
         // para que no pueda mover el player
         FindObjectOfType<PlayerController>().Stop();
     }
 
     public void ReturnToSessionMenu()
     {
-        gameManager.ReturnToSessionMenu();
+        if (gameManager)
+            gameManager.ReturnToSessionMenu();
     }
 }

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
         public uint deaths;
         public string levelTime;
     }
+    SessionManager sessionManager;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        sessionManager = FindObjectOfType<SessionManager>();
         infoLevels = new NivelInfo[numLevels];
         currentLevel = 1;
         initialTimeExperiment = 0;
@@ -49,6 +51,8 @@ public class GameManager : MonoBehaviour {
     // levels
     public void LevelPassed(string _time)
     {
+        if(!inTutorial)
+            sessionManager.LevelEnd((int)currentLevel);
         infoLevels[currentLevel-1].levelTime = _time;        
         SceneManager.LoadScene("MenuInfo");
     }
@@ -60,14 +64,23 @@ public class GameManager : MonoBehaviour {
     {
         currentLevel = 1;
         inTutorial = true;
-        SceneManager.LoadScene("Nivel1");
+        sessionManager.StartTutorial();
+        StartLevel();
     }
 
     public void StartExperiment()
     {
         currentLevel = 4;
         inTutorial = false;
-        SceneManager.LoadScene("Nivel4");
+        sessionManager.StartExperiment();
+        StartLevel();
+    }
+    public void StartLevel()
+    {
+        if (!inTutorial)
+            sessionManager.LevelStart((int)currentLevel);
+        string escena = "Nivel" + currentLevel.ToString();
+        SceneManager.LoadScene(escena);
     }
 
     public void StartSession() { SceneManager.LoadScene("MainMenu"); }
@@ -82,14 +95,37 @@ public class GameManager : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    // ends
+    public void EndTutorial()
+    {
+        sessionManager.EndTutorial();
+        StartSession();
+    }
+    public void EndExperiment()
+    {
+        sessionManager.EndExperiment();
+    }
+
     // items
     public void ItemGotten() {
+        if(!inTutorial)
+            sessionManager.LogGotItem();
         infoLevels[currentLevel-1].items++;
     }
     public void SetTotalItems(uint totalItems) { infoLevels[currentLevel - 1].totalItems = totalItems; }
 
     // player Deaths
-    public void Dead() { infoLevels[currentLevel - 1].deaths++; }
+    public void Dead() {
+        if (!inTutorial)
+            sessionManager.LogPlayerDead();
+        infoLevels[currentLevel - 1].deaths++;
+    }
+    // checkpoint
+    public void GotCheckpoint()
+    {
+        if (!inTutorial)
+            sessionManager.LogGotCheckpoint();
+    }
 
     // for level info
     public string GetLevelTime() { return infoLevels[currentLevel - 1].levelTime; }
