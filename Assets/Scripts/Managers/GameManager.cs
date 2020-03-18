@@ -83,7 +83,10 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(escena);
     }
 
-    public void StartSession() { SceneManager.LoadScene("MainMenu"); }
+    public void StartSession(string id) {
+        sessionManager.SetUserId(id);
+        SceneManager.LoadScene("MainMenu");
+    }
     public void ReturnToSessionMenu() {
 
         SceneManager.LoadScene("StartSession");
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour {
     public void EndTutorial()
     {
         sessionManager.EndTutorial();
-        StartSession();
+        SceneManager.LoadScene("MainMenu");
     }
     public void EndExperiment()
     {

@@ -53,11 +53,6 @@ public class SessionManager : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
-    void Start () {
-        SetUserId("usuario1");
-    }
-
     // llamadas públicas para llamar desde el GameManager
     public void SetUserId(string id)
     {
