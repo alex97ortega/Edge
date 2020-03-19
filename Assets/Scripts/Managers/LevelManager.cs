@@ -8,9 +8,9 @@ public class LevelManager : MonoBehaviour {
     public Text textLevelTime;
     public Text textExperimentTime;
 
+    public GameObject menuReturn;
     public GameObject menuFinish;
-
-    public Light light;
+    
     public Checkpoint currentCheckpoint;
     public GameObject[] objectsToReset;
 
@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour {
     float lightCont = 0.5f;
     bool lightEffect = false;
     bool stop = false;
+    bool pause = false;
 
     // Use this for initialization
     void Start () {
@@ -41,14 +42,18 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ShowMenuReturn();
+
         // efecto de coger un cubito
         if (lightEffect)
         {
             lightCont += 0.05f;
-            light.color = new Color(lightCont, lightCont, 1);
+            FindObjectOfType<Light>().color = new Color(lightCont, lightCont, 1);
             if (lightCont >= 1)
             {
-                light.color = new Color(1, 1, 1);
+                FindObjectOfType<Light>().color = new Color(1, 1, 1);
                 lightEffect = false;
                 lightCont = 0.5f;
             }
@@ -144,8 +149,11 @@ public class LevelManager : MonoBehaviour {
     }
 
     // devuelve la posicion donde tiene que resetearse el player
-    public Vector3 Dead()
+    public void Dead()
     {
+
+        FindObjectOfType<PlayerController>().transform.position = currentCheckpoint.transform.position;
+
         if (gameManager)
             gameManager.Dead();
 
@@ -167,22 +175,29 @@ public class LevelManager : MonoBehaviour {
                 o.GetComponent<DobleActivador>().ResetActivador();
         }
 
-        return currentCheckpoint.transform.position;
+        if (pause)
+            ShowMenuReturn();
     }
 
     private void EndExperiment()
     {
         stop = true;
         menuFinish.SetActive(true);
-        if(gameManager)
-            gameManager.EndExperiment();
         // para que no pueda mover el player
         FindObjectOfType<PlayerController>().Stop();
     }
 
-    public void ReturnToSessionMenu()
+    public void ReturnToMainMenu()
     {
         if (gameManager)
-            gameManager.ReturnToSessionMenu();
+            gameManager.ReturnToMainMenu();
+    }
+    public void ShowMenuReturn()
+    {
+        if(!stop)
+        {
+            pause = !pause;
+            menuReturn.SetActive(pause);
+        }
     }
 }

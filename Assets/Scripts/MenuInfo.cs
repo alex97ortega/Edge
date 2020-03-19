@@ -43,11 +43,10 @@ public class MenuInfo : MonoBehaviour {
 
         // acaba el tutorial
         if (gameManager.GetLevel() == 4)
-            gameManager.EndTutorial();
+            gameManager.ReturnToMainMenu();
         // acaba el experimento
         else if (gameManager.GetLevel() == gameManager.numLevels+1) 
         {
-            gameManager.EndExperiment();
             menuFinish.SetActive(true);
         }
         else

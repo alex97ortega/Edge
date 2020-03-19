@@ -69,6 +69,18 @@ public class GameManager : MonoBehaviour {
 
     public void StartSession(string id) {
         sessionManager.SetUserId(id);
+        ReturnToMainMenu();
+    }
+    public void ReturnToMainMenu()
+    {
+        if (inTutorial)
+            sessionManager.EndTutorial();
+        else if(initialTimeExperiment != 0)
+        {
+            sessionManager.EndExperiment();
+            initialTimeExperiment = 0;
+            timeInMenus = 0;
+        }
         SceneManager.LoadScene("MainMenu");
     }
     public void ReturnToSessionMenu() {
@@ -81,17 +93,7 @@ public class GameManager : MonoBehaviour {
         //    que es a la que vamos.
         Destroy(gameObject);
     }
-
-    // ends
-    public void EndTutorial()
-    {
-        sessionManager.EndTutorial();
-        SceneManager.LoadScene("MainMenu");
-    }
-    public void EndExperiment()
-    {
-        sessionManager.EndExperiment();
-    }
+    
 
     // items
     public void ItemGotten() {

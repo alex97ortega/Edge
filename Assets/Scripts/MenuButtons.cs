@@ -3,16 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuButtons : MonoBehaviour {
-
-    public GameObject buttonTutorial;
-
-    private void Start()
-    {
-        // desactivo botón de tutorial si ya lo ha jugado
-        GameManager gm = FindObjectOfType<GameManager>();
-        if (gm.HasPlayedTutorial())
-            buttonTutorial.SetActive(false);
-    }
+    
 
     // funciones auxiliares para que llamen los botones, dado que
     // no se puede referenciar el GameManager
@@ -31,5 +22,10 @@ public class MenuButtons : MonoBehaviour {
     {
         GameManager gm = FindObjectOfType<GameManager>();
         gm.Quit();
+    }
+    public void ChangeUser()
+    {
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.ReturnToSessionMenu();
     }
 }

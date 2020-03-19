@@ -9,8 +9,7 @@ public class Deathzone : MonoBehaviour {
     {
         if (other.GetComponent<PlayerController>() != null)
         {
-            Vector3 playerResetPos = levelManager.Dead();
-            other.transform.position = playerResetPos;            
+            levelManager.Dead();          
         }
     }
 }
