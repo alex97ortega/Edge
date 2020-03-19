@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     public int experimentTime;// in secs
     NivelInfo[] infoLevels;
     uint currentLevel;
-    bool inTutorial = false; // we will register Events only if we are NOT playing the tutorial
+    bool inTutorial = false;
 
     float initialTimeExperiment; // we register the time when the player starts the experiment
     float timeInMenus; // we dont count experiment time while the player is in a menu
@@ -22,17 +22,7 @@ public class GameManager : MonoBehaviour {
         public string levelTime;
     }
     SessionManager sessionManager;
-
-    private void Awake()
-    {
-        // para que nunca haya más de 1 gamemanager a la vez
-        /*foreach(var x in FindObjectsOfType<GameManager>())
-        {
-            if (x.gameObject != gameObject)
-                Destroy(gameObject);
-        }*/
-    }
-
+    
     // Use this for initialization
     void Start () {
         sessionManager = FindObjectOfType<SessionManager>();
@@ -42,17 +32,12 @@ public class GameManager : MonoBehaviour {
         timeInMenus = 0;
         DontDestroyOnLoad(gameObject);
 	}
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q)) Quit();
-    }
+    
 
     // levels
     public void LevelPassed(string _time)
     {
-        if(!inTutorial)
-            sessionManager.LevelEnd((int)currentLevel);
+        sessionManager.LevelEnd((int)currentLevel);
         infoLevels[currentLevel-1].levelTime = _time;        
         SceneManager.LoadScene("MenuInfo");
     }
@@ -77,8 +62,7 @@ public class GameManager : MonoBehaviour {
     }
     public void StartLevel()
     {
-        if (!inTutorial)
-            sessionManager.LevelStart((int)currentLevel);
+        sessionManager.LevelStart((int)currentLevel);
         string escena = "Nivel" + currentLevel.ToString();
         SceneManager.LoadScene(escena);
     }
@@ -111,23 +95,20 @@ public class GameManager : MonoBehaviour {
 
     // items
     public void ItemGotten() {
-        if(!inTutorial)
-            sessionManager.LogGotItem();
+        sessionManager.LogGotItem();
         infoLevels[currentLevel-1].items++;
     }
     public void SetTotalItems(uint totalItems) { infoLevels[currentLevel - 1].totalItems = totalItems; }
 
     // player Deaths
     public void Dead() {
-        if (!inTutorial)
-            sessionManager.LogPlayerDead();
+        sessionManager.LogPlayerDead();
         infoLevels[currentLevel - 1].deaths++;
     }
     // checkpoint
     public void GotCheckpoint()
     {
-        if (!inTutorial)
-            sessionManager.LogGotCheckpoint();
+        sessionManager.LogGotCheckpoint();
     }
 
     // for level info

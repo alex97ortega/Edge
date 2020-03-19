@@ -26,7 +26,7 @@ public class MenuInfo : MonoBehaviour {
         // LEVEL
         // de momento no va a haber más de 9 niveles
         string lvl = "0" + (gameManager.GetLevel()).ToString();
-        levelText.text = "level\n\n " + lvl + "                   passed";
+        levelText.text = "level\n\n " + lvl + "       passed";
 
         //TIME
         timeText.text = gameManager.GetLevelTime();
