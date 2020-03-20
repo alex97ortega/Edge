@@ -1653,6 +1653,7 @@ MonoBehaviour:
   tiempoRecuperacion: 1
   tiempoAutoActivado: 1
   activado: 1
+  noCambiaDireccion: 0
 --- !u!65 &114402327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3153,6 +3154,7 @@ MonoBehaviour:
   tiempoRecuperacion: 1
   tiempoAutoActivado: 1.5
   activado: 1
+  noCambiaDireccion: 0
 --- !u!65 &210543888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7010,6 +7012,7 @@ MonoBehaviour:
   tiempoRecuperacion: 1
   tiempoAutoActivado: 1.5
   activado: 1
+  noCambiaDireccion: 0
 --- !u!65 &473297175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9391,6 +9394,7 @@ MonoBehaviour:
   tiempoRecuperacion: 2
   tiempoAutoActivado: 2
   activado: 0
+  noCambiaDireccion: 0
 --- !u!65 &634922597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13750,12 +13754,12 @@ Prefab:
     - target: {fileID: 114801532524966564, guid: 0aae4161c16470a40908753946abc0db,
         type: 2}
       propertyPath: velocity
-      value: 1
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114801532524966564, guid: 0aae4161c16470a40908753946abc0db,
         type: 2}
       propertyPath: distance
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aae4161c16470a40908753946abc0db, type: 2}
@@ -17062,6 +17066,7 @@ MonoBehaviour:
   tiempoRecuperacion: 1
   tiempoAutoActivado: 0
   activado: 0
+  noCambiaDireccion: 0
 --- !u!65 &1250337275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19985,6 +19990,7 @@ MonoBehaviour:
   tiempoRecuperacion: 100
   tiempoAutoActivado: 0
   activado: 0
+  noCambiaDireccion: 0
 --- !u!65 &1429572542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22890,6 +22896,7 @@ MonoBehaviour:
   tiempoRecuperacion: 2
   tiempoAutoActivado: 1
   activado: 0
+  noCambiaDireccion: 0
 --- !u!65 &1693803085
 BoxCollider:
   m_ObjectHideFlags: 0

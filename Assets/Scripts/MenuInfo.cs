@@ -56,8 +56,8 @@ public class MenuInfo : MonoBehaviour {
             gameManager.StartLevel();
         }
     }
-    public void ReturnToSessionMenu()
+    public void ReturnToMainMenu()
     {
-        gameManager.ReturnToSessionMenu();
+        gameManager.ReturnToMainMenu();
     }
 }

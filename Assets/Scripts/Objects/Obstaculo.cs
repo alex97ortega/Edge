@@ -178,4 +178,10 @@ public class Obstaculo : MonoBehaviour {
         if (z != 0)
             initialpos.z = transform.position.z;
     }
+
+    public void CambiaPos(Vector3 newPos)
+    {
+        initialpos = newPos;
+        ResetObstacle();
+    }
 }

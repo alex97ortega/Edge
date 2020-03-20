@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FinEffect : MonoBehaviour {
-
-    public PlayerController player;
+    
     bool anim = false;
     public float vel;
+    PlayerController player;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
     }
+
     // Update is called once per frame
     void Update () {
         if (anim)
@@ -24,7 +26,10 @@ public class FinEffect : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        player.Fin();
-        anim = true;
+        if(other.GetComponent<PlayerController>() != null)
+        {
+            other.GetComponent<PlayerController>().Fin();
+            anim = true;
+        }
     }
 }

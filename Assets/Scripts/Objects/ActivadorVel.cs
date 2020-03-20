@@ -21,8 +21,10 @@ public class ActivadorVel : MonoBehaviour {
 	void Update () {
         if (activado)
         {
-            cont += velocity;
-            player.gameObject.transform.position += new Vector3(velocity * x, 0, velocity * z);
+            float vel = velocity * Time.deltaTime;
+            cont += vel;
+            player.gameObject.transform.position += new Vector3(vel * x, 0, vel * z);
+            player.Stop();
             if (cont >= distance)
             {
                 cont = 0;
