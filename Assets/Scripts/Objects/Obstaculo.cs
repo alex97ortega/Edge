@@ -13,6 +13,7 @@ public class Obstaculo : MonoBehaviour {
     
     float contAutoActivado=0;
     public bool activado = false;
+    public bool noCambiaDireccion = false;
     bool recuperarse = false;
     Vector3 initialpos;
     int initialX, initialY, initialZ;
@@ -136,14 +137,21 @@ public class Obstaculo : MonoBehaviour {
         {
             transform.position = new Vector3(Mathf.Round(transform.position.x),
                 transform.position.y, Mathf.Round(transform.position.z));
-            
-            x *= -1;
-            y *= -1;
-            z *= -1;
+
+            if (!noCambiaDireccion)
+            {
+                x *= -1;
+                y *= -1;
+                z *= -1;
+
+                recuperarse = !recuperarse;
+                foreach (var x in GetComponentsInChildren<Platform>())
+                    x.DisAttach(recuperarse);
+            }
+            else
+                AjustesParaNoCambioDir();
+
             activado = false;
-            recuperarse = !recuperarse;
-            foreach (var x in GetComponentsInChildren<Platform>())
-                x.DisAttach(recuperarse);
         }
     }
 
@@ -160,5 +168,14 @@ public class Obstaculo : MonoBehaviour {
         y = newY;
         z = newZ;
         distance = newDistance;
+    }
+
+    private void AjustesParaNoCambioDir()
+    {
+        if (x != 0)
+            initialpos.x = transform.position.x;
+        
+        if (z != 0)
+            initialpos.z = transform.position.z;
     }
 }
