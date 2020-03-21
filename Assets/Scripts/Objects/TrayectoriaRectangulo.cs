@@ -8,6 +8,8 @@ public class TrayectoriaRectangulo : MonoBehaviour {
     public float distanciaUp, distanciaDown, distanciaLeft, distanciaRight;
     public int primerMovimiento;
     public bool pararAMitad;
+    public bool girarObstaculo;
+    public bool esquina;
 
     public enum Estados
     {
@@ -70,6 +72,13 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     {
                         transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, tf.position.z);
 
+                        if (girarObstaculo)
+                        {
+                            foreach (var x in GetComponentsInChildren<Platform>())
+                                x.DisAttach(true);
+                            transform.Rotate(new Vector3(0, -90, 0));
+                        }
+
                         timeCont = 0;
                         cont = 0;
                         // hacemos que pare a medio camino para que se pueda mover mejor el player
@@ -80,7 +89,12 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                             haParado = !haParado;
                         }
                         else
-                            estado = Estados.Right;
+                        {
+                            if(esquina)
+                                estado = Estados.Up;
+                            else
+                                estado = Estados.Right;
+                        }
                     }
                 }
                 else
@@ -97,9 +111,19 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     {
                         transform.position = new Vector3(tf.position.x, tf.position.y, Mathf.Round(tf.position.z));
 
+                        if (girarObstaculo)
+                        {
+                            foreach (var x in GetComponentsInChildren<Platform>())
+                                x.DisAttach(true);
+                            transform.Rotate(new Vector3(0, -90, 0));
+                        }
+
                         timeCont = 0;
                         cont = 0;
-                        estado = Estados.Up;
+                        if (esquina)
+                            estado = Estados.Left;
+                        else
+                            estado = Estados.Up;
                     }
                 }
                 else
@@ -116,6 +140,13 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     {
                         transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, tf.position.z);
 
+                        if (girarObstaculo)
+                        {
+                            foreach (var x in GetComponentsInChildren<Platform>())
+                                x.DisAttach(true);
+                            transform.Rotate(new Vector3(0, -90, 0));
+                        }
+
                         timeCont = 0;
                         cont = 0;
                         
@@ -126,7 +157,12 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                             haParado = !haParado;
                         }
                         else
-                            estado = Estados.Left;
+                        {
+                            if (esquina)
+                                estado = Estados.Right;
+                            else
+                                estado = Estados.Left;
+                        }
 
                     }
                 }
@@ -146,6 +182,14 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     {
                         float desajuste = cont - distanciaLeft;
                         transform.position += new Vector3(0, 0, desajuste);
+
+                        if (girarObstaculo)
+                        {
+                            foreach (var x in GetComponentsInChildren<Platform>())
+                                x.DisAttach(true);
+                            transform.Rotate(new Vector3(0, -90, 0));
+                        }
+
                         timeCont = 0;
                         cont = 0;
                         estado = Estados.Down;
