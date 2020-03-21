@@ -70,7 +70,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     timeCont += Time.deltaTime;
                     if(timeCont >= timeReposo)
                     {
-                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, tf.position.z);
+                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
 
                         if (girarObstaculo)
                         {
@@ -109,7 +109,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
                     {
-                        transform.position = new Vector3(tf.position.x, tf.position.y, Mathf.Round(tf.position.z));
+                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
 
                         if (girarObstaculo)
                         {
@@ -138,7 +138,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
                     {
-                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, tf.position.z);
+                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
 
                         if (girarObstaculo)
                         {
@@ -175,7 +175,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Left:
                 if (cont >= distanciaLeft)
                 {
-                    transform.position = new Vector3(tf.position.x, tf.position.y, Mathf.Round(tf.position.z));
+                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
 
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)

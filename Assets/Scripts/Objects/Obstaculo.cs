@@ -193,7 +193,11 @@ public class Obstaculo : MonoBehaviour {
     public void CambiaPos(Vector3 newPos)
     {
         initialpos = newPos;
-        ResetObstacle();
+        transform.position = newPos;
+        activado = false;
+        recuperarse = false;
+        contAutoActivado = 0;
+        cont = 0;
     }
     // necesario para velocidades grandes
     private void AjustaXZ()
