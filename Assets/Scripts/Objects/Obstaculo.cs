@@ -15,6 +15,7 @@ public class Obstaculo : MonoBehaviour {
     public bool activado = false;
     public bool noCambiaDireccion = false;
     bool recuperarse = false;
+    Vector3 firstpos;
     Vector3 initialpos;
     int initialX, initialY, initialZ;
     float initialDistance;
@@ -22,7 +23,7 @@ public class Obstaculo : MonoBehaviour {
 
     private void Start()
     {
-        initialpos = transform.position;
+        initialpos = firstpos = transform.position;
         initialX = x;
         initialY = y;
         initialZ = z;
@@ -77,7 +78,8 @@ public class Obstaculo : MonoBehaviour {
 
     public void ResetObstacle()
     {
-        transform.position = initialpos;
+        transform.position = firstpos;
+        initialpos = firstpos;
         activado = false;
         recuperarse = false;
         contAutoActivado = 0;
@@ -135,8 +137,17 @@ public class Obstaculo : MonoBehaviour {
 
         if (llegadoDestino)
         {
-            transform.position = new Vector3(Mathf.Round(transform.position.x),
-                transform.position.y, Mathf.Round(transform.position.z));
+            if (velocity >= 50)
+                AjustaXZ();
+            else
+            {
+                if (y != 0)
+                    transform.position = new Vector3(Mathf.Round(transform.position.x),
+                    Mathf.Round(transform.position.y), Mathf.Round(transform.position.z));
+                else
+                    transform.position = new Vector3(Mathf.Round(transform.position.x),
+                    transform.position.y, Mathf.Round(transform.position.z));
+            }
 
             if (!noCambiaDireccion)
             {
@@ -183,5 +194,19 @@ public class Obstaculo : MonoBehaviour {
     {
         initialpos = newPos;
         ResetObstacle();
+    }
+    // necesario para velocidades grandes
+    private void AjustaXZ()
+    {
+        Transform tf = GetComponent<Transform>();
+        float auxX = Mathf.Round(tf.position.x);
+        float auxZ = Mathf.Round(tf.position.z);
+
+        if (x != 0)
+            auxX = initialpos.x + x * distance;
+        if (z != 0)
+            auxZ = initialpos.z + z * distance;
+
+        transform.position = new Vector3(auxX, transform.position.y, auxZ);
     }
 }
