@@ -81,6 +81,8 @@ public class GameManager : MonoBehaviour {
             initialTimeExperiment = 0;
             timeInMenus = 0;
         }
+        // reseteo de todos los valores, ya que solo sirven para los menús de haber pasado un nivel
+        infoLevels = new NivelInfo[numLevels];
         SceneManager.LoadScene("MainMenu");
     }
     public void ReturnToSessionMenu() {
