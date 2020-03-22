@@ -6393,6 +6393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 806488211}
+  unaSolaVez: 0
 --- !u!114 &92985470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6406,6 +6407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1843603835}
+  unaSolaVez: 0
 --- !u!33 &92985471
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8579,6 +8581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1173812417}
+  unaSolaVez: 0
 --- !u!114 &119712683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8592,6 +8595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 2087623446}
+  unaSolaVez: 0
 --- !u!33 &119712684
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12824,6 +12828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 889168886}
+  unaSolaVez: 0
 --- !u!114 &193397029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12837,6 +12842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 380922450}
+  unaSolaVez: 0
 --- !u!33 &193397030
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17905,6 +17911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 878538544}
+  unaSolaVez: 0
 --- !u!114 &256183366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17918,6 +17925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1931806271}
+  unaSolaVez: 0
 --- !u!33 &256183367
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -36511,6 +36519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1166736634}
+  unaSolaVez: 0
 --- !u!114 &593811084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36524,6 +36533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1670896692}
+  unaSolaVez: 0
 --- !u!33 &593811085
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49648,6 +49658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 889168886}
+  unaSolaVez: 0
 --- !u!33 &800548703
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -57363,6 +57374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 421274092}
+  unaSolaVez: 0
 --- !u!33 &915631768
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -57739,6 +57751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 2099983177}
+  unaSolaVez: 0
 --- !u!33 &924658810
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59311,6 +59324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 380922450}
+  unaSolaVez: 0
 --- !u!114 &945455258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59324,6 +59338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 2099983177}
+  unaSolaVez: 0
 --- !u!33 &945455259
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -66899,6 +66914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 889168886}
+  unaSolaVez: 0
 --- !u!114 &1070037640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66912,6 +66928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 784451880}
+  unaSolaVez: 0
 --- !u!33 &1070037641
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -67561,6 +67578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1843603835}
+  unaSolaVez: 0
 --- !u!114 &1083768590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67574,6 +67592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1166863690}
+  unaSolaVez: 0
 --- !u!33 &1083768591
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -71917,6 +71936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 888100124}
+  unaSolaVez: 0
 --- !u!114 &1168536326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71930,6 +71950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1166736634}
+  unaSolaVez: 0
 --- !u!33 &1168536327
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82632,6 +82653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 784451880}
+  unaSolaVez: 0
 --- !u!114 &1355317507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82645,6 +82667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1529836147}
+  unaSolaVez: 0
 --- !u!33 &1355317508
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -103266,11 +103289,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 43
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -107823,6 +107846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 421274092}
+  unaSolaVez: 0
 --- !u!114 &1792323931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107836,6 +107860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 522700290}
+  unaSolaVez: 0
 --- !u!33 &1792323932
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -112789,6 +112814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 2087623446}
+  unaSolaVez: 0
 --- !u!33 &1875150111
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114867,6 +114893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1529836147}
+  unaSolaVez: 0
 --- !u!114 &1915367689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114880,6 +114907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 806488211}
+  unaSolaVez: 0
 --- !u!33 &1915367690
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122483,10 +122511,10 @@ RectTransform:
   m_Father: {fileID: 17646262}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.30527434, y: 0.06388889}
-  m_AnchorMax: {x: 0.69500005, y: 0.14166665}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 2, y: 2}
+  m_AnchorMin: {x: 0.26848754, y: 0.06388889}
+  m_AnchorMax: {x: 0.73700005, y: 0.17263381}
+  m_AnchoredPosition: {x: -0.5000019, y: 0.2750001}
+  m_SizeDelta: {x: -0.5500002, y: 0.5500002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038303696
 MonoBehaviour:
@@ -124891,6 +124919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 1173812417}
+  unaSolaVez: 0
 --- !u!33 &2074554675
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127285,6 +127314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 522700290}
+  unaSolaVez: 0
 --- !u!114 &2114303283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127298,6 +127328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaculo: {fileID: 888100124}
+  unaSolaVez: 0
 --- !u!33 &2114303284
 MeshFilter:
   m_ObjectHideFlags: 0

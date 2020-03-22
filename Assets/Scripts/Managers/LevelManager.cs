@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour {
     public GameObject[] objectsToReset;
 
     float initialTime;
+    float levelTime;
 
     GameManager gameManager;
 
@@ -73,7 +74,7 @@ public class LevelManager : MonoBehaviour {
     {
         if (gameManager)
         {
-            gameManager.LevelPassed(textLevelTime.text);
+            gameManager.LevelPassed((uint)levelTime);
         }
     }
 
@@ -83,8 +84,8 @@ public class LevelManager : MonoBehaviour {
         if (stop)
             return;
         string min, seg;
-        float _time = Time.time - initialTime;
-        ConvertTimeToMinSeg(_time, out min, out seg);
+         levelTime = Time.time - initialTime;
+        ConvertTimeToMinSeg(levelTime, out min, out seg);
         textLevelTime.text = min + ":" + seg;
     }
 

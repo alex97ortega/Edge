@@ -17,6 +17,7 @@ public class MenuInfo : MonoBehaviour {
         initialTime = Time.time;
         gameManager = FindObjectOfType<GameManager>();
         terrenos[gameManager.GetLevel()-1].SetActive(true);
+        gameManager.CalculatePoints();
 
         ShowValues();
     }
@@ -29,7 +30,7 @@ public class MenuInfo : MonoBehaviour {
         levelText.text = "level\n\n " + lvl + "       passed";
 
         //TIME
-        timeText.text = gameManager.GetLevelTime();
+        timeText.text = ConvertTimeToMinSeg(gameManager.GetLevelTime());
 
         //DEATHS
         deadText.text = gameManager.GetLevelDeaths();
@@ -55,6 +56,32 @@ public class MenuInfo : MonoBehaviour {
             gameManager.AddMenuTime(timeInMenu);
             gameManager.StartLevel();
         }
+    }
+
+    private string ConvertTimeToMinSeg(float _time)
+    {
+        string min, seg;
+        //min
+        if (_time >= 60)
+        {
+            if (_time >= 600)
+                min = ((int)_time / 60).ToString();
+            else
+                min = "0" + ((int)_time / 60).ToString();
+        }
+        else
+            min = "00";
+
+        //seg
+        if (_time % 60 == 0)
+            seg = "00";
+        else if (_time % 60 < 10)
+            seg = "0" + ((int)_time % 60).ToString();
+        else
+            seg = ((int)_time % 60).ToString();
+
+        string result = min + ":" + seg;
+        return result;
     }
     public void ReturnToMainMenu()
     {

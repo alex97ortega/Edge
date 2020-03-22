@@ -13,13 +13,14 @@ public class GameManager : MonoBehaviour {
 
     float initialTimeExperiment; // we register the time when the player starts the experiment
     float timeInMenus; // we dont count experiment time while the player is in a menu
+    uint points; // only for tutorial
 
     struct NivelInfo
     {
         public uint items;
         public uint totalItems;
         public uint deaths;
-        public string levelTime;
+        public uint levelTime; // in secs
     }
     SessionManager sessionManager;
     
@@ -30,12 +31,13 @@ public class GameManager : MonoBehaviour {
         currentLevel = 1;
         initialTimeExperiment = 0;
         timeInMenus = 0;
+        points = 0;
         DontDestroyOnLoad(gameObject);
 	}
     
 
     // levels
-    public void LevelPassed(string _time)
+    public void LevelPassed(uint _time)
     {
         sessionManager.LevelEnd((int)currentLevel);
         infoLevels[currentLevel-1].levelTime = _time;        
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour {
             sessionManager.EndExperiment();
             initialTimeExperiment = 0;
             timeInMenus = 0;
+            points = 0;
         }
         // reseteo de todos los valores, ya que solo sirven para los menús de haber pasado un nivel
         infoLevels = new NivelInfo[numLevels];
@@ -116,7 +119,7 @@ public class GameManager : MonoBehaviour {
     }
 
     // for level info
-    public string GetLevelTime() { return infoLevels[currentLevel - 1].levelTime; }
+    public uint GetLevelTime() { return infoLevels[currentLevel - 1].levelTime; }
     public string GetLevelDeaths() { return infoLevels[currentLevel - 1].deaths.ToString(); }
     public string GetLevelItems() {
         string text;
@@ -135,6 +138,25 @@ public class GameManager : MonoBehaviour {
     public int GetExperimentTime() { return experimentTime; }
     public float GetMenuTime() { return timeInMenus; }
     public void AddMenuTime(float timeToAdd) { if(!inTutorial) timeInMenus += timeToAdd; }
+
+    // points
+    public void CalculatePoints()
+    {
+        if (inTutorial)
+            return;
+
+        uint newPoints = 1000;                                    // +1000 points for completate a level
+
+        newPoints += (infoLevels[currentLevel - 1].items * 50);   // +50  points for get an item
+        newPoints -= (infoLevels[currentLevel - 1].deaths * 100); // -100 points for each death
+        newPoints -= infoLevels[currentLevel - 1].levelTime;      // -1   point for each second on level
+
+        if (newPoints < 0)
+            newPoints = 0; // only can add points
+
+        points += newPoints;
+        //Debug.Log(points);
+    }
 
     // exit
     public void Quit()
