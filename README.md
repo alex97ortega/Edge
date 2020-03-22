@@ -28,13 +28,21 @@ Se han implementado 6 niveles:
  ### Experimento
  
  Nivel 4:
-  - Items: 5
-  - Checpoints: 3
+  - Items: 12
+  - Checkpoints: 4
  
  Nivel 5:
   - Items: 9
   - Checkpoints: 4
   
  Nivel 6:
+  - Items: 5
+  - Checkpoints: 3
+ 
+ Nivel 7:
+  - Items: 9
+  - Checkpoints: 4
+  
+ Nivel 8:
   - Items: 13
   - Checkpoints: 7
