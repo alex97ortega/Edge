@@ -9,7 +9,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
     public int primerMovimiento;
     public bool pararAMitad;
     public bool girarObstaculo;
-    public bool esquina;
+    public bool esquina, esquina2;
 
     public enum Estados
     {
@@ -66,12 +66,12 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Down:
                 if (cont >= distanciaDown)
                 {
+                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+
                     //está unos instantes en reposo antes del cambio
                     timeCont += Time.deltaTime;
                     if(timeCont >= timeReposo)
                     {
-                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
-
                         if (girarObstaculo)
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
@@ -90,7 +90,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         }
                         else
                         {
-                            if(esquina)
+                            if(esquina || esquina2)
                                 estado = Estados.Up;
                             else
                                 estado = Estados.Right;
@@ -106,11 +106,11 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Right:
                 if (cont >= distanciaRight)
                 {
+                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
                     {
-                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
-
                         if (girarObstaculo)
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
@@ -122,6 +122,8 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         cont = 0;
                         if (esquina)
                             estado = Estados.Left;
+                        else if (esquina2)
+                            estado = Estados.Down;
                         else
                             estado = Estados.Up;
                     }
@@ -135,11 +137,11 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Up:
                 if (cont >= distanciaUp)
                 {
+                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
                     {
-                        transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
-
                         if (girarObstaculo)
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
@@ -180,9 +182,6 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
                     {
-                        float desajuste = cont - distanciaLeft;
-                        transform.position += new Vector3(0, 0, desajuste);
-
                         if (girarObstaculo)
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
@@ -192,7 +191,10 @@ public class TrayectoriaRectangulo : MonoBehaviour {
 
                         timeCont = 0;
                         cont = 0;
-                        estado = Estados.Down;
+                        if(esquina2)
+                            estado = Estados.Right;
+                        else
+                            estado = Estados.Down;
                     }
                 }
                 else

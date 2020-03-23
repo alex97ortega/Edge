@@ -27,6 +27,7 @@ public class ActivadorVel : MonoBehaviour {
             player.Stop();
             if (cont >= distance)
             {
+                player.Ajusta();
                 cont = 0;
                 activado = false;
             }
