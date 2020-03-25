@@ -72,9 +72,11 @@ public class SessionManager : MonoBehaviour {
     {
         LogEvent(ServerEvent.EXPERIMENT_START);
     }
-    public void EndExperiment()
+    public void EndExperiment(int points)
     {
-        LogEvent(ServerEvent.EXPERIMENT_END);
+        ServerEventParameter[] parameters =
+            {new ServerEventParameter(ServerEventParameter.SCORE, points.ToString())};
+        LogEvent(ServerEvent.EXPERIMENT_END, parameters);
     }
 
     public void LevelStart(int levelNumber)

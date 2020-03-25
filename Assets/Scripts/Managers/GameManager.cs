@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
     float initialTimeExperiment; // we register the time when the player starts the experiment
     float timeInMenus; // we dont count experiment time while the player is in a menu
-    uint points; // only for tutorial
+    uint points; // only for experiment
 
     struct NivelInfo
     {
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
             sessionManager.EndTutorial();
         else if(initialTimeExperiment != 0)
         {
-            sessionManager.EndExperiment();
+            sessionManager.EndExperiment((int)points);
             initialTimeExperiment = 0;
             timeInMenus = 0;
             points = 0;
@@ -140,12 +140,13 @@ public class GameManager : MonoBehaviour {
     public void AddMenuTime(float timeToAdd) { if(!inTutorial) timeInMenus += timeToAdd; }
 
     // points
-    public void CalculatePoints()
+    public void CalculatePoints(bool levelCompleted)
     {
         if (inTutorial)
             return;
 
-        uint newPoints = 1000;                                    // +1000 points for completate a level
+        uint newPoints = 0;
+        if (levelCompleted) newPoints += 1000;                    // +1000 points for complete a level
 
         newPoints += (infoLevels[currentLevel - 1].items * 50);   // +50  points for get an item
         newPoints -= (infoLevels[currentLevel - 1].deaths * 100); // -100 points for each death

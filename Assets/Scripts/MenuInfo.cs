@@ -17,7 +17,7 @@ public class MenuInfo : MonoBehaviour {
         initialTime = Time.time;
         gameManager = FindObjectOfType<GameManager>();
         terrenos[gameManager.GetLevel()-1].SetActive(true);
-        gameManager.CalculatePoints();
+        gameManager.CalculatePoints(true);
 
         ShowValues();
     }

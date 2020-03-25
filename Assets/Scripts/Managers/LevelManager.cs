@@ -184,6 +184,7 @@ public class LevelManager : MonoBehaviour {
     {
         stop = true;
         menuFinish.SetActive(true);
+        gameManager.CalculatePoints(false); // contamos los pocos puntos del nivel actual no acabado
         // para que no pueda mover el player
         FindObjectOfType<PlayerController>().Stop();
     }
