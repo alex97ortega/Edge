@@ -7927,7 +7927,12 @@ Prefab:
     - target: {fileID: 65157554387772824, guid: b40d8ed69ad781548829a00ff12d9579,
         type: 2}
       propertyPath: m_Center.y
-      value: -0.59
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65157554387772824, guid: b40d8ed69ad781548829a00ff12d9579,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40d8ed69ad781548829a00ff12d9579, type: 2}
