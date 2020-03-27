@@ -4116,6 +4116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 0c0000000c000000fcfffffffcffffff0800000008000000
   posicionesPasosZ: b8ffffffcaffffffcaffffffc2ffffffc2ffffffdeffffff
 --- !u!1 &364134292
@@ -7207,6 +7208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 02000000fefffffffefffffffafffffffafffffff6fffffff6fffffff2fffffff2ffffff
   posicionesPasosZ: ecffffffecffffffecffffffecffffffecffffffecffffffecffffffecffffffecfffffff2fffffff2ffffff
 --- !u!65 &712518463
@@ -7619,6 +7621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 0e0000000e000000fefffffffeffffff08000000080000001e0000001e0000001e0000002c000000
   posicionesPasosZ: b6ffffffc8ffffffc8ffffffbeffffffbeffffffdaffffffdaffffffe2ffffffeeffffffeeffffff
 --- !u!1001 &755648422
@@ -7800,6 +7803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: fafffffffafffffff6fffffff6fffffff2fffffff2ffffffeeffffffeeffffffeaffffff
   posicionesPasosZ: ecffffffecffffffecffffffecffffffecffffffecffffffecffffffecffffffecfffffff2ffffff
 --- !u!65 &765044233
@@ -9083,6 +9087,16 @@ Prefab:
       propertyPath: reduce
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65157554387772824, guid: b40d8ed69ad781548829a00ff12d9579,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 65157554387772824, guid: b40d8ed69ad781548829a00ff12d9579,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40d8ed69ad781548829a00ff12d9579, type: 2}
   m_IsPrefabAsset: 0
@@ -9869,6 +9883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 1000000010000000fcfffffffcffffff08000000080000001400000014000000
   posicionesPasosZ: b6ffffffc4ffffffc4ffffffbcffffffbcffffffd8ffffffd8ffffffe2ffffff
 --- !u!1 &956091381
@@ -10326,6 +10341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 0a0000000a0000000a0000000a0000000a0000000a0000002000000020000000
   posicionesPasosZ: dcffffffdcffffffdcffffffdcffffffdcffffffdcffffffdcffffffe4ffffff
 --- !u!1 &965227755
@@ -11074,6 +11090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 1200000012000000fefffffffeffffff0a000000
   posicionesPasosZ: b8ffffffc6ffffffc6ffffffbcffffffbcffffff
 --- !u!1 &1082330150
@@ -11568,6 +11585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 0c0000000c000000fcfffffffcffffff08000000080000001e0000001e0000001e0000002c000000
   posicionesPasosZ: b6ffffffc8ffffffc8ffffffc0ffffffc0ffffffdcffffffdcffffffe4fffffff0fffffff0ffffff
 --- !u!1 &1118272902 stripped
@@ -12368,6 +12386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: fefffffffcfffffffafffffff8fffffff6fffffff4fffffff2fffffff0ffffffeeffffff
   posicionesPasosZ: 
 --- !u!65 &1194271388
@@ -17143,6 +17162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: fcfffffff8fffffff8fffffff4fffffff4fffffff0fffffff0ffffffecffffffecffffff
   posicionesPasosZ: 
 --- !u!65 &1739006542
@@ -18154,6 +18174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 0e0000000e000000fefffffffeffffff0a000000
   posicionesPasosZ: b8ffffffcaffffffcaffffffc0ffffffc0ffffff
 --- !u!1 &1828996982
@@ -18513,6 +18534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 1000000010000000fcfffffffcffffff0600000006000000120000001200000012000000
   posicionesPasosZ: b8ffffffc6ffffffc6ffffffbeffffffbeffffffd8ffffffd8ffffffe2fffffff0ffffff
 --- !u!1001 &1843437937
@@ -21146,6 +21168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc9b13eb87ded4e9f323567efedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 15
   posicionesPasosX: 0000000000000000fcfffffffcfffffff8fffffff8fffffff4fffffff4fffffff0ffffff
   posicionesPasosZ: 
 --- !u!65 &2111850972

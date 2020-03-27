@@ -174,6 +174,10 @@ public class LevelManager : MonoBehaviour {
                 o.GetComponent<ActivablePorPasos>().ResetObject();
             else if (o.GetComponent<DobleActivador>())
                 o.GetComponent<DobleActivador>().ResetActivador();
+            else if (o.GetComponent<Cinta>())
+                o.GetComponent<Cinta>().ResetCinta();
+            else if (o.GetComponent<CintaActivar>())
+                o.GetComponent<CintaActivar>().ResetActivador();
         }
 
         if (pause)
