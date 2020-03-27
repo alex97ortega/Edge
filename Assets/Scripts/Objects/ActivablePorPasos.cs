@@ -7,6 +7,7 @@ using UnityEngine;
 // tiene que hacer un nuevo paso
 public class ActivablePorPasos : MonoBehaviour {
 
+    public float velocity = 15; // todos los que vayan a la vez debrían ir a la misma velocidad
     public int[] posicionesPasosX;
     public int[] posicionesPasosZ;
 
@@ -15,7 +16,6 @@ public class ActivablePorPasos : MonoBehaviour {
     private Transform tf;
     private float nextPosX;
     private float nextPosZ;
-    private float velocity = 15; // para quitarnos de movidas, todos a la misma velocidad
     private int velocidadActual; // 0 si no se mueve, 1 y -1 para distinguir dirección
 
 

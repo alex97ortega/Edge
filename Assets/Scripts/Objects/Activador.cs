@@ -15,7 +15,12 @@ public class Activador : MonoBehaviour {
         {
             done = true;
             if (other.GetComponent<PlayerController>() != null)
+            {
                 obstaculo.Activar();
+            }
+
+            if(unaSolaVez)
+                transform.position -= new Vector3(0, 0.2f, 0);
         }
     }
 }

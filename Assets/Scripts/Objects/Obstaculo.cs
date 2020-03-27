@@ -185,7 +185,10 @@ public class Obstaculo : MonoBehaviour {
     {
         if (x != 0)
             initialpos.x = transform.position.x;
-        
+
+        if (y != 0)
+            initialpos.y = transform.position.y;
+
         if (z != 0)
             initialpos.z = transform.position.z;
     }
