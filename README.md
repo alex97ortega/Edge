@@ -34,15 +34,19 @@ Se han implementado 6 niveles:
  Nivel 5:
   - Items: 9
   - Checkpoints: 4
-  
+    
  Nivel 6:
+  - Items: 7
+  - Checkpoints: 4
+  
+ Nivel 7:
   - Items: 5
   - Checkpoints: 3
  
- Nivel 7:
+ Nivel 8:
   - Items: 9
   - Checkpoints: 4
   
- Nivel 8:
+ Nivel 9:
   - Items: 13
   - Checkpoints: 7
