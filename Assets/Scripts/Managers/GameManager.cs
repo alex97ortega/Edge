@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour {
     // checkpoint
     public void GotCheckpoint()
     {
-        sessionManager.LogGotCheckpoint();
+        //sessionManager.LogGotCheckpoint();
     }
 
     // for level info
