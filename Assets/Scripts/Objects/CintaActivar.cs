@@ -7,12 +7,7 @@ public class CintaActivar : MonoBehaviour {
     public Cinta cinta;
 
     bool done = false;
-    Vector3 initialpos;
-
-    private void Start()
-    {
-        initialpos = transform.position;
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!done)
