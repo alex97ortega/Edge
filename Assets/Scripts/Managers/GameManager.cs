@@ -64,8 +64,14 @@ public class GameManager : MonoBehaviour {
     }
     public void StartLevel()
     {
+        string escena = "Nivel";
+        if (currentLevel < 10)
+            escena += "0" + currentLevel.ToString();
+        else
+            escena += currentLevel.ToString();
+
         sessionManager.LevelStart((int)currentLevel);
-        string escena = "Nivel" + currentLevel.ToString();
+
         SceneManager.LoadScene(escena);
     }
 
