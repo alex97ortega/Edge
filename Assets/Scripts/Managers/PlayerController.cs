@@ -71,11 +71,11 @@ public class PlayerController : MonoBehaviour {
             case Estado.parado:
                 {
                     RaycastHit hit;
-                    if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 2) || hit.collider.tag == "item")
+                    if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 2) 
+                        || hit.collider.tag == "item" || hit.collider.tag == "checkpoint")
                         estado = Estado.cayendo;
                     else
                     {
-                        // de momento esto no hace falta
                         // para que puede reanudar el movimiento si lo para una plataforma mientras le empuja
                         if (gameObject.transform.parent == null)
                         {
@@ -347,4 +347,5 @@ public class PlayerController : MonoBehaviour {
     }
     public void Activar() { activado = true; }
     public bool EstaActivado() { return activado; }
+    public void ContinueMove() { canMove = true; }
 }
