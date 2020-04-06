@@ -9,7 +9,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
     public int primerMovimiento;
     public bool pararAMitad;
     public bool girarObstaculo;
-    public bool esquina, esquina2;
+    public bool delReves, esquina, esquina2;
 
     public enum Estados
     {
@@ -66,7 +66,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Down:
                 if (cont >= distanciaDown)
                 {
-                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+                    Ajusta();
 
                     //está unos instantes en reposo antes del cambio
                     timeCont += Time.deltaTime;
@@ -76,7 +76,11 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
                                 x.DisAttach(true);
-                            transform.Rotate(new Vector3(0, -90, 0));
+
+                            if (delReves)
+                                transform.Rotate(new Vector3(0, 90, 0));
+                            else
+                                transform.Rotate(new Vector3(0, -90, 0));
                         }
 
                         timeCont = 0;
@@ -92,6 +96,8 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         {
                             if(esquina || esquina2)
                                 estado = Estados.Up;
+                            else if (delReves)
+                                estado = Estados.Left;
                             else
                                 estado = Estados.Right;
                         }
@@ -106,7 +112,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Right:
                 if (cont >= distanciaRight)
                 {
-                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+                    Ajusta();
 
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
@@ -115,14 +121,17 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
                                 x.DisAttach(true);
-                            transform.Rotate(new Vector3(0, -90, 0));
+                            if(delReves)
+                                transform.Rotate(new Vector3(0, 90, 0));
+                            else
+                                transform.Rotate(new Vector3(0, -90, 0));
                         }
 
                         timeCont = 0;
                         cont = 0;
                         if (esquina)
                             estado = Estados.Left;
-                        else if (esquina2)
+                        else if (esquina2 || delReves)
                             estado = Estados.Down;
                         else
                             estado = Estados.Up;
@@ -137,7 +146,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Up:
                 if (cont >= distanciaUp)
                 {
-                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+                    Ajusta();
 
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
@@ -146,7 +155,11 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
                                 x.DisAttach(true);
-                            transform.Rotate(new Vector3(0, -90, 0));
+
+                            if (delReves)
+                                transform.Rotate(new Vector3(0, 90, 0));
+                            else
+                                transform.Rotate(new Vector3(0, -90, 0));
                         }
 
                         timeCont = 0;
@@ -160,7 +173,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         }
                         else
                         {
-                            if (esquina)
+                            if (esquina || delReves)
                                 estado = Estados.Right;
                             else
                                 estado = Estados.Left;
@@ -177,7 +190,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             case Estados.Left:
                 if (cont >= distanciaLeft)
                 {
-                    transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+                    Ajusta();
 
                     timeCont += Time.deltaTime;
                     if (timeCont >= timeReposo)
@@ -186,13 +199,19 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         {
                             foreach (var x in GetComponentsInChildren<Platform>())
                                 x.DisAttach(true);
-                            transform.Rotate(new Vector3(0, -90, 0));
+
+                            if (delReves)
+                                transform.Rotate(new Vector3(0, 90, 0));
+                            else
+                                transform.Rotate(new Vector3(0, -90, 0));
                         }
 
                         timeCont = 0;
                         cont = 0;
                         if(esquina2)
                             estado = Estados.Right;
+                        else if (delReves)
+                            estado = Estados.Up;
                         else
                             estado = Estados.Down;
                     }
@@ -205,4 +224,43 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                 break;
         }
 	}
+    public void Ajusta()
+    {
+        if(tf.localScale.x != 2 || tf.localScale.z != 2)
+        {
+            transform.position = new Vector3(Mathf.Round(tf.position.x), tf.position.y, Mathf.Round(tf.position.z));
+            return;
+        }
+
+        // para cuando sea un 2x2x2, nos aseguramos que acaba exactamente en una casilla par, para más precisión
+
+        float auxX = Mathf.Round(tf.position.x);
+        float auxZ = Mathf.Round(tf.position.z);
+
+        // tiene que ser par tanto X como Z
+        if (auxX % 2 == 0)
+        {
+            tf.position = new Vector3(auxX, tf.position.y, tf.position.z);
+        }
+        // si no, le restamos o sumamos 1 y listo
+        else
+        {
+            if ((auxX - tf.position.x) <= 0)
+                tf.position = new Vector3(auxX + 1, tf.position.y, tf.position.z);
+            else
+                tf.position = new Vector3(auxX - 1, tf.position.y, tf.position.z);
+        }
+
+        if (auxZ % 2 == 0)
+        {
+            tf.position = new Vector3(tf.position.x, tf.position.y, auxZ);
+        }
+        else
+        {
+            if ((auxX - tf.position.x) <= 0)
+                tf.position = new Vector3(tf.position.x, tf.position.y, auxZ + 1);
+            else
+                tf.position = new Vector3(tf.position.x, tf.position.y, auxZ - 1);
+        }
+    }
 }
