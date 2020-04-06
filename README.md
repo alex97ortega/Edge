@@ -4,9 +4,9 @@ TFG 2019/2020
 
 Juego de plataformas 3D adaptado para ordenador en Unity (el original es de Wii U).
 
-Se han implementado 9 niveles: 
+Se han implementado 11 niveles: 
  - Los tres primeros son los niveles del tutorial y corresponden a los niveles 1, 2 y 3 del juego original.
- - Los siguientes son los niveles del experimento y corresponden a los niveles 10, 11, 12, 23, 24 y 25 del original.
+ - Los siguientes son los niveles del experimento y corresponden a los niveles 10, 11, 12, 13, 14, 23, 24 y 25 del original.
  
  ## Información de los niveles
  
@@ -40,13 +40,21 @@ Se han implementado 9 niveles:
   - Checkpoints: 4
   
  Nivel 7:
+  - Items: 6
+  - Checkpoints: 4
+ 
+ Nivel 8:
+  - Items: 7
+  - Checkpoints: 3  
+  
+ Nivel 9:
   - Items: 5
   - Checkpoints: 3
  
- Nivel 8:
+ Nivel 10:
   - Items: 9
   - Checkpoints: 4
   
- Nivel 9:
+ Nivel 11:
   - Items: 13
   - Checkpoints: 7
