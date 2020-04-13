@@ -162,7 +162,8 @@ public class LevelManager : MonoBehaviour {
     {
 
         FindObjectOfType<PlayerController>().transform.position = currentCheckpoint.transform.position;
-
+        if (FindObjectOfType<PlayerMiniController>() && FindObjectOfType<PlayerMiniController>().MiniControllerActivated())
+            FindObjectOfType<PlayerMiniController>().Dead();
         if (gameManager)
             gameManager.Dead();
 

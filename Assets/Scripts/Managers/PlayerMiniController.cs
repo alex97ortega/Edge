@@ -390,4 +390,5 @@ public class PlayerMiniController : MonoBehaviour {
         estado = Estado.parado;
     }
     public bool EstaParado() { return (estado == Estado.parado); }
+    public void Dead() { tieneQueAgrandar = true; estado = Estado.cayendo; }
 }

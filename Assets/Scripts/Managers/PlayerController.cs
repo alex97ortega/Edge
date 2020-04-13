@@ -22,11 +22,13 @@ public class PlayerController : MonoBehaviour {
     bool canMove;
     float x, y,z;
     bool activado = true;
+    Vector3 iniScale;
     
 
     // Use this for initialization
     void Start () {
         tf = GetComponent<Transform>();
+        iniScale = tf.localScale;
         cont = 0;
         estado = Estado.cayendo;
         canMove = false; 
@@ -70,6 +72,10 @@ public class PlayerController : MonoBehaviour {
         {
             case Estado.parado:
                 {
+                    // me aseguro de que no se deforma
+                    if (gameObject.transform.parent == null && tf.localScale != iniScale)
+                        tf.localScale = iniScale;
+
                     RaycastHit hit;
                     if (!Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 2) 
                         || hit.collider.tag == "item" || hit.collider.tag == "checkpoint")

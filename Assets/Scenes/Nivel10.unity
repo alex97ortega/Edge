@@ -607,7 +607,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 74356442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.4}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 0.8, y: 0.5, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 1390218250}
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLateral: 1
-  stopPlayer: 0
+  stopPlayer: 1
   disAttachEnPositivo: 1
 --- !u!65 &74356445
 BoxCollider:
@@ -7226,7 +7226,7 @@ Transform:
   m_GameObject: {fileID: 1390218249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.33333334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 74356443}
   - {fileID: 1574869894}
@@ -7693,7 +7693,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1574869893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.475}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 0.79999995, y: 0.5, z: 0.100005}
   m_Children: []
   m_Father: {fileID: 1390218250}
