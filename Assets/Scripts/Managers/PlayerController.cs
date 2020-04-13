@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     //variables públicas
-    public int velocity;
     public enum Estado
     {
         parado,
@@ -16,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //variables privadas
+    int velocity = 10;
     Transform tf;
     int cont;    
     Estado estado;

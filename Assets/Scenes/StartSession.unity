@@ -764,8 +764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd9f4df03799ef4e83f88af52964483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLevels: 11
+  numLevels: 12
   experimentTime: 720
+  levelButtons: 1
 --- !u!4 &828824590
 Transform:
   m_ObjectHideFlags: 0

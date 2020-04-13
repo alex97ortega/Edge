@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class PlayerMiniController : MonoBehaviour {
 
-    public int velocity;
+    // públicas
     public bool agrandaAlMorir;
     public enum Estado
     {
@@ -22,6 +22,8 @@ public class PlayerMiniController : MonoBehaviour {
         fin
     }
 
+    // privadas
+    int velocity = 15;
     Transform tf;
     Estado estado;
     bool canMove;
