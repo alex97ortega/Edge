@@ -151,6 +151,7 @@ public class PlayerController : MonoBehaviour {
                     new Vector3(x, 0, z), 2)) return false;
 
 
+        // hit para direccion que sea
         bool hitted = Physics.Raycast(tf.position, new Vector3(x, 0, z), out hit, 2);
         if (hitted)
         {

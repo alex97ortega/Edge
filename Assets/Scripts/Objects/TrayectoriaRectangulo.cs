@@ -7,7 +7,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
     public float velocity;
     public float distanciaUp, distanciaDown, distanciaLeft, distanciaRight;
     public int primerMovimiento;
-    public bool pararAMitad;
+    public bool sinParar,pararAMitad, pararAMitad2;
     public bool girarObstaculo;
     public bool delReves, esquina, esquina2;
 
@@ -54,7 +54,13 @@ public class TrayectoriaRectangulo : MonoBehaviour {
             distanciaUp /= 2;
             haParado = false;
         }
-	}
+        if (pararAMitad2)
+        {
+            distanciaRight /= 2;
+            distanciaLeft /= 2;
+            haParado = false;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -70,7 +76,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
 
                     //está unos instantes en reposo antes del cambio
                     timeCont += Time.deltaTime;
-                    if(timeCont >= timeReposo)
+                    if((sinParar && haParado) || timeCont >= timeReposo)
                     {
                         if (girarObstaculo)
                         {
@@ -89,7 +95,13 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         if(pararAMitad)
                         {
                             if(haParado)
-                                estado = Estados.Right;
+                            {
+                                if(delReves)
+                                    estado = Estados.Left;
+                                else
+                                    estado = Estados.Right;
+
+                            }
                             haParado = !haParado;
                         }
                         else
@@ -115,7 +127,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     Ajusta();
 
                     timeCont += Time.deltaTime;
-                    if (timeCont >= timeReposo)
+                    if ((sinParar && haParado) || timeCont >= timeReposo)
                     {
                         if (girarObstaculo)
                         {
@@ -129,12 +141,26 @@ public class TrayectoriaRectangulo : MonoBehaviour {
 
                         timeCont = 0;
                         cont = 0;
-                        if (esquina)
-                            estado = Estados.Left;
-                        else if (esquina2 || delReves)
-                            estado = Estados.Down;
+                        if (pararAMitad2)
+                        {
+                            if (haParado)
+                            {
+                                if (delReves)
+                                    estado = Estados.Down;
+                                else
+                                    estado = Estados.Up;
+                            }
+                            haParado = !haParado;
+                        }
                         else
-                            estado = Estados.Up;
+                        {
+                            if (esquina)
+                                estado = Estados.Left;
+                            else if (esquina2 || delReves)
+                                estado = Estados.Down;
+                            else
+                                estado = Estados.Up;
+                        }
                     }
                 }
                 else
@@ -149,7 +175,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     Ajusta();
 
                     timeCont += Time.deltaTime;
-                    if (timeCont >= timeReposo)
+                    if ((sinParar && haParado) || timeCont >= timeReposo)
                     {
                         if (girarObstaculo)
                         {
@@ -168,7 +194,12 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                         if (pararAMitad)
                         {
                             if (haParado)
-                                estado = Estados.Left;
+                            {
+                                if (delReves)
+                                    estado = Estados.Right;
+                                else
+                                    estado = Estados.Left;
+                            }
                             haParado = !haParado;
                         }
                         else
@@ -193,7 +224,7 @@ public class TrayectoriaRectangulo : MonoBehaviour {
                     Ajusta();
 
                     timeCont += Time.deltaTime;
-                    if (timeCont >= timeReposo)
+                    if ((sinParar && haParado) || timeCont >= timeReposo)
                     {
                         if (girarObstaculo)
                         {
@@ -208,12 +239,27 @@ public class TrayectoriaRectangulo : MonoBehaviour {
 
                         timeCont = 0;
                         cont = 0;
-                        if(esquina2)
-                            estado = Estados.Right;
-                        else if (delReves)
-                            estado = Estados.Up;
+
+                        if (pararAMitad2)
+                        {
+                            if (haParado)
+                            {
+                                if (delReves)
+                                    estado = Estados.Up;
+                                else
+                                    estado = Estados.Down;
+                            }
+                            haParado = !haParado;
+                        }
                         else
-                            estado = Estados.Down;
+                        {
+                            if (esquina2)
+                                estado = Estados.Right;
+                            else if (delReves)
+                                estado = Estados.Up;
+                            else
+                                estado = Estados.Down;
+                        }
                     }
                 }
                 else

@@ -94,7 +94,7 @@ public class TrayectoriaRectangulo2 : MonoBehaviour {
                 {
                     cont += vel;
                     if(enX)
-                        transform.position += new Vector3(-vel, 0, 0);
+                        transform.position += new Vector3(vel, 0, 0);
                     else
                         transform.position += new Vector3(0, 0, -vel);
                 }
@@ -136,7 +136,7 @@ public class TrayectoriaRectangulo2 : MonoBehaviour {
                 {
                     cont += vel;
                     if (enX)
-                        transform.position += new Vector3(vel, 0, 0);
+                        transform.position += new Vector3(-vel, 0, 0);
                     else
                         transform.position += new Vector3(0, 0, vel);
                 }
