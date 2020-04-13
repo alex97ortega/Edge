@@ -2955,6 +2955,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 1
 --- !u!65 &123091108
@@ -3615,6 +3616,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 1
 --- !u!65 &156253153
@@ -4118,6 +4120,7 @@ MonoBehaviour:
   primerMovimiento: 3
   pararAMitad: 0
   girarObstaculo: 1
+  delReves: 0
   esquina: 0
   esquina2: 0
 --- !u!1 &188236918
@@ -13346,6 +13349,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 1
 --- !u!65 &627826958
@@ -13947,6 +13951,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 1
   esquina2: 0
 --- !u!65 &651583689
@@ -17413,6 +17418,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 1
 --- !u!65 &854192746
@@ -26657,6 +26663,7 @@ MonoBehaviour:
   primerMovimiento: 2
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 1
   esquina2: 0
 --- !u!1 &1302273302
@@ -29673,6 +29680,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 1
 --- !u!65 &1505066062
@@ -35135,6 +35143,8 @@ MonoBehaviour:
   textExperimentTime: {fileID: 287223732}
   menuReturn: {fileID: 682248035}
   menuFinish: {fileID: 1875933330}
+  buttonEsc: {fileID: 1545347761}
+  buttonNextLevel: {fileID: 1403232627}
   currentCheckpoint: {fileID: 1564903584}
   objectsToReset:
   - {fileID: 1866418303}
@@ -41898,6 +41908,7 @@ MonoBehaviour:
   primerMovimiento: 0
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 1
 --- !u!65 &2026987800

@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour {
 
     public GameObject menuReturn;
     public GameObject menuFinish;
+
+    public GameObject buttonEsc, buttonNextLevel;
     
     public Checkpoint currentCheckpoint;
     public GameObject[] objectsToReset;
@@ -36,6 +38,12 @@ public class LevelManager : MonoBehaviour {
         {
             gameManager.SetTotalItems(totalItems);
             gameManager.SetInitialTimeExperiment();
+
+            if(!gameManager.levelButtons)
+            {
+                buttonEsc.SetActive(false);
+                buttonNextLevel.SetActive(false);
+            }
         }
 
         initialTime = Time.time;

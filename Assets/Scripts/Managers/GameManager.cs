@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public int numLevels;
     public int experimentTime;// in secs
+    public bool levelButtons = true;
+
     NivelInfo[] infoLevels;
     uint currentLevel;
     bool inTutorial = false;

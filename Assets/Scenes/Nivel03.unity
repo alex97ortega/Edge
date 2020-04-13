@@ -10361,6 +10361,8 @@ MonoBehaviour:
   textExperimentTime: {fileID: 0}
   menuReturn: {fileID: 373669719}
   menuFinish: {fileID: 0}
+  buttonEsc: {fileID: 2116721067}
+  buttonNextLevel: {fileID: 1699263860}
   currentCheckpoint: {fileID: 1443180438}
   objectsToReset: []
 --- !u!4 &1737142423

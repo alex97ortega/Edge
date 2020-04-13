@@ -8080,6 +8080,8 @@ MonoBehaviour:
   textExperimentTime: {fileID: 2135444310}
   menuReturn: {fileID: 567217972}
   menuFinish: {fileID: 51801325}
+  buttonEsc: {fileID: 113625681}
+  buttonNextLevel: {fileID: 1047761687}
   currentCheckpoint: {fileID: 1579295996}
   objectsToReset: []
 --- !u!4 &1737142423

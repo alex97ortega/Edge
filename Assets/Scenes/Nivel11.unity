@@ -23308,6 +23308,8 @@ MonoBehaviour:
   textExperimentTime: {fileID: 123750549}
   menuReturn: {fileID: 720916176}
   menuFinish: {fileID: 1296168480}
+  buttonEsc: {fileID: 1851774228}
+  buttonNextLevel: {fileID: 2089234203}
   currentCheckpoint: {fileID: 1792785728}
   objectsToReset:
   - {fileID: 1429572539}

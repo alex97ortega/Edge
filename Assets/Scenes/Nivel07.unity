@@ -6854,6 +6854,7 @@ MonoBehaviour:
   primerMovimiento: 3
   pararAMitad: 0
   girarObstaculo: 0
+  delReves: 0
   esquina: 0
   esquina2: 0
 --- !u!65 &500173654
@@ -24119,6 +24120,8 @@ MonoBehaviour:
   textExperimentTime: {fileID: 287223732}
   menuReturn: {fileID: 682248035}
   menuFinish: {fileID: 1875933330}
+  buttonEsc: {fileID: 1545347761}
+  buttonNextLevel: {fileID: 1739463924}
   currentCheckpoint: {fileID: 1564903584}
   objectsToReset:
   - {fileID: 810986191}

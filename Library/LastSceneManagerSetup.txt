@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/StartSession.unity
+- path: Assets/Scenes/Nivel08.unity
   isLoaded: 1
   isActive: 1
