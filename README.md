@@ -46,15 +46,19 @@ Se han implementado 11 niveles:
  Nivel 8:
   - Items: 7
   - Checkpoints: 3  
-  
+   
  Nivel 9:
+  - Items: 11
+  - Checkpoints: 4
+  
+ Nivel 10:
   - Items: 5
   - Checkpoints: 3
  
- Nivel 10:
+ Nivel 11:
   - Items: 9
   - Checkpoints: 4
   
- Nivel 11:
+ Nivel 12:
   - Items: 13
   - Checkpoints: 7
