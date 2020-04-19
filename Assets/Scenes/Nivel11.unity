@@ -5053,7 +5053,7 @@ Prefab:
     - target: {fileID: 114401900096401492, guid: 3e3e6a7263e7c774aa0c345041bd7d60,
         type: 2}
       propertyPath: velocity
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e3e6a7263e7c774aa0c345041bd7d60, type: 2}
@@ -13655,7 +13655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaf387791fcc784d8459cb9997caba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 15
   agrandaAlMorir: 1
 --- !u!1 &1365317271
 GameObject:
