@@ -2675,7 +2675,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalRotation.x
@@ -8280,7 +8280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaf387791fcc784d8459cb9997caba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 15
   agrandaAlMorir: 0
 --- !u!1 &573796925
 GameObject:

@@ -6852,7 +6852,9 @@ MonoBehaviour:
   distanciaLeft: 6
   distanciaRight: 6
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
@@ -25727,7 +25729,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.y
@@ -25735,7 +25737,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalRotation.x
@@ -25764,11 +25766,11 @@ Prefab:
       objectReference: {fileID: 1737142422}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalScale.x
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalScale.z
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114376953985033010, guid: d2bf65f5739925743ae56efce2d49326,
         type: 2}

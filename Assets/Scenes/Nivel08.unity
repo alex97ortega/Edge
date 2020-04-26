@@ -793,7 +793,9 @@ MonoBehaviour:
   distanciaLeft: 58
   distanciaRight: 58
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -2322,7 +2324,9 @@ MonoBehaviour:
   distanciaLeft: 70
   distanciaRight: 70
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -4482,7 +4486,9 @@ MonoBehaviour:
   distanciaLeft: 10
   distanciaRight: 10
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -4891,7 +4897,9 @@ MonoBehaviour:
   distanciaLeft: 70
   distanciaRight: 70
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -5661,7 +5669,9 @@ MonoBehaviour:
   distanciaLeft: 54
   distanciaRight: 54
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -5693,7 +5703,9 @@ MonoBehaviour:
   distanciaLeft: 74
   distanciaRight: 74
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -8087,7 +8099,9 @@ MonoBehaviour:
   distanciaLeft: 54
   distanciaRight: 54
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -8856,7 +8870,9 @@ MonoBehaviour:
   distanciaLeft: 74
   distanciaRight: 74
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -9168,7 +9184,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -9705,7 +9723,9 @@ MonoBehaviour:
   distanciaLeft: 14
   distanciaRight: 14
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -10696,7 +10716,9 @@ MonoBehaviour:
   distanciaLeft: 58
   distanciaRight: 58
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -12494,7 +12516,9 @@ MonoBehaviour:
   distanciaLeft: 50
   distanciaRight: 50
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -12721,7 +12745,9 @@ MonoBehaviour:
   distanciaLeft: 50
   distanciaRight: 50
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -13658,7 +13684,9 @@ MonoBehaviour:
   distanciaLeft: 58
   distanciaRight: 58
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -15480,7 +15508,9 @@ MonoBehaviour:
   distanciaLeft: 50
   distanciaRight: 50
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -16267,7 +16297,9 @@ MonoBehaviour:
   distanciaLeft: 66
   distanciaRight: 66
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -16374,7 +16406,9 @@ MonoBehaviour:
   distanciaLeft: 66
   distanciaRight: 66
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -16746,7 +16780,9 @@ MonoBehaviour:
   distanciaLeft: 54
   distanciaRight: 54
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -16827,7 +16863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaf387791fcc784d8459cb9997caba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 15
   agrandaAlMorir: 1
 --- !u!1 &1374395077
 GameObject:
@@ -18169,7 +18204,9 @@ MonoBehaviour:
   distanciaLeft: 14
   distanciaRight: 14
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -18691,7 +18728,9 @@ MonoBehaviour:
   distanciaLeft: 66
   distanciaRight: 66
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -19003,7 +19042,9 @@ MonoBehaviour:
   distanciaLeft: 66
   distanciaRight: 66
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -19419,7 +19460,9 @@ MonoBehaviour:
   distanciaLeft: 10
   distanciaRight: 10
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -19824,7 +19867,9 @@ MonoBehaviour:
   distanciaLeft: 54
   distanciaRight: 54
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -20140,7 +20185,9 @@ MonoBehaviour:
   distanciaLeft: 10
   distanciaRight: 10
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -20172,7 +20219,9 @@ MonoBehaviour:
   distanciaLeft: 74
   distanciaRight: 74
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -20467,7 +20516,9 @@ MonoBehaviour:
   distanciaLeft: 58
   distanciaRight: 58
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -22304,7 +22355,9 @@ MonoBehaviour:
   distanciaLeft: 14
   distanciaRight: 14
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -22425,7 +22478,9 @@ MonoBehaviour:
   distanciaLeft: 74
   distanciaRight: 74
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -22948,7 +23003,9 @@ MonoBehaviour:
   distanciaLeft: 14
   distanciaRight: 14
   primerMovimiento: 1
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -23264,7 +23321,9 @@ MonoBehaviour:
   distanciaLeft: 10
   distanciaRight: 10
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -23972,7 +24031,9 @@ MonoBehaviour:
   distanciaLeft: 70
   distanciaRight: 70
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -24215,7 +24276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.y
@@ -24223,7 +24284,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -34
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalRotation.x
@@ -24252,11 +24313,11 @@ Prefab:
       objectReference: {fileID: 1737142422}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalScale.x
-      value: 150
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalScale.z
-      value: 150
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 114376953985033010, guid: d2bf65f5739925743ae56efce2d49326,
         type: 2}
@@ -24523,7 +24584,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -27434,7 +27497,9 @@ MonoBehaviour:
   distanciaLeft: 50
   distanciaRight: 50
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 1
   esquina: 0
@@ -27959,7 +28024,9 @@ MonoBehaviour:
   distanciaLeft: 70
   distanciaRight: 70
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0

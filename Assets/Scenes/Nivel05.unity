@@ -2953,7 +2953,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
@@ -3614,7 +3616,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
@@ -4118,7 +4122,9 @@ MonoBehaviour:
   distanciaLeft: 4
   distanciaRight: 4
   primerMovimiento: 3
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 1
   delReves: 0
   esquina: 0
@@ -13347,7 +13353,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
@@ -13949,7 +13957,9 @@ MonoBehaviour:
   distanciaLeft: 4
   distanciaRight: 4
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 1
@@ -17416,7 +17426,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
@@ -26661,7 +26673,9 @@ MonoBehaviour:
   distanciaLeft: 2
   distanciaRight: 2
   primerMovimiento: 2
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 1
@@ -27396,7 +27410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaf387791fcc784d8459cb9997caba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 15
   agrandaAlMorir: 1
 --- !u!1 &1368423466
 GameObject:
@@ -29678,7 +29691,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
@@ -37612,7 +37627,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 70
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.y
@@ -37620,7 +37635,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 14
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4608726286867380, guid: d2bf65f5739925743ae56efce2d49326, type: 2}
       propertyPath: m_LocalRotation.x
@@ -41906,7 +41921,9 @@ MonoBehaviour:
   distanciaLeft: 8
   distanciaRight: 8
   primerMovimiento: 0
+  sinParar: 0
   pararAMitad: 0
+  pararAMitad2: 0
   girarObstaculo: 0
   delReves: 0
   esquina: 0
