@@ -10,7 +10,7 @@ public class SessionManager : MonoBehaviour {
 
     #region server_management
     private ServerEventManager eventManager;
-    private const string url = "http://tfg.padaonegames.com/event"; 
+    private const string url = "https://intelligence-assessment-tfg.herokuapp.com"; 
     #endregion
 
     #region session_data
