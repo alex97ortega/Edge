@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour {
     float initialTime;
     float levelTime;
 
+    int movements = 0;
+
     GameManager gameManager;
 
     float lightCont = 0.5f;
@@ -82,7 +84,7 @@ public class LevelManager : MonoBehaviour {
     {
         if (gameManager)
         {
-            gameManager.LevelPassed((uint)levelTime);
+            gameManager.LevelPassed((uint)levelTime, movements);
         }
     }
 
@@ -215,4 +217,5 @@ public class LevelManager : MonoBehaviour {
             menuReturn.SetActive(pause);
         }
     }
+    public void IncreaseMovements() { movements++; }
 }

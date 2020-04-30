@@ -204,6 +204,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (estado == Estado.parado)
         {
+            FindObjectOfType<LevelManager>().IncreaseMovements();
             x = tf.position.x;
             y = tf.position.y;
             z = tf.position.z;

@@ -22,6 +22,7 @@ public class SessionManager : MonoBehaviour {
     #region custom_events
     public const string GOT_ITEM =       "GOT_ITEM";
     public const string GOT_CHECKPOINT = "GOT_CHECKPOINT";
+    public const string NUM_MOVEMENTS  = "NUM_MOVEMENTS";
     #endregion
 
     public bool enableLogs = true;
@@ -86,10 +87,11 @@ public class SessionManager : MonoBehaviour {
         LogEvent(ServerEvent.LEVEL_START, parameters);
     }
 
-    public void LevelEnd(int levelNumber)
+    public void LevelEnd(int levelNumber, int movements)
     {
         ServerEventParameter[] parameters =
-            {new ServerEventParameter(ServerEventParameter.LEVEL_NUMBER, levelNumber.ToString())};
+            {new ServerEventParameter(ServerEventParameter.LEVEL_NUMBER, levelNumber.ToString()),
+             new ServerEventParameter(NUM_MOVEMENTS, movements.ToString())};
         LogEvent(ServerEvent.LEVEL_END, parameters);
     }
 

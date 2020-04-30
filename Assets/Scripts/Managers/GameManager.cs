@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour {
     
 
     // levels
-    public void LevelPassed(uint _time)
+    public void LevelPassed(uint _time, int movements)
     {
-        sessionManager.LevelEnd((int)currentLevel);
+        sessionManager.LevelEnd((int)currentLevel, movements);
         infoLevels[currentLevel-1].levelTime = _time;        
         SceneManager.LoadScene("MenuInfo");
     }
