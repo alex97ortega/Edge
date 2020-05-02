@@ -19,7 +19,7 @@ public class ChangeColor : MonoBehaviour {
     }
     private void CambiaColor()
     {
-        contColor += 0.1f;
+        contColor += (3*Time.deltaTime);
         if (r)
         {
             if (contColor > 1 || contColor < 0)
