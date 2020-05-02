@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuInfo : MonoBehaviour {
 
     public Text levelText, timeText, deadText, itemsText;
-    public GameObject menuFinish;
+    public GameObject menuFinish, menuStartExperiment;
     public GameObject[] terrenos;
     GameManager gameManager;
 
@@ -32,7 +32,7 @@ public class MenuInfo : MonoBehaviour {
         else
             lvl = "0" + (gameManager.GetLevel()).ToString();
 
-        levelText.text = "level\n\n " + lvl + "       passed";
+        levelText.text = "Nivel\n\n " + lvl + "       completado";
 
         //TIME
         timeText.text = ConvertTimeToMinSeg(gameManager.GetLevelTime());
@@ -49,9 +49,9 @@ public class MenuInfo : MonoBehaviour {
 
         // acaba el tutorial
         if (gameManager.GetLevel() == 4)
-            gameManager.ReturnToMainMenu();
+            menuStartExperiment.SetActive(true);
         // acaba el experimento
-        else if (gameManager.GetLevel() == gameManager.numLevels+1) 
+        else if (gameManager.GetLevel() == gameManager.numLevels + 1)
         {
             menuFinish.SetActive(true);
         }
@@ -61,6 +61,10 @@ public class MenuInfo : MonoBehaviour {
             gameManager.AddMenuTime(timeInMenu);
             gameManager.StartLevel();
         }
+    }
+    public void StartExperiment()
+    {
+        gameManager.StartExperiment();
     }
 
     private string ConvertTimeToMinSeg(float _time)
@@ -88,8 +92,9 @@ public class MenuInfo : MonoBehaviour {
         string result = min + ":" + seg;
         return result;
     }
-    public void ReturnToMainMenu()
+
+    public void ExitGame()
     {
-        gameManager.ReturnToMainMenu();
+        gameManager.Quit();
     }
 }

@@ -206,8 +206,7 @@ public class LevelManager : MonoBehaviour {
 
     public void ReturnToMainMenu()
     {
-        if (gameManager)
-            gameManager.ReturnToMainMenu();
+        gameManager.Quit();
     }
     public void ShowMenuReturn()
     {
@@ -218,4 +217,5 @@ public class LevelManager : MonoBehaviour {
         }
     }
     public void IncreaseMovements() { movements++; }
+    
 }

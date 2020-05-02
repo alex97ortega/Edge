@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuButtons : MonoBehaviour {
-    
+
+    public GameObject botonQuit;
+
+    private void Start()
+    {
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (!gm.levelButtons)
+            botonQuit.SetActive(false);
+    }
 
     // funciones auxiliares para que llamen los botones, dado que
     // no se puede referenciar el GameManager
@@ -13,19 +21,9 @@ public class MenuButtons : MonoBehaviour {
         GameManager gm = FindObjectOfType<GameManager>();
         gm.StartTutorial();
     }
-    public void StartExperiment()
-    {
-        GameManager gm = FindObjectOfType<GameManager>();
-        gm.StartExperiment();
-    }
     public void Quit()
     {
         GameManager gm = FindObjectOfType<GameManager>();
         gm.Quit();
-    }
-    public void ChangeUser()
-    {
-        GameManager gm = FindObjectOfType<GameManager>();
-        gm.ReturnToSessionMenu();
     }
 }

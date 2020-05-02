@@ -43,6 +43,7 @@ public class SessionManager : MonoBehaviour {
             instance = this;
             // initialize event manager using server's events endpoint.
             eventManager = new ServerEventManager(url);
+            SetUserId("temp");
             // Make sure session manager persists between scenes.
             DontDestroyOnLoad(gameObject);
         }

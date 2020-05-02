@@ -77,11 +77,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(escena);
     }
 
-    public void StartSession(string id) {
-        sessionManager.SetUserId(id);
-        ReturnToMainMenu();
-    }
-    public void ReturnToMainMenu()
+    /*public void ReturnToMainMenu()
     {
         if (inTutorial)
             sessionManager.EndTutorial();
@@ -95,7 +91,8 @@ public class GameManager : MonoBehaviour {
         // reseteo de todos los valores, ya que solo sirven para los menús de haber pasado un nivel
         infoLevels = new NivelInfo[numLevels];
         SceneManager.LoadScene("MainMenu");
-    }
+    }*/
+
     public void ReturnToSessionMenu() {
 
         SceneManager.LoadScene("StartSession");
@@ -170,6 +167,7 @@ public class GameManager : MonoBehaviour {
     // exit
     public void Quit()
     {
-        Application.Quit();
+        if(levelButtons)
+            Application.Quit();
     }
 }
