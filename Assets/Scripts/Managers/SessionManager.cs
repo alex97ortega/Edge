@@ -1,22 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using ServerEvents;
+﻿using UnityEngine;
 using System;
+using System.Runtime.InteropServices;
 
 // clase que registra los parámetros del juego que necesitaremos para hacer el análisis
 // se va llamando desde el GameManager cuando ocurre un evento notable en el juego 
 public class SessionManager : MonoBehaviour {
 
     #region server_management
-    private ServerEventManager eventManager;
-    private const string url = "https://intelligence-assessment-tfg.herokuapp.com"; 
+    //private const string url = "https://intelligence-assessment-tfg.herokuapp.com"; 
     #endregion
 
     #region session_data
     private string userId;
     private const string gameName = "Edge";
     private DateTime startTime;
+    private int orderInSequence = 0;
     #endregion
 
     #region custom_events
@@ -36,14 +34,17 @@ public class SessionManager : MonoBehaviour {
         }
     }
 
+    [DllImport("__Internal")]
+    private static extern void LogGameEvent(string eventJSON);
+
+    [DllImport("__Internal")]
+    private static extern void GameOver();
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            // initialize event manager using server's events endpoint.
-            eventManager = new ServerEventManager(url);
-            SetUserId("temp");
             // Make sure session manager persists between scenes.
             DontDestroyOnLoad(gameObject);
         }
@@ -55,45 +56,44 @@ public class SessionManager : MonoBehaviour {
         }
     }
 
-    // llamadas públicas para llamar desde el GameManager
-    public void SetUserId(string id)
-    {
-        userId = id;
-    }
 
     // starts/ends
     public void StartTutorial()
     {
-        LogEvent(ServerEvent.TUTORIAL_START);
+        LogEvent(WebEvent.TUTORIAL_START);
     }
     public void EndTutorial()
     {
-        LogEvent(ServerEvent.TUTORIAL_END);
+        LogEvent(WebEvent.TUTORIAL_END);
     }
     public void StartExperiment()
     {
-        LogEvent(ServerEvent.EXPERIMENT_START);
+        LogEvent(WebEvent.EXPERIMENT_START);
     }
     public void EndExperiment(int points)
     {
-        ServerEventParameter[] parameters =
-            {new ServerEventParameter(ServerEventParameter.SCORE, points.ToString())};
-        LogEvent(ServerEvent.EXPERIMENT_END, parameters);
+        WebEventParameter[] parameters =
+            {new WebEventParameter(WebEventParameter.SCORE, points.ToString())};
+        LogEvent(WebEvent.EXPERIMENT_END, parameters);
+
+        // notify browser about game end
+        if (enableLogs)
+            GameOver();
     }
 
     public void LevelStart(int levelNumber)
     {
-        ServerEventParameter[] parameters =
-            {new ServerEventParameter(ServerEventParameter.LEVEL_NUMBER, levelNumber.ToString())};
-        LogEvent(ServerEvent.LEVEL_START, parameters);
+        WebEventParameter[] parameters =
+            {new WebEventParameter(WebEventParameter.LEVEL_NUMBER, levelNumber.ToString())};
+        LogEvent(WebEvent.LEVEL_START, parameters);
     }
 
     public void LevelEnd(int levelNumber, int movements)
     {
-        ServerEventParameter[] parameters =
-            {new ServerEventParameter(ServerEventParameter.LEVEL_NUMBER, levelNumber.ToString()),
-             new ServerEventParameter(NUM_MOVEMENTS, movements.ToString())};
-        LogEvent(ServerEvent.LEVEL_END, parameters);
+        WebEventParameter[] parameters =
+            {new WebEventParameter(WebEventParameter.LEVEL_NUMBER, levelNumber.ToString()),
+             new WebEventParameter(NUM_MOVEMENTS, movements.ToString())};
+        LogEvent(WebEvent.LEVEL_END, parameters);
     }
 
     // otras llamadas del gameplay
@@ -103,7 +103,7 @@ public class SessionManager : MonoBehaviour {
     }
     public void LogPlayerDead()
     {
-        LogEvent(ServerEvent.PLAYER_DEATH);
+        LogEvent(WebEvent.PLAYER_DEATH);
     }
     public void LogGotCheckpoint()
     {
@@ -111,12 +111,20 @@ public class SessionManager : MonoBehaviour {
     }
 
     // fill event data with general information to be shared between all events logged from current session.
-    private void LogEvent(string eventName, ServerEventParameter[] parameters = null)
+    private void LogEvent(string eventName, WebEventParameter[] parameters = null)
     {
         if(enableLogs)
         {
-            ServerEvent gameEvent = new ServerEvent(userId, CurrentTimestamp(), gameName, eventName, parameters);
-            eventManager.LogEvent(gameEvent);
+            WebEvent webEvent = new WebEvent
+            {
+                name = eventName,
+                parameters = parameters,
+                timestamp = CurrentTimestamp(),
+                gameName = gameName,
+                orderInSequence = orderInSequence
+            };
+            orderInSequence++;
+            LogGameEvent(JsonUtility.ToJson(webEvent));
         }
     }
 
@@ -124,4 +132,5 @@ public class SessionManager : MonoBehaviour {
     {
         return (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
     }
+    
 }

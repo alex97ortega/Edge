@@ -206,7 +206,7 @@ public class LevelManager : MonoBehaviour {
 
     public void ReturnToMainMenu()
     {
-        gameManager.Quit();
+        gameManager.End();
     }
     public void ShowMenuReturn()
     {

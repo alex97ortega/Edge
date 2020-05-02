@@ -93,8 +93,8 @@ public class MenuInfo : MonoBehaviour {
         return result;
     }
 
-    public void ExitGame()
+    public void EndExperiment()
     {
-        gameManager.Quit();
+        gameManager.End();
     }
 }

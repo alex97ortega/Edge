@@ -24,6 +24,6 @@ public class MenuButtons : MonoBehaviour {
     public void Quit()
     {
         GameManager gm = FindObjectOfType<GameManager>();
-        gm.Quit();
+        gm.End();
     }
 }

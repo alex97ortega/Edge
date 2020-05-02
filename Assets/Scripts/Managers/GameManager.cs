@@ -77,34 +77,6 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(escena);
     }
 
-    /*public void ReturnToMainMenu()
-    {
-        if (inTutorial)
-            sessionManager.EndTutorial();
-        else if(initialTimeExperiment != 0)
-        {
-            sessionManager.EndExperiment((int)points);
-            initialTimeExperiment = 0;
-            timeInMenus = 0;
-            points = 0;
-        }
-        // reseteo de todos los valores, ya que solo sirven para los menús de haber pasado un nivel
-        infoLevels = new NivelInfo[numLevels];
-        SceneManager.LoadScene("MainMenu");
-    }*/
-
-    public void ReturnToSessionMenu() {
-
-        SceneManager.LoadScene("StartSession");
-
-        // Destruimos este GameManager. Con esto nos quitamos 2 problemas:
-        // 1- Tener que resetear todos los valores.
-        // 2- Tener conflicto por crearse otro GameManager en la escena StartSession, 
-        //    que es a la que vamos.
-        Destroy(gameObject);
-    }
-    
-
     // items
     public void ItemGotten() {
         sessionManager.LogGotItem();
@@ -163,9 +135,20 @@ public class GameManager : MonoBehaviour {
         points += newPoints;
         //Debug.Log(points);
     }
+    
+    public void End()
+    {
+        if (inTutorial)
+            sessionManager.EndTutorial();
+        else if (initialTimeExperiment != 0)
+        {
+            sessionManager.EndExperiment((int)points);
+        }
+        Quit();
+    }
 
     // exit
-    public void Quit()
+    private void Quit()
     {
         if(levelButtons)
             Application.Quit();
