@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //variables privadas
-    int velocity = 10;
+    int velocity = 500;
     Transform tf;
     int cont;    
     Estado estado;
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
                 break;
             case Estado.cayendo:
                 {
-                    tf.position = new Vector3(tf.position.x, tf.position.y - 0.5f, tf.position.z);
+                    tf.position = new Vector3(tf.position.x, tf.position.y - 25*Time.deltaTime, tf.position.z);
                     RaycastHit hit;
                     if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                     {
@@ -214,59 +214,61 @@ public class PlayerController : MonoBehaviour {
     // movimiento normal hacia las 4 direcciones
     private void Rot()
     {
-        cont += velocity;
+        cont += (int)(velocity*Time.deltaTime);
         switch (estado)
         {
             case Estado.movW:
-                tf.RotateAround(new Vector3(0, y - 1, z + 1), new Vector3(1, 0, 0), velocity);
+                tf.RotateAround(new Vector3(0, y - 1, z + 1), new Vector3(1, 0, 0), (int)(velocity * Time.deltaTime));
                 break;
             case Estado.movA:
-                tf.RotateAround(new Vector3(x - 1, y - 1, 0), new Vector3(0, 0, 1), velocity);
+                tf.RotateAround(new Vector3(x - 1, y - 1, 0), new Vector3(0, 0, 1), (int)(velocity * Time.deltaTime));
                 break;
             case Estado.movS:
-                tf.RotateAround(new Vector3(0, y - 1, z - 1), new Vector3(-1, 0, 0), velocity);
+                tf.RotateAround(new Vector3(0, y - 1, z - 1), new Vector3(-1, 0, 0), (int)(velocity * Time.deltaTime));
                 break;
             case Estado.movD:
-                tf.RotateAround(new Vector3(x + 1, y - 1, 0), new Vector3(0, 0, -1), velocity);
+                tf.RotateAround(new Vector3(x + 1, y - 1, 0), new Vector3(0, 0, -1), (int)(velocity * Time.deltaTime));
                 break;
             default:
                 break;
         }
-        if (cont == 90)
+        if (cont >= 90)
         {
             AjustaY();
             Ajusta();
             estado = Estado.parado;
+            tf.rotation = new Quaternion(0, 0, 0, 0);
             cont = 0;
         }
     }
     // movimiento de subida 1 posicion
     private void Sube()
     {
-        cont += velocity;
+        cont += (int)(velocity * Time.deltaTime);
         switch (estado)
         {
             case Estado.subeW:
-                tf.RotateAround(new Vector3(0, y + 1, z + 1), new Vector3(1, 0, 0), velocity);
+                tf.RotateAround(new Vector3(0, y + 1, z + 1), new Vector3(1, 0, 0), (int)(velocity * Time.deltaTime));
                 break;
             case Estado.subeA:
-                tf.RotateAround(new Vector3(x - 1, y + 1, 0), new Vector3(0, 0, 1), velocity);
+                tf.RotateAround(new Vector3(x - 1, y + 1, 0), new Vector3(0, 0, 1), (int)(velocity * Time.deltaTime));
                 break;
             case Estado.subeS:
-                tf.RotateAround(new Vector3(0, y + 1, z - 1), new Vector3(-1, 0, 0), velocity);
+                tf.RotateAround(new Vector3(0, y + 1, z - 1), new Vector3(-1, 0, 0), (int)(velocity * Time.deltaTime));
                 break;
             case Estado.subeD:
-                tf.RotateAround(new Vector3(x + 1, y + 1, 0), new Vector3(0, 0, -1), velocity);
+                tf.RotateAround(new Vector3(x + 1, y + 1, 0), new Vector3(0, 0, -1), (int)(velocity * Time.deltaTime));
                 break;
             default:
                 break;
         }
        
-        if (cont == 180)
+        if (cont >= 180)
         {
             AjustaY();
             Ajusta();
             estado = Estado.parado;
+            tf.rotation = new Quaternion(0, 0, 0, 0);
             cont = 0;
         }
     }
