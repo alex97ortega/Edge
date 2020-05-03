@@ -593,7 +593,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " En este juego tu objetivo es completar niveles en el menos tiempo posible
+  m_Text: " En este juego tu objetivo es completar niveles en el menor tiempo posible
     cogiendo el mayor n\xFAmero de cubitos. \nJugar\xE1s primero 3 niveles de tutorial
     y luego tendr\xE1s una cuenta atr\xE1s de 12 minutos hasta donde llegues o hasta
     que termines todos los niveles. Buena suerte!!"
