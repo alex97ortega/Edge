@@ -280,7 +280,15 @@ public class PlayerController : MonoBehaviour {
             return;
 
         if (transform.parent != null)
+        {
+            // ajuste para obstaculos de 2x2
+            if (transform.parent.GetComponentInChildren<Platform>() &&
+                !transform.parent.GetComponentInChildren<Platform>().isLateral &&
+                transform.parent.transform.localScale.x == 1 && 
+                transform.parent.transform.localScale.z == 1)
+                tf.localPosition = new Vector3(0, tf.localPosition.y, 0);
             return;
+        }
 
         float auxX = Mathf.Round(tf.position.x);
         float auxZ = Mathf.Round(tf.position.z);
