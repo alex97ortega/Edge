@@ -363,7 +363,7 @@ public class PlayerController : MonoBehaviour {
             GetComponent<PlayerMiniController>().Desactivar();
         }
     }
-    public void Activar() { activado = true; }
+    public void Activar() { activado = true; estado = Estado.parado; AjustaY(); }
     public bool EstaActivado() { return activado; }
     public void ContinueMove() { canMove = true; }
 }
