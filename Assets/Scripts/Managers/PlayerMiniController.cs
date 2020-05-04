@@ -124,7 +124,7 @@ public class PlayerMiniController : MonoBehaviour {
                 Escala();
                 break;
             case Estado.cayendo:
-                tf.position = new Vector3(tf.position.x, tf.position.y - 0.33f, tf.position.z);
+                tf.position = new Vector3(tf.position.x, tf.position.y - 0.5f, tf.position.z);
                 RaycastHit hit;
                 if (Physics.Raycast(tf.position, new Vector3(0, -1, 0), out hit, 1))
                 {
