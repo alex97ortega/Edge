@@ -6,6 +6,7 @@ using UnityEngine;
 public class PasosActivador : MonoBehaviour {
 
     public ActivablePorPasos[] activateObjects;
+    private bool acabaDeActivarse = false;
 
     private void OnTriggerStay(Collider other)
     {
@@ -14,9 +15,17 @@ public class PasosActivador : MonoBehaviour {
     }
     public void Activar()
     {
-       // primero pregunto si todos los objetos están en reposo
-       // si hay alguno que aún se esté moviendo del paso anterior, no activo
-       bool puedeActivarse = true;
+        // damos un frame de respiro para que no active varios
+        // pasos a la vez por el triggerStay
+        if(acabaDeActivarse)
+        {
+            acabaDeActivarse = false;
+            return;
+        }
+
+        // luego pregunto si todos los objetos están en reposo
+        // si hay alguno que aún se esté moviendo del paso anterior, no activo
+        bool puedeActivarse = true;
 
        foreach (var o in activateObjects)
        {
@@ -28,6 +37,7 @@ public class PasosActivador : MonoBehaviour {
            // Incrementa un paso a cada uno de los objetos
            foreach (var o in activateObjects)
                o.Step();
+            acabaDeActivarse = true;
        }        
     }
 }

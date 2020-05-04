@@ -22370,7 +22370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4992185212159898, guid: 73f68262e1b1b664b966af8190a8803e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.9
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 23822238481116178, guid: 73f68262e1b1b664b966af8190a8803e,
         type: 3}
@@ -22385,7 +22385,7 @@ PrefabInstance:
     - target: {fileID: 114169878019812418, guid: 73f68262e1b1b664b966af8190a8803e,
         type: 3}
       propertyPath: velocity
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114169878019812418, guid: 73f68262e1b1b664b966af8190a8803e,
         type: 3}
