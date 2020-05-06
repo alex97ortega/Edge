@@ -281,12 +281,18 @@ public class PlayerController : MonoBehaviour {
 
         if (transform.parent != null)
         {
-            // ajuste para obstaculos de 2x2
+            // ajuste para obstaculos de 1x1
             if (transform.parent.GetComponentInChildren<Platform>() &&
                 !transform.parent.GetComponentInChildren<Platform>().isLateral &&
                 transform.parent.transform.localScale.x == 1 && 
                 transform.parent.transform.localScale.z == 1)
-                tf.localPosition = new Vector3(0, tf.localPosition.y, 0);
+            {
+                if (transform.parent.transform.parent.transform.localScale.y == 2)
+                    tf.localPosition = new Vector3(0, 1, 0);
+                else
+                    tf.localPosition = new Vector3(0, tf.localPosition.y, 0);
+
+            }
             return;
         }
 
