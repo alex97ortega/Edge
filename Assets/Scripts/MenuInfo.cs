@@ -32,7 +32,7 @@ public class MenuInfo : MonoBehaviour {
         else
             lvl = "0" + (gameManager.GetLevel()).ToString();
 
-        levelText.text = "Nivel\n\n " + lvl + "       completado";
+        levelText.text = "Nivel\n\n " + lvl + "    completado";
 
         //TIME
         timeText.text = ConvertTimeToMinSeg(gameManager.GetLevelTime());
