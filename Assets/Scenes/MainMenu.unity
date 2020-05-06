@@ -558,10 +558,10 @@ RectTransform:
   m_Father: {fileID: 99235421}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.15089923}
-  m_AnchorMax: {x: 1, y: 0.65260446}
-  m_AnchoredPosition: {x: 0.49978638, y: 0.13600159}
-  m_SizeDelta: {x: -0.2000122, y: -0.98999786}
+  m_AnchorMin: {x: 0, y: 0.1377366}
+  m_AnchorMax: {x: 1, y: 0.70100003}
+  m_AnchoredPosition: {x: 0.10001, y: 0.14999}
+  m_SizeDelta: {x: -0.20000005, y: 0.3199997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &302612735
 MonoBehaviour:
@@ -586,7 +586,7 @@ MonoBehaviour:
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 1
-    m_MinSize: 14
+    m_MinSize: 12
     m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -597,7 +597,8 @@ MonoBehaviour:
   m_Text: " En este juego tu objetivo es completar niveles en el menor tiempo posible
     cogiendo el mayor n\xFAmero de cubitos. \nJugar\xE1s primero 3 niveles de tutorial
     y luego tendr\xE1s una cuenta atr\xE1s de 12 minutos hasta donde llegues o hasta
-    que termines todos los niveles. Buena suerte!!"
+    que termines todos los niveles. \nSi en alg\xFAn momento te quedas atascado sin
+    poder moverte, pulsa ESC.\n\xA1\xA1Buena suerte!!"
 --- !u!222 &302612736
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -837,10 +838,10 @@ RectTransform:
   m_Father: {fileID: 99235421}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.13459045, y: 0.65260446}
+  m_AnchorMin: {x: 0.13158526, y: 0.66138756}
   m_AnchorMax: {x: 0.8255812, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: -0.07009888}
-  m_SizeDelta: {x: 1.3, y: 0.14020014}
+  m_AnchoredPosition: {x: 0, y: 0.7200012}
+  m_SizeDelta: {x: 0.29999995, y: -1.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728327057
 MonoBehaviour:
@@ -1114,10 +1115,10 @@ RectTransform:
   m_Father: {fileID: 99235421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2662643, y: 0.036503818}
-  m_AnchorMax: {x: 0.7256787, y: 0.15089923}
-  m_AnchoredPosition: {x: 0.49996948, y: 0.19818115}
-  m_SizeDelta: {x: -1, y: 0}
+  m_AnchorMin: {x: 0.27227473, y: 0.027775086}
+  m_AnchorMax: {x: 0.7256787, y: 0.1377366}
+  m_AnchoredPosition: {x: -0.5, y: -0.51000977}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432883178
 MonoBehaviour:
