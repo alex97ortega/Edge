@@ -372,4 +372,10 @@ public class PlayerController : MonoBehaviour {
     public void Activar() { activado = true; estado = Estado.parado; AjustaY(); }
     public bool EstaActivado() { return activado; }
     public void ContinueMove() { canMove = true; }
+
+    public bool NormalMoving()
+    {
+        return (estado == Estado.movA || estado == Estado.movD ||
+                estado == Estado.movW || estado == Estado.movS);
+    }
 }
