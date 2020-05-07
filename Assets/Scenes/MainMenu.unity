@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18dd929fc84786498910a68c9ede758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableLogs: 0
+  enableLogs: 1
 --- !u!4 &36024403
 Transform:
   m_ObjectHideFlags: 0
@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Text: " En este juego tu objetivo es completar niveles en el menor tiempo posible
     cogiendo el mayor n\xFAmero de cubitos. \nJugar\xE1s primero 3 niveles de tutorial
     y luego tendr\xE1s una cuenta atr\xE1s de 12 minutos hasta donde llegues o hasta
-    que termines todos los niveles. \nSi en alg\xFAn momento te quedas atascado sin
+    que termines todos los niveles. \nSi en alg\xFAn momento te quedas atascad@ sin
     poder moverte, pulsa ESC.\n\xA1\xA1Buena suerte!!"
 --- !u!222 &302612736
 CanvasRenderer:
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numLevels: 12
   experimentTime: 720
-  levelButtons: 1
+  levelButtons: 0
 --- !u!4 &2031469830
 Transform:
   m_ObjectHideFlags: 0

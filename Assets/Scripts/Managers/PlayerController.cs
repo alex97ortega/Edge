@@ -375,7 +375,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool NormalMoving()
     {
-        return (estado == Estado.movA || estado == Estado.movD ||
-                estado == Estado.movW || estado == Estado.movS);
+        return (activado && (estado == Estado.movA || estado == Estado.movD ||
+                estado == Estado.movW || estado == Estado.movS));
     }
 }

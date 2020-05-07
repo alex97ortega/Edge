@@ -1932,8 +1932,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355770217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 0.5, z: -16.5}
-  m_LocalScale: {x: 8, y: 4, z: 2}
+  m_LocalPosition: {x: -5.5, y: 2.5, z: -16.5}
+  m_LocalScale: {x: 8, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1163568077}
   m_RootOrder: 47
@@ -7321,7 +7321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019609720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.43}
   m_LocalScale: {x: 0.7, y: 0.5, z: 0.1}
   m_Children: []
   m_Father: {fileID: 687057366}
@@ -13274,6 +13274,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1163568077}
     m_Modifications:
+    - target: {fileID: 4489921070871528, guid: 942f692700c0cfe4b982302602d16d80, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4899051913016518, guid: 942f692700c0cfe4b982302602d16d80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5
@@ -13308,7 +13312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4962440574085588, guid: 942f692700c0cfe4b982302602d16d80, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.94
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 114463241021316106, guid: 942f692700c0cfe4b982302602d16d80,
         type: 3}
@@ -13540,8 +13544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101119475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 2, z: 17.5}
-  m_LocalScale: {x: 6, y: 1, z: 2}
+  m_LocalPosition: {x: 3.5, y: 2.6, z: 17.5}
+  m_LocalScale: {x: 6, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1163568077}
   m_RootOrder: 12
@@ -15278,7 +15282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLateral: 1
-  stopPlayer: 1
+  stopPlayer: 0
   disAttachEnPositivo: 1
 --- !u!114 &114643707137205672
 MonoBehaviour:
