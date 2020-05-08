@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLateral: 1
-  stopPlayer: 1
+  stopPlayer: 0
   disAttachEnPositivo: 1
 --- !u!65 &63429025
 BoxCollider:
@@ -25298,7 +25298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLateral: 1
-  stopPlayer: 1
+  stopPlayer: 0
   disAttachEnPositivo: 1
 --- !u!65 &1639627240
 BoxCollider:
