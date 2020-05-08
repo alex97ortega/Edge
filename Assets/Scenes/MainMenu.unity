@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18dd929fc84786498910a68c9ede758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableLogs: 1
+  enableLogs: 0
 --- !u!4 &36024403
 Transform:
   m_ObjectHideFlags: 0
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numLevels: 12
   experimentTime: 720
-  levelButtons: 0
+  levelButtons: 1
 --- !u!4 &2031469830
 Transform:
   m_ObjectHideFlags: 0

@@ -189,6 +189,8 @@ public class LevelManager : MonoBehaviour {
                 o.GetComponent<Cinta>().ResetCinta();
             else if (o.GetComponent<CintaActivar>())
                 o.GetComponent<CintaActivar>().ResetActivador();
+            else if (o.GetComponent<Activador>())
+                o.GetComponent<Activador>().ResetActivador();
         }
 
         if (pause)

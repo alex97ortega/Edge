@@ -23,4 +23,13 @@ public class Activador : MonoBehaviour {
                 transform.position -= new Vector3(0, 0.2f, 0);
         }
     }
+
+    public void ResetActivador()
+    {
+        if(unaSolaVez && done)
+        {
+            done = false;
+            transform.position += new Vector3(0, 0.2f, 0);
+        }
+    }
 }
